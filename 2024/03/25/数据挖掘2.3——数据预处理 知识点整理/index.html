@@ -18,13 +18,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yutong-a.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="@TOC 1.数据质量 2.数据预处理方法 数据清理 填写缺失值， 平滑噪声数据， 识别或删除离群， 并解决不一致问题 数据集成 整合多个数据库， 多维数据集或文件 数据缩减 降维 Numerosity reduction 数据压缩 数据转换和数据离散化 正常化 生成概念层次结构  2.1 数据清洗 脏数据 不完整的： 缺少属性值， 缺乏某些属性值， 或只包含总数据 忽略元组、手动填写、自动填写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="是Yu欸">
-<meta property="og:url" content="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:url" content="https://yutong-a.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="是Yu欸">
 <meta property="og:description" content="@TOC 1.数据质量 2.数据预处理方法 数据清理 填写缺失值， 平滑噪声数据， 识别或删除离群， 并解决不一致问题 数据集成 整合多个数据库， 多维数据集或文件 数据缩减 降维 Numerosity reduction 数据压缩 数据转换和数据离散化 正常化 生成概念层次结构  2.1 数据清洗 脏数据 不完整的： 缺少属性值， 缺乏某些属性值， 或只包含总数据 忽略元组、手动填写、自动填写">
 <meta property="og:locale" content="zh_CN">
@@ -44,7 +44,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/9f77d0e2f38f4349b42c99f321c718bb.png">
 
-<link rel="canonical" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+<link rel="canonical" href="https://yutong-a.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://yutong-a.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
