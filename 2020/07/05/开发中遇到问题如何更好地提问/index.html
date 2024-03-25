@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong-a.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="开发过程中遇到问题提问，让他人快速理解你的问题、同时如何在提问中学习成长相关阅读链接: How To Ask Questions The Smart Way">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发中遇到问题如何更好地提问">
+<meta property="og:url" content="https://yutong-a.github.io/2020/07/05/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%8F%90%E9%97%AE/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="开发过程中遇到问题提问，让他人快速理解你的问题、同时如何在提问中学习成长相关阅读链接: How To Ask Questions The Smart Way">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-20T13:43:33.158Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yutong-a.github.io/2020/07/05/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%8F%90%E9%97%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>开发中遇到问题如何更好地提问 | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong-a.github.io/2020/07/05/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E5%9C%B0%E6%8F%90%E9%97%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          开发中遇到问题如何更好地提问
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-05 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-05T00:00:00+08:00">2020-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-20 21:43:33" itemprop="dateModified" datetime="2021-04-20T21:43:33+08:00">2021-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">复盘</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>开发过程中遇到问题提问，让他人快速理解你的问题、同时如何在提问中学习成长<br>相关阅读链接: <a target="_blank" rel="noopener" href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way</a></p>
+ <span id="more"></span>
+<h3 id="①Before-You-Ask"><a href="#①Before-You-Ask" class="headerlink" title="①Before You Ask"></a>①Before You Ask</h3><p>Before asking a technical question by e-mail, or in a newsgroup, or on a website chat board, do the following:<br>1.Try to find an answer by searching the archives of the forum or mailing list you plan to post to.<br>2.Try to find an answer by searching the Web.<br>3.Try to find an answer by reading the manual.<br>4.Try to find an answer by reading a FAQ.<br>5.Try to find an answer by inspection or experimentation.<br>6.Try to find an answer by asking a skilled friend.<br>7.If you’re a programmer, try to find an answer by reading the source code.</p>
+<h3 id="②Stack-Overflow"><a href="#②Stack-Overflow" class="headerlink" title="②Stack Overflow"></a>②Stack Overflow</h3><p>Search, then ask on Stack Exchange<br>Start with a Google search，the Stack Exchange sites are often near the top of the search results.<br>  If you didn’t find anything through Google, search again on the specific site most relevant to your question (see below). Searching with tags can help narrow down the results.<br>If you still didn’t find anything, post your question on the one site where it’s most on-topic.<br>add tags that are related to the substance of your question (particularly the name of the programming language, operating system, or library you’re having trouble with). </p>
+<h3 id="③Be-precise-and-informative-about-your-problem"><a href="#③Be-precise-and-informative-about-your-problem" class="headerlink" title="③Be precise and informative about your problem"></a>③Be precise and informative about your problem</h3><p>1.Describe the symptoms of your problem or bug carefully and clearly.<br>2.Describe the environment in which it occurs (machine, OS, application, whatever). Provide your vendor’s distribution and release level (e.g.: “Fedora Core 7”, “Slackware 9.1”, etc.).<br>3.Describe the research you did to try the problem before you asked the question.<br>4.Describe the diagnostic steps you took to try and pin down the problem yourself.<br>5.Describe any possibly relevant recent changes in your computer or software configuration.<br>If at all possible, provide a way to reproduce the problem in a controlled environment.</p>
+<h3 id="④Describe-the-problem’s-symptoms-not-your-guesses"><a href="#④Describe-the-problem’s-symptoms-not-your-guesses" class="headerlink" title="④Describe the problem’s symptoms, not your guesses"></a>④Describe the problem’s symptoms, not your guesses</h3><p>If you feel it’s important to state your guess, clearly label it as such and describe why that answer isn’t working for you.<br>Example：<br>I’m getting back-to-back SIG11 errors on kernel compiles, and suspect a hairline crack on one of the motherboard traces. What’s the best way to check for those?<br>Smarter:<br>My home-built K6/233 on an FIC-PA2007 motherboard (VIA Apollo VP2 chipset) with 256MB Corsair PC133 SDRAM starts getting frequent SIG11 errors about 20 minutes after power-on during the course of kernel compiles, but never in the first 20 minutes. Rebooting doesn’t restart the clock, but powering down overnight does. Swapping out all RAM didn’t help. The relevant part of a typical compile session log follows.</p>
+<h3 id="⑤Describe-your-problem’s-symptoms-in-chronological-order"><a href="#⑤Describe-your-problem’s-symptoms-in-chronological-order" class="headerlink" title="⑤Describe your problem’s symptoms in chronological order"></a>⑤Describe your problem’s symptoms in chronological order</h3><p>The clues most useful in figuring out something that went wrong often lie in the events immediately prior. So, your account should describe precisely what you did, and what the machine and software did, leading up to the blowup. In the case of command-line processes, having a session log (e.g., using the script utility) and quoting the relevant twenty or so lines is very useful.<br>If the program that blew up on you has diagnostic options (such as -v for verbose), try to select options that will add useful debugging information to the transcript. try to choose a debug level that will inform rather than drowning the reader in junk.<br>If your account ends up being long (more than about four paragraphs), it might be useful to succinctly state the problem up top, then follow with the chronological tale. </p>
+<h3 id="⑥Describe-the-goal-not-the-step"><a href="#⑥Describe-the-goal-not-the-step" class="headerlink" title="⑥Describe the goal, not the step"></a>⑥Describe the goal, not the step</h3><p>If you are trying to find out how to do something (as opposed to reporting a bug), begin by describing the goal. Only then describe the particular step towards it that you are blocked on.<br>Example：<br>How do I get the color-picker on the FooDraw program to take a hexadecimal RGB value?<br>Smarter:<br>I’m trying to replace the color table on an image with values of my choosing. Right now the only way I can see to do this is by editing each table slot, but I can’t get FooDraw’s color picker to take a hexadecimal RGB value.<br>The second version allows an answer that suggests a tool better suited to the task.</p>
+<h3 id="中文翻译（部分更改）"><a href="#中文翻译（部分更改）" class="headerlink" title="中文翻译（部分更改）"></a>中文翻译（部分更改）</h3><p>①在问之前</p>
+<p>在通过电子邮件、新闻组或网站聊天板询问技术问题之前，请执行以下操作:</p>
+<p>1.通过搜索论坛的档案或计划发布到的邮件列表来找到答案。</p>
+<p>2.在网上搜索答案。</p>
+<p>3.通过阅读手册找到答案。</p>
+<p>4.通过阅读常见问题来找到答案。</p>
+<p>5.通过观察或实验找到答案。</p>
+<p>6.向一个有经验的朋友寻求答案。</p>
+<p>7.如果您是一名程序员，请尝试通过阅读源代码来找到答案。</p>
+<p>②Stack Overflow(CSDN)</p>
+<p>搜索，然后询问Stack Overflow（全球IT界最受欢迎的技术问答网站）。或者CSDN（对于初学者来说足够了)。</p>
+<p>百度搜索时，CSDN相关问题的站点通常位于搜索结果的顶部。</p>
+<p>如果没有通过百度找到想要的东西，再次搜索与你的问题最相关的特定网站。使用标签搜索可以帮助缩小搜索结果的范围。</p>
+<p>如果仍然没有找到任何东西，把问题贴在最热门的网站上。</p>
+<p>添加与问题的实质相关的标记(特别是编程语言、操作系统或有问题的库的名称)。</p>
+<p>③精确描述关于你的问题</p>
+<p>1.仔细清楚地描述问题或bug的症状。</p>
+<p>2.描述它发生的环境(机器、操作系统、应用程序等)。提供你的供应商的发行和发布级别(例如:“Fedora Core 7”，“Slackware 9.1”等等)。</p>
+<p>3.描述在你问这个问题之前，你为解决这个问题所做的研究。</p>
+<p>4.描述一下你自己试图确定问题的诊断步骤。</p>
+<p>5.请描述您的计算机或软件配置中最近可能发生的任何相关更改。</p>
+<p>如果可能的话，提供一种在受控环境中重现问题的方法。</p>
+<p>④描述问题的症状,而不是你的猜测</p>
+<p>如果你觉得说出你的猜测很重要，就清楚地把它标出来，并说明为什么这个答案对你不合适。</p>
+<p>例子:</p>
+<p>我在内核编译中遇到了连续的SIG11错误，并怀疑在一个主板跟踪中出现了细微的裂纹。检查这些的最好方法是什么?</p>
+<p>更好的表达:</p>
+<p>我在一个ficc - pa2007主板(通过Apollo VP2芯片组)上自制的K6/233具有256MB的Corsair PC133 SDRAM，在内核编译过程中，在开机大约20分钟后开始频繁地出现SIG11错误，但在最初的20分钟内从未出现过。重启不会重启时钟，但夜间关机会。换出所有内存没有帮助。下面是典型编译会话日志的相关部分。</p>
+<p>⑤按时间顺序描述你的问题的症状</p>
+<p>最有用的线索往往是在事件发生之前。所以，你的账户应该准确地描述你做了什么，以及机器和软件做了什么，从而导致爆炸。对于命令行进程，使用会话日志(例如使用脚本工具)并引用相关的20行左右是非常有用的。</p>
+<p>如果发生故障的程序具有诊断选项(例如-v表示verbose)，请尝试选择将有用的调试信息添加到记录的选项。试着选择一个能够通知读者的调试级别，而不是让读者陷入垃圾中。</p>
+<p>如果你的叙述很长(超过四段)，那么在最上面简明地陈述问题，然后按照时间顺序叙述可能会很有用。</p>
+<p>⑥描述的目标,而不是步骤</p>
+<p>如果您试图找出如何做某事(与报告错误相反)，那么从描述目标开始。只有这样，你才能描述你被阻止的具体步骤。</p>
+<p>例子:</p>
+<p>我如何让颜色选择器在FooDraw程序采取一个十六进制RGB值?</p>
+<p>更好的表达:</p>
+<p>我试图用我选择的值替换图像上的颜色表。现在我能看到的唯一的方法是编辑每个表槽，但是我不能让FooDraw的颜色选择器取一个十六进制的RGB值。</p>
+<p>第二个版本给出的答案是一种更适合这项任务的工具。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%B6%E4%BB%96/" rel="tag"># 其他</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/20/Yu&Spring%20Boot%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" rel="prev" title="Yu&Spring Boot">
+      <i class="fa fa-chevron-left"></i> Yu&Spring Boot
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/26/Django%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%94%99%E8%AF%AF%E6%80%BB%E7%BB%93/" rel="next" title="Django项目搭建">
+      Django项目搭建 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0Before-You-Ask"><span class="nav-number">1.</span> <span class="nav-text">①Before You Ask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1Stack-Overflow"><span class="nav-number">2.</span> <span class="nav-text">②Stack Overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2Be-precise-and-informative-about-your-problem"><span class="nav-number">3.</span> <span class="nav-text">③Be precise and informative about your problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A3Describe-the-problem%E2%80%99s-symptoms-not-your-guesses"><span class="nav-number">4.</span> <span class="nav-text">④Describe the problem’s symptoms, not your guesses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A4Describe-your-problem%E2%80%99s-symptoms-in-chronological-order"><span class="nav-number">5.</span> <span class="nav-text">⑤Describe your problem’s symptoms in chronological order</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A5Describe-the-goal-not-the-step"><span class="nav-number">6.</span> <span class="nav-text">⑥Describe the goal, not the step</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91%EF%BC%88%E9%83%A8%E5%88%86%E6%9B%B4%E6%94%B9%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">中文翻译（部分更改）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共15.6k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

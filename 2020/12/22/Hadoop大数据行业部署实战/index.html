@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong-a.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="大数据行业部署实战">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop大数据行业部署实战">
+<meta property="og:url" content="https://yutong-a.github.io/2020/12/22/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%A1%8C%E4%B8%9A%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="大数据行业部署实战">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153631417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153642929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153702224.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153713922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153725724.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153732844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020122215374294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153749234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153807935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153815357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153826393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153837992.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153851174.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153905695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153921546.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153928817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222153939744.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222154000360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201222154008237.png">
+<meta property="article:published_time" content="2020-12-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-20T13:53:49.162Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="Hadoop">
+<meta property="article:tag" content="MapReduce">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201222153631417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="https://yutong-a.github.io/2020/12/22/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%A1%8C%E4%B8%9A%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%88%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hadoop大数据行业部署实战 | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong-a.github.io/2020/12/22/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%A1%8C%E4%B8%9A%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hadoop大数据行业部署实战
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-22T00:00:00+08:00">2020-12-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-20 21:53:49" itemprop="dateModified" datetime="2021-04-20T21:53:49+08:00">2021-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>大数据行业部署实战</p>
+ <span id="more"></span>
+<h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>1． 学会分析环境数据文件；<br>2． 学会编写解析环境数据文件并进行统计的代码；<br>3． 学会进行递归MapReduce。</p>
+<h1 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h1><pre><code>要求实验结束时，每位学生均已在服务器上运行从北京2016年1月到6月这半年间的历史天气和空气质量数据文件中分析出的环境统计结果，包含月平均气温、空气质量分布情况等。
+</code></pre><h2 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h2><pre><code>近年来，由于雾霾问题的持续发酵，越来越多的人开始关注城市相关的环境数据，包括空气质量数据、天气数据等等。
+如果每小时记录一次城市的天气实况和空气质量实况信息，则每个城市每天都会产生24条环境数据，全国所有2500多个城市如果均如此进行记录，那每天产生的数据量将达到6万多条，每年则会产生2190万条记录，已经可以称得上环境大数据。
+对于这些原始监测数据，我们可以根据时间的维度来进行统计，从而得出与该城市相关的日度及月度平均气温、空气质量优良及污染天数等等，从而为研究空气污染物扩散条件提供有力的数据支持。
+本实验中选取了北京2016年1月到6月这半年间的每小时天气和空气质量数据（未取到数据的字段填充“N/A”），利用MapReduce来统计月度平均气温和半年内空气质量为优、良、轻度污染、中度污染、重度污染和严重污染的天数。
+</code></pre><h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="1、-分析数据文件"><a href="#1、-分析数据文件" class="headerlink" title="1、 分析数据文件"></a>1、 分析数据文件</h2><p>打开terminal，在家目录下，下载并查看环境数据文件beijing.txt<br>wget <a target="_blank" rel="noopener" href="http://i9000.net:8888/sgn/HUP/HadoopDeployPro/beijing.txt">http://i9000.net:8888/sgn/HUP/HadoopDeployPro/beijing.txt</a><br>查看前20行数据<br>head -20 beijing.txt<br><img src="https://img-blog.csdnimg.cn/20201222153631417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图1环境数据文件格式可以看到，我们需要关心的数据有第一列DATE、第二列HOUR、第六列TMP和第七列AQI。</p>
+<h2 id="2、-将数据文件上传至HDFS"><a href="#2、-将数据文件上传至HDFS" class="headerlink" title="2、 将数据文件上传至HDFS"></a>2、 将数据文件上传至HDFS</h2><p>将家目录下数据beijing.txt上传到HDFS的/input目录上。<br>hadoop fs -mkdir /input<br>hadoop fs -put ~/beijing.txt /input</p>
+<h2 id="3-、编写月平均气温统计程序"><a href="#3-、编写月平均气温统计程序" class="headerlink" title="3 、编写月平均气温统计程序"></a>3 、编写月平均气温统计程序</h2><p>打开eclipse——Window——preferences,选择Hadoop的安装目录如下图，点击apply and close<br><img src="https://img-blog.csdnimg.cn/20201222153642929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201222153702224.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在Eclipse上新建MapReduce项目，命名为TmpStat，在src目录下新建文件 TmpStat.java，并键入如下代码。<br><img src="https://img-blog.csdnimg.cn/20201222153713922.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201222153725724.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201222153732844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020122215374294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201222153749234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.TextInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TmpStat</span></span></span><br><span class="line"><span class="class"></span>&#123;                                                                                 </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StatMapper</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable intValue = <span class="keyword">new</span> IntWritable();</span><br><span class="line">    <span class="keyword">private</span> Text dateKey = <span class="keyword">new</span> Text();</span><br><span class="line">       </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context)</span></span></span><br><span class="line"><span class="function">          <span class="keyword">throws</span> IOException, InterruptedException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      String[] items = value.toString().split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">                                                                            </span><br><span class="line">      String date = items[<span class="number">0</span>];</span><br><span class="line">      String tmp = items[<span class="number">5</span>];</span><br><span class="line">                                                                           </span><br><span class="line">      <span class="keyword">if</span>(!<span class="string">&quot;DATE&quot;</span>.equals(date) &amp;&amp; !<span class="string">&quot;N/A&quot;</span>.equals(tmp))</span><br><span class="line">      &#123;<span class="comment">//排除第一行说明以及未取到数据的行</span></span><br><span class="line">        dateKey.set(date.substring(<span class="number">0</span>, <span class="number">6</span>));</span><br><span class="line">        intValue.set(Integer.parseInt(tmp));</span><br><span class="line">        context.write(dateKey, intValue);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StatReducer</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span></span><br><span class="line"><span class="class">                                                                                   </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span></span></span><br><span class="line"><span class="function">          <span class="keyword">throws</span> IOException, InterruptedException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> tmp_sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">                                                                           </span><br><span class="line">      <span class="keyword">for</span>(IntWritable val : values)</span><br><span class="line">      &#123;</span><br><span class="line">        tmp_sum += val.get();</span><br><span class="line">        count++;</span><br><span class="line">      &#125;</span><br><span class="line">                                                                           </span><br><span class="line">      <span class="keyword">int</span> tmp_avg = tmp_sum/count;</span><br><span class="line">      result.set(tmp_avg);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      Configuration conf = <span class="keyword">new</span> Configuration();  </span><br><span class="line">    Job job = Job.getInstance(conf, <span class="string">&quot;MonthlyAvgTmpStat&quot;</span>);           </span><br><span class="line">    job.setInputFormatClass(TextInputFormat.class);</span><br><span class="line">    TextInputFormat.setInputPaths(job, args[<span class="number">0</span>]);  </span><br><span class="line">    job.setJarByClass(TmpStat.class);             </span><br><span class="line">    job.setMapperClass(StatMapper.class);           </span><br><span class="line">    job.setMapOutputKeyClass(Text.class);         </span><br><span class="line">    job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line">    job.setPartitionerClass(HashPartitioner.class);</span><br><span class="line">    job.setReducerClass(StatReducer.class);</span><br><span class="line">    job.setNumReduceTasks(Integer.parseInt(args[<span class="number">2</span>]));</span><br><span class="line">    job.setOutputKeyClass(Text.class);              </span><br><span class="line">    job.setOutputValueClass(IntWritable.class);            </span><br><span class="line">    job.setOutputFormatClass(TextOutputFormat.class);</span><br><span class="line">    TextOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);   </span><br><span class="line">                                                                                   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用Eclipse软件将TmpStat项目导出成Jar文件，指定主类为TmpStat，命名为tmpstat.jar，并保存至家目录下<br><img src="https://img-blog.csdnimg.cn/20201222153807935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20201222153815357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4-、查看月平均气温统计结果"><a href="#4-、查看月平均气温统计结果" class="headerlink" title="4 、查看月平均气温统计结果"></a>4 、查看月平均气温统计结果</h2><p>在client上执行tmpstat.jar，指定输出目录为/monthlyavgtmp，reducer数量为1。如图2所示：<br>cd ~<br>hadoop jar tmpstat.jar TmpStat /input /monthlyavgtmp 1<br><img src="https://img-blog.csdnimg.cn/20201222153826393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图2 运行tmpstat.jar<br>查看统计结果。如图3所示：<br>hadoop fs -ls /monthlyavgtmp<br>hadoop fs -cat /monthlyavgtmp/part-r-00000<br><img src="https://img-blog.csdnimg.cn/20201222153837992.png" alt="在这里插入图片描述"><br>图3 查看月平均气温统计结果</p>
+<h2 id="5、-编写每日空气质量统计程序"><a href="#5、-编写每日空气质量统计程序" class="headerlink" title="5、 编写每日空气质量统计程序"></a>5、 编写每日空气质量统计程序</h2><p>在Eclipse上新建MapReduce项目，命名为AqiStatDaily，在src目录下新建文件 AqiStatDaily.java，并键入如下代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.TextInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AqiStatDaily</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StatMapper</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable intValue = <span class="keyword">new</span> IntWritable();</span><br><span class="line">    <span class="keyword">private</span> Text dateKey = <span class="keyword">new</span> Text();</span><br><span class="line">       </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context)</span></span></span><br><span class="line"><span class="function">          <span class="keyword">throws</span> IOException, InterruptedException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      String[] items = value.toString().split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">                                                                           </span><br><span class="line">      String date = items[<span class="number">0</span>];</span><br><span class="line">      String aqi = items[<span class="number">6</span>];</span><br><span class="line">                                                                           </span><br><span class="line">      <span class="keyword">if</span>(!<span class="string">&quot;DATE&quot;</span>.equals(date) &amp;&amp; !<span class="string">&quot;N/A&quot;</span>.equals(aqi))</span><br><span class="line">      &#123;</span><br><span class="line">        dateKey.set(date);</span><br><span class="line">        intValue.set(Integer.parseInt(aqi));</span><br><span class="line">        context.write(dateKey, intValue);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StatReducer</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException, InterruptedException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> aqi_sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">                                                                           </span><br><span class="line">      <span class="keyword">for</span>(IntWritable val : values)</span><br><span class="line">      &#123;</span><br><span class="line">        aqi_sum += val.get();</span><br><span class="line">        count++;</span><br><span class="line">      &#125;</span><br><span class="line">                                                                           </span><br><span class="line">      <span class="keyword">int</span> aqi_avg = aqi_sum/count;</span><br><span class="line">      result.set(aqi_avg);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    Configuration conf = <span class="keyword">new</span> Configuration();     </span><br><span class="line">    Job job = Job.getInstance(conf, <span class="string">&quot;AqiStatDaily&quot;</span>);           </span><br><span class="line">    job.setInputFormatClass(TextInputFormat.class);</span><br><span class="line">    TextInputFormat.setInputPaths(job, args[<span class="number">0</span>]);  </span><br><span class="line">    job.setJarByClass(AqiStatDaily.class);             </span><br><span class="line">    job.setMapperClass(StatMapper.class);           </span><br><span class="line">    job.setMapOutputKeyClass(Text.class);         </span><br><span class="line">    job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line">    job.setPartitionerClass(HashPartitioner.class);</span><br><span class="line">    job.setReducerClass(StatReducer.class);</span><br><span class="line">    job.setNumReduceTasks(Integer.parseInt(args[<span class="number">2</span>]));</span><br><span class="line">    job.setOutputKeyClass(Text.class);              </span><br><span class="line">    job.setOutputValueClass(IntWritable.class);            </span><br><span class="line">    job.setOutputFormatClass(TextOutputFormat.class);</span><br><span class="line">    TextOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);   </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20201222153851174.png" alt="在这里插入图片描述"><br>使用Eclipse软件将AqiStatDaily项目导出成Jar文件，指定主类为AqiStatDaily，命名为aqistatdaily.jar，并保存在家目录下。</p>
+<h2 id="6、-查看每日空气质量统计结果"><a href="#6、-查看每日空气质量统计结果" class="headerlink" title="6、 查看每日空气质量统计结果"></a>6、 查看每日空气质量统计结果</h2><p>在家目录下执行aqistatdaily.jar，指定输出目录为/aqidaily，reducer数量为3。如图4所示：<br>cd ~<br>hadoop jar aqistatdaily.jar AqiStatDaily /input /aqidaily 3<br><img src="https://img-blog.csdnimg.cn/20201222153905695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图4 运行aqistatdaily.jar<br>查看统计结果文件。如图5所示：<br>hadoop fs -ls /aqidaily<br><img src="https://img-blog.csdnimg.cn/20201222153921546.png" alt="在这里插入图片描述"><br>图5 查看aqistatdaily.jar运行结果文件<br>可以看到，结果文件被分成了3个部分，依次查看这3个文件的内容，即可看到每天的空气质量统计结果数据。如图6所示：<br>hadoop fs -cat /aqidaily/p*<br><img src="https://img-blog.csdnimg.cn/20201222153928817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图6 查看每日空气质量统计结果</p>
+<h2 id="7-、将每日空气质量统计文件进行整合"><a href="#7-、将每日空气质量统计文件进行整合" class="headerlink" title="7 、将每日空气质量统计文件进行整合"></a>7 、将每日空气质量统计文件进行整合</h2><p>将每日空气质量统计结果保存到aqidaily.txt。<br>hadoop fs -cat /aqidaily/part-r-00000 &gt; aqidaily.txt<br>hadoop fs -cat /aqidaily/part-r-00001 &gt;&gt; aqidaily.txt<br>hadoop fs -cat /aqidaily/part-r-00002 &gt;&gt; aqidaily.txt<br><img src="https://img-blog.csdnimg.cn/20201222153939744.png" alt="在这里插入图片描述"><br>cat aqidaily.txt |wc -l</p>
+<p>在HDFS上创建/aqiinput目录，并将aqidaily.txt上传至该目录下<br>hadoop fs -mkdir /aqiinput<br>hadoop fs -put aqidaily.txt /aqiinput</p>
+<h2 id="8、-编写各空气质量天数统计程序"><a href="#8、-编写各空气质量天数统计程序" class="headerlink" title="8、 编写各空气质量天数统计程序"></a>8、 编写各空气质量天数统计程序</h2><p>在Eclipse上新建MapReduce项目，命名为AqiStat，在src目录下新建文件 AqiStat.java，并键入如下代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.TextInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AqiStat</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String GOOD = <span class="string">&quot;优&quot;</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String MODERATE = <span class="string">&quot;良&quot;</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String LIGHTLY_POLLUTED = <span class="string">&quot;轻度污染&quot;</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String MODERATELY_POLLUTED = <span class="string">&quot;中度污染&quot;</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String HEAVILY_POLLUTED = <span class="string">&quot;重度污染&quot;</span>;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SEVERELY_POLLUTED = <span class="string">&quot;严重污染&quot;</span>;</span><br><span class="line">                                                                                   </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StatMapper</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> Text cond = <span class="keyword">new</span> Text();</span><br><span class="line">    <span class="comment">// map方法，根据AQI值，将对应空气质量的天数加1</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException, InterruptedException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      String[] items = value.toString().split(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">      <span class="keyword">int</span> aqi = Integer.parseInt(items[<span class="number">1</span>]);</span><br><span class="line">                                                                       </span><br><span class="line">      <span class="keyword">if</span>(aqi &lt;= <span class="number">50</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 优</span></span><br><span class="line">        cond.set(GOOD);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(aqi &lt;= <span class="number">100</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 良</span></span><br><span class="line">        cond.set(MODERATE);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(aqi &lt;= <span class="number">150</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 轻度污染</span></span><br><span class="line">        cond.set(LIGHTLY_POLLUTED);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(aqi &lt;= <span class="number">200</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 中度污染</span></span><br><span class="line">        cond.set(MODERATELY_POLLUTED);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(aqi &lt;= <span class="number">300</span>)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 重度污染</span></span><br><span class="line">        cond.set(HEAVILY_POLLUTED);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 严重污染</span></span><br><span class="line">        cond.set(SEVERELY_POLLUTED);</span><br><span class="line">      &#125;</span><br><span class="line">                                                                     </span><br><span class="line">      context.write(cond, one);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 定义reduce类，对相同的空气质量状况，把它们&lt;K,VList&gt;中VList值全部相加</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StatReducer</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,Context context)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException, InterruptedException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values)</span><br><span class="line">      &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></span><br><span class="line"><span class="function">          <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    Configuration conf = <span class="keyword">new</span> Configuration();     </span><br><span class="line">    Job job = Job.getInstance(conf, <span class="string">&quot;AqiStat&quot;</span>);           </span><br><span class="line">    job.setInputFormatClass(TextInputFormat.class);</span><br><span class="line">    TextInputFormat.setInputPaths(job, args[<span class="number">0</span>]);  </span><br><span class="line">    job.setJarByClass(AqiStat.class);             </span><br><span class="line">    job.setMapperClass(StatMapper.class);</span><br><span class="line">    job.setCombinerClass(StatReducer.class);</span><br><span class="line">    job.setMapOutputKeyClass(Text.class);         </span><br><span class="line">    job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line">    job.setPartitionerClass(HashPartitioner.class);</span><br><span class="line">    job.setReducerClass(StatReducer.class);</span><br><span class="line">    job.setNumReduceTasks(Integer.parseInt(args[<span class="number">2</span>]));</span><br><span class="line">    job.setOutputKeyClass(Text.class);              </span><br><span class="line">    job.setOutputValueClass(IntWritable.class);            </span><br><span class="line">    job.setOutputFormatClass(TextOutputFormat.class);</span><br><span class="line">    TextOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);   </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用Eclipse软件将AqiStat项目导出成Jar文件，指定主类为AqiStat，命名为aqistat.jar，并保存至家目录下。</p>
+<h2 id="9-、查看各空气质量天数统计结果"><a href="#9-、查看各空气质量天数统计结果" class="headerlink" title="9 、查看各空气质量天数统计结果"></a>9 、查看各空气质量天数统计结果</h2><p>在家目录下执行aqistat.jar，指定输出目录为/aqioutput，reducer数量为1。如图7所示：<br>hadoop jar aqistat.jar AqiStat /aqiinput /aqioutput 1<br><img src="https://img-blog.csdnimg.cn/20201222154000360.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图7 运行aqistat.jar<br>查看统计结果。如图8所示：<br>hadoop fs -ls /aqioutput<br>hadoop fs -cat /aqioutput/part-r-00000<br><img src="https://img-blog.csdnimg.cn/20201222154008237.png" alt="在这里插入图片描述"><br>图8 查看各空气质量状况天数统计结果</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>1.复制到虚拟机时不能有中文<br>2.文件名前面有*时，按Ctrl+S保存，星号就没有了<br>3.删除无数据的文件。Hadoop dfs -rm -r /monthlyavgtmp</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
+              <a href="/tags/MapReduce/" rel="tag"># MapReduce</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" rel="prev" title="数据库入门">
+      <i class="fa fa-chevron-left"></i> 数据库入门
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E4%B8%80%E5%91%A8%E5%B9%B4%E3%81%AE%E7%BA%AA%E5%BF%B5/" rel="next" title="一周年の纪念">
+      一周年の纪念 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">实验要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">实验原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81-%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">1、 分析数据文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81-%E5%B0%86%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%87%B3HDFS"><span class="nav-number">3.2.</span> <span class="nav-text">2、 将数据文件上传至HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E3%80%81%E7%BC%96%E5%86%99%E6%9C%88%E5%B9%B3%E5%9D%87%E6%B0%94%E6%B8%A9%E7%BB%9F%E8%AE%A1%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.3.</span> <span class="nav-text">3 、编写月平均气温统计程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%81%E6%9F%A5%E7%9C%8B%E6%9C%88%E5%B9%B3%E5%9D%87%E6%B0%94%E6%B8%A9%E7%BB%9F%E8%AE%A1%E7%BB%93%E6%9E%9C"><span class="nav-number">3.4.</span> <span class="nav-text">4 、查看月平均气温统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81-%E7%BC%96%E5%86%99%E6%AF%8F%E6%97%A5%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E7%BB%9F%E8%AE%A1%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.5.</span> <span class="nav-text">5、 编写每日空气质量统计程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81-%E6%9F%A5%E7%9C%8B%E6%AF%8F%E6%97%A5%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E7%BB%9F%E8%AE%A1%E7%BB%93%E6%9E%9C"><span class="nav-number">3.6.</span> <span class="nav-text">6、 查看每日空气质量统计结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E3%80%81%E5%B0%86%E6%AF%8F%E6%97%A5%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C%E6%95%B4%E5%90%88"><span class="nav-number">3.7.</span> <span class="nav-text">7 、将每日空气质量统计文件进行整合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81-%E7%BC%96%E5%86%99%E5%90%84%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E5%A4%A9%E6%95%B0%E7%BB%9F%E8%AE%A1%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.8.</span> <span class="nav-text">8、 编写各空气质量天数统计程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E3%80%81%E6%9F%A5%E7%9C%8B%E5%90%84%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E5%A4%A9%E6%95%B0%E7%BB%9F%E8%AE%A1%E7%BB%93%E6%9E%9C"><span class="nav-number">3.9.</span> <span class="nav-text">9 、查看各空气质量天数统计结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共15.6k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
