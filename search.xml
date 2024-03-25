@@ -253,53 +253,6 @@ pip3 对应的是 Python 3.x。
 ]]></content>
   </entry>
   <entry>
-    <title>hexo博客1：环境配置</title>
-    <url>/2022/05/22/hexo%E5%8D%9A%E5%AE%A21%EF%BC%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<hr>
-<p>hexo博客系列1</p>
- <span id="more"></span>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>换电脑啦，因此需要重新配置hexo的环境。写博客记录一下，方便之后进行配置 ~</p>
-<p>欢迎来做客！主页：<a href="https://lightrain.top">https://lightrain.top</a></p>
-<p>hexo作为博客系统的模版，可以不用花费太多时间搭建属于自己的博客系统，主要依赖的技术有node.js、nginx、git。</p>
-<h1 id="一、安装git"><a href="#一、安装git" class="headerlink" title="一、安装git"></a>一、安装git</h1><h2 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1 安装"></a>1.1 安装</h2><p>参考<a href="https://blog.csdn.net/weixin_39615182/article/details/115307901">https://blog.csdn.net/weixin_39615182/article/details/115307901</a></p>
-<p>从Git官网下载：</p>
-<blockquote>
-<p><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
-</blockquote>
-<p>现在的机子基本都是64位的，选择64位的安装包。<br><img src="https://img-blog.csdnimg.cn/6fe93cf072444bfc830212fb467c55ca.png" alt="在这里插入图片描述"><br>下载好后，选择安装目录，我是放在D盘，然后无脑next下一步即可。<br>命令行cmd里输入git测试是否安装成功。<br><img src="https://img-blog.csdnimg.cn/f36a82dc5bbb44b1a5e60777de15eadb.png" alt="在这里插入图片描述"></p>
-<h2 id="1-2-配置"><a href="#1-2-配置" class="headerlink" title="1.2 配置"></a>1.2 配置</h2><p>安装成功后，将Git与GitHub帐号绑定，鼠标右击打开Git Bash here<br><img src="https://img-blog.csdnimg.cn/7495510d2f664de1b85bff208e783743.png" width="40%"><br><img src="https://img-blog.csdnimg.cn/fd47ef9e7817474b90d09a7d6d2bf31a.png" width="80%"><br>这个界面操作是linux命令</p>
-<blockquote>
-<p>可以参考linux常用命令链接：<a href="https://blog.csdn.net/qq_23329167/article/details/83856430">https://blog.csdn.net/qq_23329167/article/details/83856430</a></p>
-</blockquote>
-<p>或者在菜单里搜索Git Bash，设置用户名和email地址<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/58263d065f19417d951ae9f2635ebb94.png" width="60%"></p>
-<p>可以通过<br><code>git config --global --list</code>查询到设置的用户名和邮箱<br><img src="https://img-blog.csdnimg.cn/66b17d02ac7d41dc90dcdde8fd762649.png" width="60%"></p>
-<p>同时，这个配置文件会出现在C:\Users\Administrator目录下<br><img src="https://img-blog.csdnimg.cn/8ba99d3b0b67464399f1a5b160de0503.png" alt="在这里插入图片描述"><br>打开可以看到自己的配置信息。<br><img src="https://img-blog.csdnimg.cn/0c9f1c438d4c4c518035f3e6a5d2bf24.png" width="40%"></p>
-<h2 id="1-3-git使用"><a href="#1-3-git使用" class="headerlink" title="1.3 git使用"></a>1.3 git使用</h2><p>最常用的命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;备注信息&quot;</span></span><br><span class="line">git push</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
-<h2 id="1-4-配置ssh密钥"><a href="#1-4-配置ssh密钥" class="headerlink" title="1.4 配置ssh密钥"></a>1.4 配置ssh密钥</h2><p>生成ssh密钥文件：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure><br>然后直接三个回车即可，默认不需要设置密码<br><img src="https://img-blog.csdnimg.cn/80326be57d0c40c398d6efe3c1acde6f.png" alt="在这里插入图片描述"><br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br><img src="https://img-blog.csdnimg.cn/bcf37f9373dd43f39e10f0b97ce08c51.png" alt="在这里插入图片描述"></p>
-<h2 id="1-5-github"><a href="#1-5-github" class="headerlink" title="1.5 github"></a>1.5 github</h2><p>注册github账号，用来存放我们的网站。<br>打开<a href="https://github.com/，新建一个项目仓库New">https://github.com/，新建一个项目仓库New</a> repository。<br>然后如下图所示，输入自己的项目名字（和用户名同名），后面一定要加.github.io后缀，README初始化也要勾上。</p>
-<blockquote>
-<p>注意：要创建一个和你用户名相同的仓库，后面加.<a href="http://github.io，只有这样，将来要部署到GitHub">http://github.io，只有这样，将来要部署到GitHub</a><br>page的时候，才会被识别，也就是<a href="http://xxxx.github.io，其中xxx就是你注册GitHub的用户名。">http://xxxx.github.io，其中xxx就是你注册GitHub的用户名。</a></p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/6db6cd59b7084905bb4aa172870398f7.png" alt="在这里插入图片描述"><br>打开GitHub_Settings_keys 页面，新建new SSH Key<br><img src="https://img-blog.csdnimg.cn/b9c8295d853c4497801e0fa2379f6d0f.png" alt="在这里插入图片描述"><br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br><img src="https://img-blog.csdnimg.cn/57389919e99a4d12a19ff2705af1f5c9.png" alt="在这里插入图片描述"><br>然后设置成功将收到邮件。并可在Git Bash中检测GitHub公钥设置是否成功，输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/326f642b21334e178d74a7ef3603b434.png" alt="在这里插入图片描述"></p>
-<h1 id="二、安装nodejs"><a href="#二、安装nodejs" class="headerlink" title="二、安装nodejs"></a>二、安装nodejs</h1><p>参考<a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a><br> Node.js 是运行在服务端的 JavaScript。Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
-<h2 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1 下载"></a>2.1 下载</h2><p>选择对应系统的Node.js版本：<br><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a><br><img src="https://img-blog.csdnimg.cn/e61199bc74114ecd9a88dece37dddc0f.png" alt="请添加图片描述"></p>
-<h2 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h2><p>选安装目录进行，其余全部next。<br>至此Node.js已经安装完成，可以先进行下简单的测试安装是否成功了，后面还要进行环境配置。在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口。<br><img src="https://img-blog.csdnimg.cn/17f2f24a7cb947979a14e40cdec1a5be.png" width="20%"><br>输入node -v显示node.js的版本说明已安装成功输入<br>npm -v显示npm版本说明自带的npm也己经安装成功</p>
-<p>安装完后的目录如下所示：<br><img src="https://img-blog.csdnimg.cn/e1313137c9504a21bf3cf3efa3399b5a.png" alt="在这里插入图片描述"><br>说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西。</p>
-<h2 id="2-3-环境配置"><a href="#2-3-环境配置" class="headerlink" title="2.3 环境配置"></a>2.3 环境配置</h2><p>主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install express [-g] （后面的可选参数-g，g代表global全局安装的意思）的安装语句时，会将安装的模块安装到【C:\Users\用户名\AppData\Roaming\npm】路径中，占C盘空间。<br>例如：我希望将全模块所在路径和缓存路径放在我node.js安装的文件夹中，则在我安装的文件夹【D:\Develop\nodejs】下创建两个文件夹【node_global】及【node_cache】如下图：<br><img src="https://img-blog.csdnimg.cn/a6afef48e82a44dfa6402116fcd2b28c.png" alt="在这里插入图片描述"><br>创建完两个空文件夹之后，打开cmd命令窗口，输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;D:\Programs\nodejs\node_global&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;D:\Programs\nodejs\node_cache&quot;</span></span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/a081d9eda0494766b5ec0b599405a120.png" alt="在这里插入图片描述"><br>接下来设置环境变量，关闭cmd窗口，“我的电脑”-右键-“属性”-“高级系统设置”-“高级”-“环境变量”<br><img src="https://img-blog.csdnimg.cn/8aeab845e85e44039252e7b78d5daf68.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/40622bca60034dcfb7b2b3dc17c77289.png" width="40%"><br>进入环境变量对话框，在【系统变量】下新建【NODE_PATH】，输入【D:\Programs\nodejs\node_global\node_modules】，<br>然后，将【用户变量】下的【Path】修改为【D:\Programs\nodejs\node_global】<br><img src="https://img-blog.csdnimg.cn/74d4d0ac0e904b0fae45314ed7e27e13.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/a8e1dd4d303e4910b9212424e3da7e0e.png" alt="在这里插入图片描述"><br>修改完成后确认<br><img src="https://img-blog.csdnimg.cn/bd8cec6809f645f9ab5025ac207c7a7f.png" alt="在这里插入图片描述"></p>
-<h2 id="2-4-测试"><a href="#2-4-测试" class="headerlink" title="2.4 测试"></a>2.4 测试</h2><p>配置完后，安装个module测试下，我们就安装最常用的express模块。<br>输入如下命令进行模块的全局安装：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install express -g     <span class="comment"># -g是全局安装的意思</span></span><br></pre></td></tr></table></figure><br>如果直接运行会报错，<br>①可以删除npmrc文件，来解决这个问题。<br>强调：不是nodejs安装目录npm模块下的那个npmrc文件<br>而是在C:\Users{账户}\下的.npmrc文件..<br><img src="https://img-blog.csdnimg.cn/f39b11f71fbc417b8786207c3ff0d9f8.png" alt="在这里插入图片描述"><br>②也可以使用管理员身份打开cmd窗口来运行命令<br><img src="https://img-blog.csdnimg.cn/eecb9a2829a449c68cad241db4e2a3c3.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/a3cf6937b35d47c0affe8c73563b65fc.png" alt="在这里插入图片描述"></p>
-<h2 id="2-5-添加国内镜像源"><a href="#2-5-添加国内镜像源" class="headerlink" title="2.5 添加国内镜像源"></a>2.5 添加国内镜像源</h2><p>如果没有梯子的话，可以使用阿里的国内镜像进行加速。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/4f38f6f9f16e4f848c3d08b326f8c975.png" alt="在这里插入图片描述"></p>
-<h1 id="三、安装Hexo"><a href="#三、安装Hexo" class="headerlink" title="三、安装Hexo"></a>三、安装Hexo</h1><p>Hexo是基于node.js编写的，所以需要先安装一下node.js和里面的npm工具。</p>
-<h2 id="3-1-安装Hexo"><a href="#3-1-安装Hexo" class="headerlink" title="3.1 安装Hexo"></a>3.1 安装Hexo</h2><p>前面git和nodejs安装好后，就可以安装hexo了。<br>先创建一个文件夹MyBlog，用来存放自己的博客文件，然后cd到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。<br>在该目录下右键点击Git Bash Here，打开git的控制台窗口，以后我们所有的操作都在git控制台进行，就不用Windows自带的cmd了。<br>定位到该目录下，输入<code>npm install -g hexo-cli</code>安装Hexo。<br><img src="https://img-blog.csdnimg.cn/2261d17508f24bd5a9c1523157c1c9c3.png" alt="在这里插入图片描述"><br>报错，没有下载成功。<br>删除npmrc文件，来解决这个问题。<br>强调：不是nodejs安装目录npm模块下的那个npmrc文件<br>而是在C:\Users{账户}\下的.npmrc文件..<br><img src="https://img-blog.csdnimg.cn/53cca26fd0f84433b0c7f6d0aa15dc0b.png" alt="在这里插入图片描述"></p>
-<h2 id="3-2-配置环境变量"><a href="#3-2-配置环境变量" class="headerlink" title="3.2 配置环境变量"></a>3.2 配置环境变量</h2><p>如果报错：’hexo’ 不是内部或外部命令，也不是可运行的程序。<br><img src="https://img-blog.csdnimg.cn/92cc3c73b84a43dc9d983cfd2dbafcb3.png" alt="在这里插入图片描述"><br>bash: hexo: command not found<br><img src="https://img-blog.csdnimg.cn/e695cfe65f184b489634bc612b960ad8.png" alt="在这里插入图片描述"><br>需要将有hexo.cmd的路径配置到环境变量中<br>具体参考：<a href="https://blog.csdn.net/qq_27093465/article/details/72954725">https://blog.csdn.net/qq_27093465/article/details/72954725</a><br><img src="https://img-blog.csdnimg.cn/2c49fddaddfb4f32830c6bab0dfc6b27.png" alt="在这里插入图片描述"><br>找到安装位置的hexo.cmd文件，配置到环境变量中去。<br><img src="https://img-blog.csdnimg.cn/c3a5e955c3a14b319133b8187829b203.png" alt="在这里插入图片描述"><br>这个之后，咱再运行一次，hexo命令。<br><img src="https://img-blog.csdnimg.cn/31be7c6535954291a4fd645df2a1132e.png" alt="在这里插入图片描述"><br>至此hexo就安装完了。</p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>[object Object]</tag>
-        <tag>实践</tag>
-        <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Yu&amp;Spring Boot</title>
     <url>/2019/04/20/Yu&amp;Spring%20Boot%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
     <content><![CDATA[<h1 id="写在最最前面"><a href="#写在最最前面" class="headerlink" title="写在最最前面"></a>写在最最前面</h1><p>感谢项目的这段难忘（美好但不太友好）的经历<br>感谢厉害又耐心的学长@谭 @朱 @程 ……<br>还要这段时间帅气的我<br>哈哈哈哈哈哈</p>
@@ -433,6 +386,53 @@ pip3 对应的是 Python 3.x。
       </tags>
   </entry>
   <entry>
+    <title>hexo博客1：环境配置</title>
+    <url>/2022/05/22/hexo%E5%8D%9A%E5%AE%A21%EF%BC%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<hr>
+<p>hexo博客系列1</p>
+ <span id="more"></span>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>换电脑啦，因此需要重新配置hexo的环境。写博客记录一下，方便之后进行配置 ~</p>
+<p>欢迎来做客！主页：<a href="https://lightrain.top">https://lightrain.top</a></p>
+<p>hexo作为博客系统的模版，可以不用花费太多时间搭建属于自己的博客系统，主要依赖的技术有node.js、nginx、git。</p>
+<h1 id="一、安装git"><a href="#一、安装git" class="headerlink" title="一、安装git"></a>一、安装git</h1><h2 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1 安装"></a>1.1 安装</h2><p>参考<a href="https://blog.csdn.net/weixin_39615182/article/details/115307901">https://blog.csdn.net/weixin_39615182/article/details/115307901</a></p>
+<p>从Git官网下载：</p>
+<blockquote>
+<p><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
+</blockquote>
+<p>现在的机子基本都是64位的，选择64位的安装包。<br><img src="https://img-blog.csdnimg.cn/6fe93cf072444bfc830212fb467c55ca.png" alt="在这里插入图片描述"><br>下载好后，选择安装目录，我是放在D盘，然后无脑next下一步即可。<br>命令行cmd里输入git测试是否安装成功。<br><img src="https://img-blog.csdnimg.cn/f36a82dc5bbb44b1a5e60777de15eadb.png" alt="在这里插入图片描述"></p>
+<h2 id="1-2-配置"><a href="#1-2-配置" class="headerlink" title="1.2 配置"></a>1.2 配置</h2><p>安装成功后，将Git与GitHub帐号绑定，鼠标右击打开Git Bash here<br><img src="https://img-blog.csdnimg.cn/7495510d2f664de1b85bff208e783743.png" width="40%"><br><img src="https://img-blog.csdnimg.cn/fd47ef9e7817474b90d09a7d6d2bf31a.png" width="80%"><br>这个界面操作是linux命令</p>
+<blockquote>
+<p>可以参考linux常用命令链接：<a href="https://blog.csdn.net/qq_23329167/article/details/83856430">https://blog.csdn.net/qq_23329167/article/details/83856430</a></p>
+</blockquote>
+<p>或者在菜单里搜索Git Bash，设置用户名和email地址<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的GitHub用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/58263d065f19417d951ae9f2635ebb94.png" width="60%"></p>
+<p>可以通过<br><code>git config --global --list</code>查询到设置的用户名和邮箱<br><img src="https://img-blog.csdnimg.cn/66b17d02ac7d41dc90dcdde8fd762649.png" width="60%"></p>
+<p>同时，这个配置文件会出现在C:\Users\Administrator目录下<br><img src="https://img-blog.csdnimg.cn/8ba99d3b0b67464399f1a5b160de0503.png" alt="在这里插入图片描述"><br>打开可以看到自己的配置信息。<br><img src="https://img-blog.csdnimg.cn/0c9f1c438d4c4c518035f3e6a5d2bf24.png" width="40%"></p>
+<h2 id="1-3-git使用"><a href="#1-3-git使用" class="headerlink" title="1.3 git使用"></a>1.3 git使用</h2><p>最常用的命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;备注信息&quot;</span></span><br><span class="line">git push</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-4-配置ssh密钥"><a href="#1-4-配置ssh密钥" class="headerlink" title="1.4 配置ssh密钥"></a>1.4 配置ssh密钥</h2><p>生成ssh密钥文件：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;你的GitHub注册邮箱&quot;</span></span><br></pre></td></tr></table></figure><br>然后直接三个回车即可，默认不需要设置密码<br><img src="https://img-blog.csdnimg.cn/80326be57d0c40c398d6efe3c1acde6f.png" alt="在这里插入图片描述"><br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br><img src="https://img-blog.csdnimg.cn/bcf37f9373dd43f39e10f0b97ce08c51.png" alt="在这里插入图片描述"></p>
+<h2 id="1-5-github"><a href="#1-5-github" class="headerlink" title="1.5 github"></a>1.5 github</h2><p>注册github账号，用来存放我们的网站。<br>打开<a href="https://github.com/，新建一个项目仓库New">https://github.com/，新建一个项目仓库New</a> repository。<br>然后如下图所示，输入自己的项目名字（和用户名同名），后面一定要加.github.io后缀，README初始化也要勾上。</p>
+<blockquote>
+<p>注意：要创建一个和你用户名相同的仓库，后面加.<a href="http://github.io，只有这样，将来要部署到GitHub">http://github.io，只有这样，将来要部署到GitHub</a><br>page的时候，才会被识别，也就是<a href="http://xxxx.github.io，其中xxx就是你注册GitHub的用户名。">http://xxxx.github.io，其中xxx就是你注册GitHub的用户名。</a></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/6db6cd59b7084905bb4aa172870398f7.png" alt="在这里插入图片描述"><br>打开GitHub_Settings_keys 页面，新建new SSH Key<br><img src="https://img-blog.csdnimg.cn/b9c8295d853c4497801e0fa2379f6d0f.png" alt="在这里插入图片描述"><br>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。<br><img src="https://img-blog.csdnimg.cn/57389919e99a4d12a19ff2705af1f5c9.png" alt="在这里插入图片描述"><br>然后设置成功将收到邮件。并可在Git Bash中检测GitHub公钥设置是否成功，输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/326f642b21334e178d74a7ef3603b434.png" alt="在这里插入图片描述"></p>
+<h1 id="二、安装nodejs"><a href="#二、安装nodejs" class="headerlink" title="二、安装nodejs"></a>二、安装nodejs</h1><p>参考<a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html">https://www.cnblogs.com/zhouyu2017/p/6485265.html</a><br> Node.js 是运行在服务端的 JavaScript。Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
+<h2 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1 下载"></a>2.1 下载</h2><p>选择对应系统的Node.js版本：<br><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a><br><img src="https://img-blog.csdnimg.cn/e61199bc74114ecd9a88dece37dddc0f.png" alt="请添加图片描述"></p>
+<h2 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h2><p>选安装目录进行，其余全部next。<br>至此Node.js已经安装完成，可以先进行下简单的测试安装是否成功了，后面还要进行环境配置。在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口。<br><img src="https://img-blog.csdnimg.cn/17f2f24a7cb947979a14e40cdec1a5be.png" width="20%"><br>输入node -v显示node.js的版本说明已安装成功输入<br>npm -v显示npm版本说明自带的npm也己经安装成功</p>
+<p>安装完后的目录如下所示：<br><img src="https://img-blog.csdnimg.cn/e1313137c9504a21bf3cf3efa3399b5a.png" alt="在这里插入图片描述"><br>说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西。</p>
+<h2 id="2-3-环境配置"><a href="#2-3-环境配置" class="headerlink" title="2.3 环境配置"></a>2.3 环境配置</h2><p>主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install express [-g] （后面的可选参数-g，g代表global全局安装的意思）的安装语句时，会将安装的模块安装到【C:\Users\用户名\AppData\Roaming\npm】路径中，占C盘空间。<br>例如：我希望将全模块所在路径和缓存路径放在我node.js安装的文件夹中，则在我安装的文件夹【D:\Develop\nodejs】下创建两个文件夹【node_global】及【node_cache】如下图：<br><img src="https://img-blog.csdnimg.cn/a6afef48e82a44dfa6402116fcd2b28c.png" alt="在这里插入图片描述"><br>创建完两个空文件夹之后，打开cmd命令窗口，输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;D:\Programs\nodejs\node_global&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;D:\Programs\nodejs\node_cache&quot;</span></span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/a081d9eda0494766b5ec0b599405a120.png" alt="在这里插入图片描述"><br>接下来设置环境变量，关闭cmd窗口，“我的电脑”-右键-“属性”-“高级系统设置”-“高级”-“环境变量”<br><img src="https://img-blog.csdnimg.cn/8aeab845e85e44039252e7b78d5daf68.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/40622bca60034dcfb7b2b3dc17c77289.png" width="40%"><br>进入环境变量对话框，在【系统变量】下新建【NODE_PATH】，输入【D:\Programs\nodejs\node_global\node_modules】，<br>然后，将【用户变量】下的【Path】修改为【D:\Programs\nodejs\node_global】<br><img src="https://img-blog.csdnimg.cn/74d4d0ac0e904b0fae45314ed7e27e13.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/a8e1dd4d303e4910b9212424e3da7e0e.png" alt="在这里插入图片描述"><br>修改完成后确认<br><img src="https://img-blog.csdnimg.cn/bd8cec6809f645f9ab5025ac207c7a7f.png" alt="在这里插入图片描述"></p>
+<h2 id="2-4-测试"><a href="#2-4-测试" class="headerlink" title="2.4 测试"></a>2.4 测试</h2><p>配置完后，安装个module测试下，我们就安装最常用的express模块。<br>输入如下命令进行模块的全局安装：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install express -g     <span class="comment"># -g是全局安装的意思</span></span><br></pre></td></tr></table></figure><br>如果直接运行会报错，<br>①可以删除npmrc文件，来解决这个问题。<br>强调：不是nodejs安装目录npm模块下的那个npmrc文件<br>而是在C:\Users{账户}\下的.npmrc文件..<br><img src="https://img-blog.csdnimg.cn/f39b11f71fbc417b8786207c3ff0d9f8.png" alt="在这里插入图片描述"><br>②也可以使用管理员身份打开cmd窗口来运行命令<br><img src="https://img-blog.csdnimg.cn/eecb9a2829a449c68cad241db4e2a3c3.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/a3cf6937b35d47c0affe8c73563b65fc.png" alt="在这里插入图片描述"></p>
+<h2 id="2-5-添加国内镜像源"><a href="#2-5-添加国内镜像源" class="headerlink" title="2.5 添加国内镜像源"></a>2.5 添加国内镜像源</h2><p>如果没有梯子的话，可以使用阿里的国内镜像进行加速。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><br><img src="https://img-blog.csdnimg.cn/4f38f6f9f16e4f848c3d08b326f8c975.png" alt="在这里插入图片描述"></p>
+<h1 id="三、安装Hexo"><a href="#三、安装Hexo" class="headerlink" title="三、安装Hexo"></a>三、安装Hexo</h1><p>Hexo是基于node.js编写的，所以需要先安装一下node.js和里面的npm工具。</p>
+<h2 id="3-1-安装Hexo"><a href="#3-1-安装Hexo" class="headerlink" title="3.1 安装Hexo"></a>3.1 安装Hexo</h2><p>前面git和nodejs安装好后，就可以安装hexo了。<br>先创建一个文件夹MyBlog，用来存放自己的博客文件，然后cd到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。<br>在该目录下右键点击Git Bash Here，打开git的控制台窗口，以后我们所有的操作都在git控制台进行，就不用Windows自带的cmd了。<br>定位到该目录下，输入<code>npm install -g hexo-cli</code>安装Hexo。<br><img src="https://img-blog.csdnimg.cn/2261d17508f24bd5a9c1523157c1c9c3.png" alt="在这里插入图片描述"><br>报错，没有下载成功。<br>删除npmrc文件，来解决这个问题。<br>强调：不是nodejs安装目录npm模块下的那个npmrc文件<br>而是在C:\Users{账户}\下的.npmrc文件..<br><img src="https://img-blog.csdnimg.cn/53cca26fd0f84433b0c7f6d0aa15dc0b.png" alt="在这里插入图片描述"></p>
+<h2 id="3-2-配置环境变量"><a href="#3-2-配置环境变量" class="headerlink" title="3.2 配置环境变量"></a>3.2 配置环境变量</h2><p>如果报错：’hexo’ 不是内部或外部命令，也不是可运行的程序。<br><img src="https://img-blog.csdnimg.cn/92cc3c73b84a43dc9d983cfd2dbafcb3.png" alt="在这里插入图片描述"><br>bash: hexo: command not found<br><img src="https://img-blog.csdnimg.cn/e695cfe65f184b489634bc612b960ad8.png" alt="在这里插入图片描述"><br>需要将有hexo.cmd的路径配置到环境变量中<br>具体参考：<a href="https://blog.csdn.net/qq_27093465/article/details/72954725">https://blog.csdn.net/qq_27093465/article/details/72954725</a><br><img src="https://img-blog.csdnimg.cn/2c49fddaddfb4f32830c6bab0dfc6b27.png" alt="在这里插入图片描述"><br>找到安装位置的hexo.cmd文件，配置到环境变量中去。<br><img src="https://img-blog.csdnimg.cn/c3a5e955c3a14b319133b8187829b203.png" alt="在这里插入图片描述"><br>这个之后，咱再运行一次，hexo命令。<br><img src="https://img-blog.csdnimg.cn/31be7c6535954291a4fd645df2a1132e.png" alt="在这里插入图片描述"><br>至此hexo就安装完了。</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>[object Object]</tag>
+        <tag>实践</tag>
+        <tag>环境配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python的那些小程序（绘图）</title>
     <url>/2020/10/18/python%E7%9A%84%E9%82%A3%E4%BA%9B%E5%B0%8F%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%BB%98%E5%9B%BE%EF%BC%89/</url>
     <content><![CDATA[<p>python的那些小程序之绘图：</p>
@@ -512,6 +512,13 @@ pip3 对应的是 Python 3.x。
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/2024/03/25/window%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85spark/</url>
+    <content><![CDATA[<p>window环境下安装spark<br>(转载）<br>这个非常成功<br><a href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a></p>
+<p>加上参考<br><a href="https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2">https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>一周年の纪念</title>
     <url>/2024/03/25/%E4%B8%80%E5%91%A8%E5%B9%B4%E3%81%AE%E7%BA%AA%E5%BF%B5/</url>
     <content><![CDATA[<p> <a href="https://lightrain.top/">https://lightrain.top/</a></p>
@@ -540,98 +547,6 @@ pip3 对应的是 Python 3.x。
       <tags>
         <tag>队友</tag>
         <tag>回忆</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2024/03/25/window%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85spark/</url>
-    <content><![CDATA[<p>window环境下安装spark<br>(转载）<br>这个非常成功<br><a href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a></p>
-<p>加上参考<br><a href="https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2">https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>「置顶」个人简历</title>
-    <url>/2035/04/20/%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/</url>
-    <content><![CDATA[ <span id="more"></span>
-<center>
-     <h1>吴雨桐</h1>
- </center>     
-
-
-<ul>
-<li>:e-mail: <strong>邮&ensp;&ensp;&ensp;&ensp;箱：</strong> <font color="#4ea1db">201931119020055@stu.hubu.edu.cn</font></li>
-<li>:phone: <strong>电&ensp;&ensp;&ensp;&ensp;话：</strong> 180 - 7106 - 7448</li>
-<li>:sunny: 中共预备党员&ensp;&ensp;|&ensp;:house: 武汉</li>
-<li><strong>CSDN：</strong><a href="https://blog.csdn.net/WTYuong">https://blog.csdn.net/WTYuong</a></li>
-</ul>
-<hr>
-<h3 id="school-教育经历"><a href="#school-教育经历" class="headerlink" title=":school: 教育经历"></a>:school: 教育经历</h3><p> <span align=left><strong>湖北大学</strong>&emsp;&emsp;数据科学与大数据技术&emsp;本科&emsp;计算机与信息工程学院&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;2019.09 - 2023.06</span></p>
-<ul>
-<li>GPA：3.6 / 4.0, Top 15/71；   任职：院全媒体中心副主席、院辩论队队长、班组织委员</li>
-<li>荣誉：校三好学生标兵（全年级仅2人）、一等优秀学生奖学金、科研创新奖学金、模范共青团干等10余项</li>
-<li>核心课程：离散数学（95）计算机组成原理（92）自然语言处理（95）算法设计与实验（91）</li>
-</ul>
-<hr>
-<h3 id="trophy-荣誉奖励"><a href="#trophy-荣誉奖励" class="headerlink" title=":trophy: 荣誉奖励"></a>:trophy: 荣誉奖励</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">国家级</th>
-<th style="text-align:center">省级</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">全国大学生市场调查与分析大赛三等奖</td>
-<td style="text-align:center">全国大学生数学建模竞赛省二</td>
-</tr>
-<tr>
-<td style="text-align:center">全国大学生物理实验竞赛三等奖</td>
-<td style="text-align:center">蓝桥杯软件类省一</td>
-</tr>
-<tr>
-<td style="text-align:center">APMCM亚太地区数学建模竞赛二等奖（队长）</td>
-<td style="text-align:center">电子商务“创新、创意及创业”挑战赛省一</td>
-</tr>
-<tr>
-<td style="text-align:center">数维杯国际建模挑战赛二等奖（队长）</td>
-<td style="text-align:center">湖北省物理实验创新设计竞赛二等奖</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<h3 id="bookmark-tabs-研究成果"><a href="#bookmark-tabs-研究成果" class="headerlink" title=":bookmark_tabs: 研究成果"></a>:bookmark_tabs: 研究成果</h3><ul>
-<li>于《电脑与信息技术》发表论文《基于极端随机树的票房回归模型》第一作者</li>
-<li>于中文核心期刊投稿论文《结合语序关系的Bert-CSGCN文本分类方法》第一作者（复审中）</li>
-<li>申请国家实用新型专利《网络舆情监控装置》第一发明人</li>
-<li>授权软件著作权一项《舆情分析与可视化系统 v1.0》第一申请人</li>
-</ul>
-<hr>
-<h3 id="card-index-科研经历"><a href="#card-index-科研经历" class="headerlink" title=":card_index: 科研经历"></a>:card_index: 科研经历</h3><p><strong>国家级大学生创新创业训练项目</strong>《基于Hadoop的舆情时空分析与可视化系统》&ensp;<strong>负责人</strong>&ensp;&emsp;&emsp;2021.04 – 2022.04<br>&emsp;&emsp;研发微博舆情分析系统，负责框架搭建和实验工作。短文本聚类的过程中，通过LDA模型对训练数据进行建模，并将主题术语扩展原始微博的特征，从而丰富了聚类文本特征，提高聚类效果。舆情分析阶段中，借助贝叶斯分类器和Hadoop在处理海量数据方面的优势进行情感倾向分析。最后，将舆情分析基本情况、情感分析所占比重、舆论走势做了Web可视化展示。</p>
-<p><strong>国家自然科学基金</strong>《基于知识图谱的按专业招生高考志愿智能推荐方法研究》&ensp;<strong>核心成员</strong>&emsp;&emsp;2021.05 – 2022.05<br>&emsp;&emsp;针对很少从图结构数据中全面学习文本信息特征的问题，提出基于Bert-CSGCN模型的文本分类方法。在文档分词和预处理后，通过BERT预训练语言模型处理待分类长文本，获取各个词向量的初始特征，再利用BiLSTM模型自动聚焦于语义信息。构建结合自注意力机制的CSGCN模型，将BERT-BiLSTM的输出、词之间的余弦距离值分别表示为对应的节点和边，结合自注意力机制实现对文本的分类。该方法能充分提取文本局部与全局信息，且在存在明显语序关系的语料库中有突出的表现。</p>
-<p><strong>市场调查与分析</strong>《茶“颜”传新——新中式茶饮品牌发展推广调查》&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>核心成员</strong>&emsp;&emsp;2021.11 – 2022.04<br>&emsp;&emsp;以中国新式茶饮为切入点，负责网络调研、问卷调查的建模分析。爬取微博话题和美团评论文本，使用词云图、SnowNLP情感分析以及LDA模型主题建模挖掘潜在信息；对问卷通过K-means模型构建用户画像，基于三大模型对用户满意度回归分析，分类算法对回购可能性分析，并通过关联规则挖掘每类用户回购的因素。 </p>
-<hr>
-<h3 id="sailboat-实践经历"><a href="#sailboat-实践经历" class="headerlink" title=":sailboat: 实践经历"></a>:sailboat: 实践经历</h3><ul>
-<li><strong><span align=left>院全媒体中心副主席</span></strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;2021.09 –至今<br>运营院团委微信公众平台和官网，官微获得 5000+师生关注，每月榜单仅次于新传学院 </li>
-<li><strong><span align=left>瑞翼工坊后端组开发</span></strong>&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 2020.01-2020.05<br>负责实现基于 Spring Boot 框架的后端功能，目前小程序已投入使用两年  </li>
-<li><strong><span align=left>文体活动</span></strong>&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;2021.04–2020.05<br>湖北省第七届大学生艺术节一等奖、湖北大学第十六届院际辩论赛团体冠军（队长）</li>
-</ul>
-<hr>
-<h3 id="pencil-个人总结"><a href="#pencil-个人总结" class="headerlink" title=":pencil: 个人总结"></a>:pencil: 个人总结</h3><p>&emsp;&emsp;大量阅读文献后的通透、导师点拨时突有灵感的振奋、独自研究有所得后的满足，让我意识到自己喜欢安静钻研。同时，本科的科研经历加深了我对科学研究严谨性和逻辑性的认知。因此我对研究生生活充满热情和希冀， 会潜心跟随老师努力进行硕士乃至博士的学术研究，希望自己能结合网络空间安全和大数据在 NLP 方向展开进一 步研究，尽最大努力做出更多的研究成果。</p>
-<hr>
-<p align=right style="color: Navy ">@2022 created by wyt</p>
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>简历</category>
-      </categories>
-      <tags>
-        <tag>简历</tag>
       </tags>
   </entry>
   <entry>
@@ -3598,24 +3513,6 @@ AaAA
   </entry>
   <entry>
     <title></title>
-    <url>/2024/03/25/%E9%85%8D%E7%BD%AEspark%EF%BC%8C%E5%B9%B6%E5%9C%A8idea%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<p>@<a href="配置spark，并在idea中搭建项目">TOC</a></p>
-<p>网上的普遍太久远，不太适配，记录自己的完美搭建</p>
-<h1 id="一、配置spark"><a href="#一、配置spark" class="headerlink" title="一、配置spark"></a>一、配置spark</h1><h2 id="1-配置maven（注意选择版本为3-6-3）"><a href="#1-配置maven（注意选择版本为3-6-3）" class="headerlink" title="1.配置maven（注意选择版本为3.6.3）"></a>1.配置maven（注意选择版本为3.6.3）</h2><p>参考：<a href="https://blog.csdn.net/huo920/article/details/82082403">https://blog.csdn.net/huo920/article/details/82082403</a><br>但这一步是多余的</p>
-<h2 id="2-下载scala（注意版本对应为2-12）"><a href="#2-下载scala（注意版本对应为2-12）" class="headerlink" title="2.下载scala（注意版本对应为2.12）"></a>2.下载scala（注意版本对应为2.12）</h2><p>查看scala版本：scala -version<br>查看对应关系：<a href="https://mvnrepository.com/artifact/org.apache.spark/spark-core">https://mvnrepository.com/artifact/org.apache.spark/spark-core</a><br><img src="https://img-blog.csdnimg.cn/e907e3ba8d7849eea07e03d06d9a250b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>安装scala参考：<a href="https://cloud.tencent.com/developer/article/1733776">https://cloud.tencent.com/developer/article/1733776</a><br>官网：<a href="https://www.scala-lang.org/download/">https://www.scala-lang.org/download/</a><br>然后选择特定的版本<br><img src="https://img-blog.csdnimg.cn/736328894ed445bbb614a6f140d778a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<p>3.下载spark（注意版本选择3.1.3）<br>不要太新了，否则spark-shell会报错，需要降低版本<br><a href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a><br>检验：cmd中spark-shell<br><img src="https://img-blog.csdnimg.cn/73f89004779e424d9a5fcf479a3590ee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h1 id="二、搭建idea项目"><a href="#二、搭建idea项目" class="headerlink" title="二、搭建idea项目"></a>二、搭建idea项目</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><p>由于版本较新，maven版本配置全靠自己琢磨，可惜自己没琢磨透<br>感谢好友@玥的热心帮助，通过直接创建项目解决问题<br>参考：<a href="https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen">https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a><br>注意：点击IDEA右上角放大镜左边的按钮（Project Structure），或者快捷键ctrl + shift + alt + S，点击Modules：<br>（要包括scala-sdk和spark的jars包：D:\Programs\pyspark\spark-3.1.3-bin-hadoop3.2\jars）<br><img src="https://img-blog.csdnimg.cn/e6ae2feb72074bbd9ce297bd4f101e35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="2-导包解决爆红"><a href="#2-导包解决爆红" class="headerlink" title="2.导包解决爆红"></a>2.导包解决爆红</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line">import org.apache.spark.sql.&#123;Dataset, SparkSession&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/126d15383d16440b968fedce4c037f7e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/98daabcf7f184b629f7478377ab5b441.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<p>3.成果展示<br><img src="https://img-blog.csdnimg.cn/397ef78d6d7445c8b9d068f82c3909b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>4.附上测试代码<br>注意！！package和object test1 为自己的哈</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">package main.scala</span><br><span class="line"></span><br><span class="line">object test1 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(<span class="string">&quot;Hello Scala&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/88965290a2f64eda960e70816d57e579.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<p>三、心得<br>完结撒花，仙女落泪QAQ</p>
-<p>有问题可以发评论区，我看到会回复<br>折腾三天，理论把坑踩遍了hhh</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/2024/03/25/%E8%BE%A9%E8%AE%BA%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<p>@<a href="辩论合集">TOC</a></p>
 <h1 id="20210324-院决赛-被误解是-否表达者的宿命"><a href="#20210324-院决赛-被误解是-否表达者的宿命" class="headerlink" title="20210324 院决赛 被误解是/否表达者的宿命"></a>20210324 院决赛 被误解是/否表达者的宿命</h1><h2 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524165115118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -3679,6 +3576,24 @@ AaAA
 <p>这次辩论是成长的一次邀请，在路上明显感知到自身变化，很荣幸选择参与其中</p>
 <p>学到了好多www每次一篇稿子改三大版，参考二十多篇文献。阅读倒是没事，理解消化转述表达实在绝了。方学长教会了查文献，梅队周队教抗压，邬莉学姐太帅了啊啊啊，玙是人间宝藏，还有晓露学姐和张学长，林均和敏儿<br><img src="https://img-blog.csdnimg.cn/20210712221730215.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打完之后收到了妈咪送的玫瑰，好甜na<br>我妈说我没自信……确实花了一个星期才缓过来QAQ<br>我以为了解点中国历史就比较nice了，结果打踢馆赛那一场备赛的时候，世界历史都能信手拈来。（后来狂看书hhh<br>平时感觉自己挺能说的，结果模拟辩论的时候，不能很好的表达出自己的观点，而且思路很容易被带着跑<br>最后一点是，我的辩论没有长远的目的性，偏向于争一些阶段性的成果，但实质没有注入灵魂。辩论本质可能更偏于于博弈吧，而不是压倒说法。</p>
 <p>学到了很多，也很开心的一段旅程~</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/03/25/%E9%85%8D%E7%BD%AEspark%EF%BC%8C%E5%B9%B6%E5%9C%A8idea%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p>@<a href="配置spark，并在idea中搭建项目">TOC</a></p>
+<p>网上的普遍太久远，不太适配，记录自己的完美搭建</p>
+<h1 id="一、配置spark"><a href="#一、配置spark" class="headerlink" title="一、配置spark"></a>一、配置spark</h1><h2 id="1-配置maven（注意选择版本为3-6-3）"><a href="#1-配置maven（注意选择版本为3-6-3）" class="headerlink" title="1.配置maven（注意选择版本为3.6.3）"></a>1.配置maven（注意选择版本为3.6.3）</h2><p>参考：<a href="https://blog.csdn.net/huo920/article/details/82082403">https://blog.csdn.net/huo920/article/details/82082403</a><br>但这一步是多余的</p>
+<h2 id="2-下载scala（注意版本对应为2-12）"><a href="#2-下载scala（注意版本对应为2-12）" class="headerlink" title="2.下载scala（注意版本对应为2.12）"></a>2.下载scala（注意版本对应为2.12）</h2><p>查看scala版本：scala -version<br>查看对应关系：<a href="https://mvnrepository.com/artifact/org.apache.spark/spark-core">https://mvnrepository.com/artifact/org.apache.spark/spark-core</a><br><img src="https://img-blog.csdnimg.cn/e907e3ba8d7849eea07e03d06d9a250b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>安装scala参考：<a href="https://cloud.tencent.com/developer/article/1733776">https://cloud.tencent.com/developer/article/1733776</a><br>官网：<a href="https://www.scala-lang.org/download/">https://www.scala-lang.org/download/</a><br>然后选择特定的版本<br><img src="https://img-blog.csdnimg.cn/736328894ed445bbb614a6f140d778a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>3.下载spark（注意版本选择3.1.3）<br>不要太新了，否则spark-shell会报错，需要降低版本<br><a href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a><br>检验：cmd中spark-shell<br><img src="https://img-blog.csdnimg.cn/73f89004779e424d9a5fcf479a3590ee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="二、搭建idea项目"><a href="#二、搭建idea项目" class="headerlink" title="二、搭建idea项目"></a>二、搭建idea项目</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><p>由于版本较新，maven版本配置全靠自己琢磨，可惜自己没琢磨透<br>感谢好友@玥的热心帮助，通过直接创建项目解决问题<br>参考：<a href="https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen">https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a><br>注意：点击IDEA右上角放大镜左边的按钮（Project Structure），或者快捷键ctrl + shift + alt + S，点击Modules：<br>（要包括scala-sdk和spark的jars包：D:\Programs\pyspark\spark-3.1.3-bin-hadoop3.2\jars）<br><img src="https://img-blog.csdnimg.cn/e6ae2feb72074bbd9ce297bd4f101e35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="2-导包解决爆红"><a href="#2-导包解决爆红" class="headerlink" title="2.导包解决爆红"></a>2.导包解决爆红</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line">import org.apache.spark.sql.&#123;Dataset, SparkSession&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/126d15383d16440b968fedce4c037f7e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/98daabcf7f184b629f7478377ab5b441.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>3.成果展示<br><img src="https://img-blog.csdnimg.cn/397ef78d6d7445c8b9d068f82c3909b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>4.附上测试代码<br>注意！！package和object test1 为自己的哈</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">package main.scala</span><br><span class="line"></span><br><span class="line">object test1 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(<span class="string">&quot;Hello Scala&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/88965290a2f64eda960e70816d57e579.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>三、心得<br>完结撒花，仙女落泪QAQ</p>
+<p>有问题可以发评论区，我看到会回复<br>折腾三天，理论把坑踩遍了hhh</p>
 ]]></content>
   </entry>
   <entry>

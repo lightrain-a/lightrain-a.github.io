@@ -189,90 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yutong-a.github.io/2024/03/25/%E9%85%8D%E7%BD%AEspark%EF%BC%8C%E5%B9%B6%E5%9C%A8idea%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="小雨">
-      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="是Yu欸">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/25/%E9%85%8D%E7%BD%AEspark%EF%BC%8C%E5%B9%B6%E5%9C%A8idea%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-26 14:13:50" itemprop="dateModified" datetime="2022-05-26T14:13:50+08:00">2022-05-26</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>@<a href="配置spark，并在idea中搭建项目">TOC</a></p>
-<p>网上的普遍太久远，不太适配，记录自己的完美搭建</p>
-<h1 id="一、配置spark"><a href="#一、配置spark" class="headerlink" title="一、配置spark"></a>一、配置spark</h1><h2 id="1-配置maven（注意选择版本为3-6-3）"><a href="#1-配置maven（注意选择版本为3-6-3）" class="headerlink" title="1.配置maven（注意选择版本为3.6.3）"></a>1.配置maven（注意选择版本为3.6.3）</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/huo920/article/details/82082403">https://blog.csdn.net/huo920/article/details/82082403</a><br>但这一步是多余的</p>
-<h2 id="2-下载scala（注意版本对应为2-12）"><a href="#2-下载scala（注意版本对应为2-12）" class="headerlink" title="2.下载scala（注意版本对应为2.12）"></a>2.下载scala（注意版本对应为2.12）</h2><p>查看scala版本：scala -version<br>查看对应关系：<a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/org.apache.spark/spark-core">https://mvnrepository.com/artifact/org.apache.spark/spark-core</a><br><img src="https://img-blog.csdnimg.cn/e907e3ba8d7849eea07e03d06d9a250b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>安装scala参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1733776">https://cloud.tencent.com/developer/article/1733776</a><br>官网：<a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/">https://www.scala-lang.org/download/</a><br>然后选择特定的版本<br><img src="https://img-blog.csdnimg.cn/736328894ed445bbb614a6f140d778a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<p>3.下载spark（注意版本选择3.1.3）<br>不要太新了，否则spark-shell会报错，需要降低版本<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a><br>检验：cmd中spark-shell<br><img src="https://img-blog.csdnimg.cn/73f89004779e424d9a5fcf479a3590ee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h1 id="二、搭建idea项目"><a href="#二、搭建idea项目" class="headerlink" title="二、搭建idea项目"></a>二、搭建idea项目</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><p>由于版本较新，maven版本配置全靠自己琢磨，可惜自己没琢磨透<br>感谢好友@玥的热心帮助，通过直接创建项目解决问题<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen">https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a><br>注意：点击IDEA右上角放大镜左边的按钮（Project Structure），或者快捷键ctrl + shift + alt + S，点击Modules：<br>（要包括scala-sdk和spark的jars包：D:\Programs\pyspark\spark-3.1.3-bin-hadoop3.2\jars）<br><img src="https://img-blog.csdnimg.cn/e6ae2feb72074bbd9ce297bd4f101e35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<h2 id="2-导包解决爆红"><a href="#2-导包解决爆红" class="headerlink" title="2.导包解决爆红"></a>2.导包解决爆红</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line">import org.apache.spark.sql.&#123;Dataset, SparkSession&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/126d15383d16440b968fedce4c037f7e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/98daabcf7f184b629f7478377ab5b441.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<p>3.成果展示<br><img src="https://img-blog.csdnimg.cn/397ef78d6d7445c8b9d068f82c3909b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>4.附上测试代码<br>注意！！package和object test1 为自己的哈</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package main.scala</span><br><span class="line"></span><br><span class="line">object test1 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(<span class="string">&quot;Hello Scala&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/88965290a2f64eda960e70816d57e579.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<p>三、心得<br>完结撒花，仙女落泪QAQ</p>
-<p>有问题可以发评论区，我看到会回复<br>折腾三天，理论把坑踩遍了hhh</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yutong-a.github.io/2024/03/25/%E9%AB%98%E5%BE%B7%E7%88%AC%E8%99%AB2.0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1114,10 +1030,87 @@ pip3 对应的是 Python 3.x。
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong-a.github.io/2024/03/25/My%20SQL%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%A3%80%E6%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/My%20SQL%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%A3%80%E6%9F%A5/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:15:02" itemprop="dateModified" datetime="2022-05-26T14:15:02+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="My SQL下载安装配置检查">TOC</a><br>详细的Mysql安装配置，及相关个性化配置。</p>
+<h1 id="一、MySQL下载安装"><a href="#一、MySQL下载安装" class="headerlink" title="一、MySQL下载安装"></a>一、MySQL下载安装</h1><p>1.搜索输入MySQL，这个是<a target="_blank" rel="noopener" href="https://www.csdn.net/">MySQL官网</a><br>链接：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/">https://dev.mysql.com/downloads/</a><br><img src="https://img-blog.csdnimg.cn/20200706162206327.png" alt="在这里插入图片描述"><br>2.在官网上下载可安装版的MySQL数据库<br><img src="https://img-blog.csdnimg.cn/20200706162333713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>①查看Community对应左侧下方选项，单击第四个“MySQL Community Server”<br>②进入MySQL选项下载列表，选择Windows（x86,32-bit），MSI Installer（64位的下载64位的，安装版本是INStall，解压版本是zip）<br>③我选择的安装版本：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/windows/installer/8.0.html">https://dev.mysql.com/downloads/windows/installer/8.0.html</a><br><img src="https://img-blog.csdnimg.cn/20200706162409280.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200706162421919.png" alt="在这里插入图片描述"><br>单击“Download”按钮，进入下载页面<br><img src="https://img-blog.csdnimg.cn/20200706162428895.png" alt="在这里插入图片描述"><br>下载页面有注册登录按钮，也有不用登录的选项（No thanks，just start my download.），选择不用注册登录选项，进入下载状态<br>3下载完毕，在文件夹中打开<br><img src="https://img-blog.csdnimg.cn/202007061624444.png" alt="在这里插入图片描述"></p>
+<h1 id="二、MySQL安装配置"><a href="#二、MySQL安装配置" class="headerlink" title="二、MySQL安装配置"></a>二、MySQL安装配置</h1><p>1.打开下载的文件<br>双击运行，等待授权后出现如下界面：<br>根据自己需要选择安装模式，这里选择只安装服务器，并设置路径<br>2.选择customer后next<br><img src="https://img-blog.csdnimg.cn/20200706162505510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.选择版本，点击向右的箭头<br>8.0大一些，感觉5.7我够用了，所以选的5.7<br>按下图勾选，只要第一个（多勾选了安装时会显示Progress 99%，然后进度条不动）<br><img src="https://img-blog.csdnimg.cn/20200706162516819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4.等待<br><img src="https://img-blog.csdnimg.cn/2020070616252359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>5.完成<br><img src="https://img-blog.csdnimg.cn/20200706162532199.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="三、配置MySQL"><a href="#三、配置MySQL" class="headerlink" title="三、配置MySQL"></a>三、配置MySQL</h1><p>安装完成后，还需要设置MySQL的各项参数才能正常使用。<br>1.不用改，直接点击下图中的“Next”按钮，直接进入参数配置页面<br><img src="https://img-blog.csdnimg.cn/20200706162540378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2.有两个选项“Standalone MySQL Server / Classic MySQL Replication”和“InnoDB Cluster Sandbox Test Setup（for testing only）”。<br>如果要运行独立的MySQL服务器可以选择前者，以便稍后配置经典的MySQL复制，使用该选项，用户可以手动配置复制设置，并在需要时提供自己的高可用性解决方案。<br>而后者是InnoDB集群沙箱测试设置，仅用于测试。<br><img src="https://img-blog.csdnimg.cn/20200706162547938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.服务器配置类型“Config Type”选择“Development Computer”<br>不同的选择系统，为My SQL服务器实例分配资源的大小不同。<br>Development Computer：开发机，该类型应用将会使用最小数量的内存。<br>Server Computer：服务器，该类型应用将会使用中等大小的内存。<br>Dedicated Computer：专用服务器，该类型应用将使用当前可用的最大内存。<br>连接方式保持默认的TCP/IP，端口号也保持默认的3306。Next。<br><img src="https://img-blog.csdnimg.cn/20200706162554932.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>4.接下来就是设置MySQL数据库Root账户密码，需要输入两遍。这个密码可以用记事本记下来，后边会用到。<br><img src="https://img-blog.csdnimg.cn/20200706162600643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>5.在配置Windows服务时，需要以下几部操作：<br>①勾选“Configure MySQL Server as a Windows Service”选项，将MySQL服务器配置为Windows服务；<br>②取消“Start the MySQL Server at System Startup”选项前边的“√”（该选项是设置是否开机自启动MySQL服务，我选择开机不启动）；<br>③勾选“Standard System Account”选项，该选项是标准系统账户，推荐使用该账户；<br>④next；<br><img src="https://img-blog.csdnimg.cn/20200706162611497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>6.准备执行上述配置<br>直接Execute。等到所有的配置完成之后，会出现如下图所示的界面。<br><img src="https://img-blog.csdnimg.cn/20200706162617870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Finish，跳到配置成功界面。Next，再Finish即可完成配置。</p>
+<h1 id="四、检查确认"><a href="#四、检查确认" class="headerlink" title="四、检查确认"></a>四、检查确认</h1><p>在菜单栏搜索MySQL 5.7 Command Line Client - Unicode，测试是否成功，下面就是成功了，不成功会直接关闭<br><img src="https://img-blog.csdnimg.cn/20200706162627243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="五、参考文献"><a href="#五、参考文献" class="headerlink" title="五、参考文献"></a>五、参考文献</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42260102/article/details/98493874">https://blog.csdn.net/weixin_42260102/article/details/98493874</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1185,20 +1178,20 @@ pip3 对应的是 Python 3.x。
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1237,7 +1230,7 @@ pip3 对应的是 Python 3.x。
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共77k字</span>
+  <span class="post-count">博客全站共75.6k字</span>
 </div>
 
         
