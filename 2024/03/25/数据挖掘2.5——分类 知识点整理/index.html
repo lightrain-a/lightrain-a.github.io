@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC 1.基本概念分类找出描述和区分数据类或概念的模型， 以便能够使用模型预测类标号未知的对象的类标号。 概念区分■ 分类与预测• 分类是预测分类（ 离散、 无序） 标号；• 预测建立连续值函数模型；■ 分类与聚类• 分类是有监督学习， 提供了训练元组的类标号；• 聚类是无监督学习， 不依赖有类标号的训练实例； 2.描述分类的一般过程■ 学习阶段• 建立描述预先定义的数据类或概念集的分类器•">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.5%E2%80%94%E2%80%94%E5%88%86%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC 1.基本概念分类找出描述和区分数据类或概念的模型， 以便能够使用模型预测类标号未知的对象的类标号。 概念区分■ 分类与预测• 分类是预测分类（ 离散、 无序） 标号；• 预测建立连续值函数模型；■ 分类与聚类• 分类是有监督学习， 提供了训练元组的类标号；• 聚类是无监督学习， 不依赖有类标号的训练实例； 2.描述分类的一般过程■ 学习阶段• 建立描述预先定义的数据类或概念集的分类器•">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fe922b75867e498f8291cf23dacce914.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ce18eede18df4733bd150e12140e3292.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2e5fbc0350e04156a57191fcbfc812f0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9e05a505336b4b71aaf522e785b936ec.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/781bdaa18a58415a8662ebaf20746991.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/794f3bdf4b564462898cfbd3f3469fd3.png">
+<meta property="article:published_time" content="2024-03-25T08:23:31.066Z">
+<meta property="article:modified_time" content="2022-05-26T06:13:40.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/fe922b75867e498f8291cf23dacce914.png">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.5%E2%80%94%E2%80%94%E5%88%86%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.5%E2%80%94%E2%80%94%E5%88%86%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:40" itemprop="dateModified" datetime="2022-05-26T14:13:40+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="数据挖掘2.5——分类">TOC</a></p>
+<h1 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.基本概念"></a>1.基本概念</h1><p><strong>分类</strong><br>找出描述和区分数据类或概念的模型， 以便能够使用模型预测类标号未知的对象的类标号。</p>
+<p><strong>概念区分</strong><br>■ 分类与预测<br>• 分类是预测分类（ 离散、 无序） 标号；<br>• 预测建立连续值函数模型；<br>■ 分类与聚类<br>• 分类是有监督学习， 提供了训练元组的类标号；<br>• 聚类是无监督学习， 不依赖有类标号的训练实例；</p>
+<h1 id="2-描述分类的一般过程"><a href="#2-描述分类的一般过程" class="headerlink" title="2.描述分类的一般过程"></a>2.描述分类的一般过程</h1><p>■ 学习阶段<br>• 建立描述预先定义的数据类或概念集的分类器<br>• 训练集提供了每个训练元组的类标号， 分类的学习过程，也称为监督学习 (supervised learning)<br>■ 分类阶段<br>• 使用定义好的分类器进行分类的过程</p>
+<h1 id="3-掌握朴素贝叶斯分类原理"><a href="#3-掌握朴素贝叶斯分类原理" class="headerlink" title="3.掌握朴素贝叶斯分类原理"></a>3.掌握朴素贝叶斯分类原理</h1><h1 id="4-决策树分类"><a href="#4-决策树分类" class="headerlink" title="4.决策树分类"></a>4.决策树分类</h1><p>决策树算法：</p>
+<ul>
+<li>Hunt算法</li>
+<li>信息增益 Information gain(ID3)</li>
+<li>增益比率 Gain ration (ID3，C4.5)</li>
+<li>基尼指数—Gini index (SLIQ, SPRINT)<h2 id="4-1-Hunt算法"><a href="#4-1-Hunt算法" class="headerlink" title="4.1 Hunt算法"></a>4.1 Hunt算法</h2>• 贪心策略（局部最优）构建决策树</li>
+</ul>
+<blockquote>
+<p>• 决策树归纳的<strong>设计问题</strong></p>
+<ul>
+<li>如何分裂训练记录？<br>怎样为不同类型的属性指定测试条件<br>怎样评估每种测试条件</li>
+<li>如何停止分裂过程？</li>
+</ul>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/fe922b75867e498f8291cf23dacce914.png" alt="在这里插入图片描述"></p>
+<h1 id="5-模型的评价"><a href="#5-模型的评价" class="headerlink" title="5.模型的评价"></a>5.模型的评价</h1><h2 id="5-1-准确率的局限"><a href="#5-1-准确率的局限" class="headerlink" title="5.1 准确率的局限"></a>5.1 准确率的局限</h2><p>■ 考虑一个二分类问题</p>
+<ul>
+<li>0类的实例数 = 9990</li>
+<li>1类的实例数 = 10</li>
+</ul>
+<p>■ 如果模型预测每个实例为0类， 则准确率为</p>
+<ul>
+<li>准确率是误导</li>
+<li>模型不能正确预测任何 而在疾病检测中，1类更需要被关心</li>
+</ul>
+<h2 id="5-2-其他度量"><a href="#5-2-其他度量" class="headerlink" title="5.2 其他度量"></a>5.2 其他度量</h2><h3 id="1-混淆矩阵"><a href="#1-混淆矩阵" class="headerlink" title="1.混淆矩阵"></a>1.混淆矩阵</h3><p><img src="https://img-blog.csdnimg.cn/ce18eede18df4733bd150e12140e3292.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>第一个字母T对应预测正确，F预测错误<br>第二个字母P对应真实正例，N真实反例</p>
+</blockquote>
+<ul>
+<li>真阳历TP， 真阳性（True positive rate,TPR) 或灵敏度（sensitivity) 、 查全率(recall)<br><em>TPR= TP/(TP+ FN)</em></li>
+<li>真阴历TN， 真阴性（True negative rate， TNR) 或特指度 (specificity)<br><em>TNR= TN/(TN+ FP)</em></li>
+<li>假阳历FP， 假阳性（False positive rate,FPR) 或误报率<br><em>FPR = FP/(TN + FP)</em></li>
+<li>假阴历FN，假阴性(False negative rate, FNR ) ，漏报率（与查全率此消彼长 )<br><em>FNR = FN/(TP + FN)</em></li>
+</ul>
+<h3 id="2-广泛使用"><a href="#2-广泛使用" class="headerlink" title="2.广泛使用"></a>2.广泛使用</h3><p>召回率（查全率，recall）：所有真实正例中<br>精确率（查准率，precision）：所有预测正例中<br><img src="https://img-blog.csdnimg.cn/2e5fbc0350e04156a57191fcbfc812f0.png" alt="在这里插入图片描述"><br><strong>实例</strong><br><img src="https://img-blog.csdnimg.cn/9e05a505336b4b71aaf522e785b936ec.png" alt="在这里插入图片描述"></p>
+<h2 id="5-3-ROC曲线"><a href="#5-3-ROC曲线" class="headerlink" title="5.3 ROC曲线"></a>5.3 ROC曲线</h2><p>■ 前面分类器性能评价的局限性：分类器预测结果为离散的1或者0<br>■ 朴素贝叶斯输出 p(|x y)=<br>■ 其他分类器输出是一个连续的概率值，且同我们仅仅关系“1” 类别的概率</p>
+<blockquote>
+<p><strong>解决方法</strong>： 连续的值离散化<br><strong>导致的问题</strong>： 离散阈值难以确定</p>
+</blockquote>
+<p>接收者操作特征曲线（Receiver Operating Characteristic Curve, 或者叫ROC曲线）是一种坐标图式的分析工具， 用于</p>
+<ul>
+<li>(1)选择最佳的分类模型、 舍弃次佳的模型。</li>
+<li>(2)在同一模型中设定最佳阈值。</li>
+</ul>
+<p>■ ROC曲线下方的区域称为<strong>AUC</strong><br><img src="https://img-blog.csdnimg.cn/781bdaa18a58415a8662ebaf20746991.png" alt="在这里插入图片描述"><br>■ <strong>做法</strong>：</p>
+<ul>
+<li>首先利用分类器计算每个数据记录的后验概率 P(+|A)</li>
+<li>将这些数据记录对应的 P(+|A)从高到低排列（如下表）：<ul>
+<li>由低到高，对于每个P(+|A)值(threshold, 阈值），把对应的记录以及那些值高于或等于阈值指派为阳性类positive， 把那些低于阈值指派为阴性类negative</li>
+<li>统计TP，FP，TN，FN</li>
+<li>计算TPR = TP/(TP+FN)和<br>FPR = FP/(FP+ TN)</li>
+</ul>
+</li>
+<li>绘出诸点(FPR， TPR)并连接它们</li>
+</ul>
+<h2 id="5-4-过拟合与欠拟合"><a href="#5-4-过拟合与欠拟合" class="headerlink" title="5.4 过拟合与欠拟合"></a>5.4 过拟合与欠拟合</h2><p>■ 分类模型的误差大致分为两种：</p>
+<ul>
+<li>训练误差： 是在训练记录上误分类样本比例</li>
+<li>泛化误差： 是模型在未知记录上的期望误差</li>
+</ul>
+<p>■ 一个好的分类模型不仅要能够很好的拟合训练数据， 而且对未知样本也要能准确分类。<br>■ 换句话说， 一个好的分类模型必须具有低训练误差和低泛化误差。<br>■ 当训练数据拟合太好的模型（较低训练误差） ， 其泛化误差可能比具有较高训练误差的模型高， 这种情况成为模型过分拟合。</p>
+<blockquote>
+<p>数据预处理—&gt;模型训练—&gt;模型调整—&gt;对新数据分类—&gt;模型评价</p>
+</blockquote>
+<p><strong>实例</strong><br>以决策树算法为例：<br>• 当决策树很小时，训练和检验误差都很大，这种情况称为模型拟合不足。出现拟合不足的原因是模型尚未学习到数据的真实结构。<br>• 随着决策树中结点数的增加，模型的训练误差和泛化误差都会随之下降。<br>• 当树的规模变得太大时，即使训练误差还在继续降低，但泛化误差开始增大，导致模型过分拟合。<br><img src="https://img-blog.csdnimg.cn/794f3bdf4b564462898cfbd3f3469fd3.png" alt="在这里插入图片描述"><br><strong>导致过拟合的原因</strong><br>• 训练集规模太大<br>• 训练集中存在大量噪音数据<br>• 训练集规模太小， 训练模型过于复杂</p>
+<h1 id="6-基于规则的分类"><a href="#6-基于规则的分类" class="headerlink" title="6.基于规则的分类"></a>6.基于规则的分类</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.4%E2%80%94%E2%80%94%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%8C%96%E6%8E%98%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.6%E2%80%94%E2%80%94%E8%81%9A%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">1.基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%8F%8F%E8%BF%B0%E5%88%86%E7%B1%BB%E7%9A%84%E4%B8%80%E8%88%AC%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">2.描述分类的一般过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%8E%8C%E6%8F%A1%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">3.掌握朴素贝叶斯分类原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">4.决策树分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Hunt%E7%AE%97%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 Hunt算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BB%B7"><span class="nav-number">5.</span> <span class="nav-text">5.模型的评价</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%87%86%E7%A1%AE%E7%8E%87%E7%9A%84%E5%B1%80%E9%99%90"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 准确率的局限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E5%85%B6%E4%BB%96%E5%BA%A6%E9%87%8F"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 其他度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.混淆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B9%BF%E6%B3%9B%E4%BD%BF%E7%94%A8"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.广泛使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-ROC%E6%9B%B2%E7%BA%BF"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 ROC曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 过拟合与欠拟合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%9F%BA%E4%BA%8E%E8%A7%84%E5%88%99%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">6.</span> <span class="nav-text">6.基于规则的分类</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

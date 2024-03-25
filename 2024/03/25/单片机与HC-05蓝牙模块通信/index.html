@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC 一、写在最前面与物院、材院的同学一起，设计由霍尔元件、电磁铁和单片机等元素构成的水污染测试系统，通过自学完成单片机与HC-05蓝牙模块通信板块以及系统前端页面设计，获得全国物理实验三等奖、湖北省物理实验创新设计竞赛二等奖。感谢@周 一个下午外加三晚上的单片机讲解，@队友们提供的物理实验的机会，@的APP前端设计 二、相关介绍本实验以树莓派开发板作为控制板并加以5V的直流稳压电源，通过UA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8EHC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC 一、写在最前面与物院、材院的同学一起，设计由霍尔元件、电磁铁和单片机等元素构成的水污染测试系统，通过自学完成单片机与HC-05蓝牙模块通信板块以及系统前端页面设计，获得全国物理实验三等奖、湖北省物理实验创新设计竞赛二等奖。感谢@周 一个下午外加三晚上的单片机讲解，@队友们提供的物理实验的机会，@的APP前端设计 二、相关介绍本实验以树莓派开发板作为控制板并加以5V的直流稳压电源，通过UA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210617121048804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210617121147852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2024-03-25T08:23:31.041Z">
+<meta property="article:modified_time" content="2022-05-26T06:14:56.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210617121048804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8EHC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8EHC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:14:56" itemprop="dateModified" datetime="2022-05-26T14:14:56+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="单片机与HC-05蓝牙模块通信">TOC</a></p>
+<h1 id="一、写在最前面"><a href="#一、写在最前面" class="headerlink" title="一、写在最前面"></a>一、写在最前面</h1><p>与物院、材院的同学一起，设计由霍尔元件、电磁铁和单片机等元素构成的水污染测试系统，通过自学完成单片机与HC-05蓝牙模块通信板块以及系统前端页面设计，获得全国物理实验三等奖、湖北省物理实验创新设计竞赛二等奖。<br>感谢@周 一个下午外加三晚上的单片机讲解，@队友们提供的物理实验的机会，@的APP前端设计</p>
+<h1 id="二、相关介绍"><a href="#二、相关介绍" class="headerlink" title="二、相关介绍"></a>二、相关介绍</h1><p>本实验以树莓派开发板作为控制板并加以5V的直流稳压电源，通过UART库初始化树莓派的单片机的串口，再使用初始化单片机的串口连接HC-05蓝牙模块，将单片机测试的电压值处理后通过蓝牙无线通信传输至手机，最后手机通过无线通信控制单片机的继电器从而改变电路中的净化功能。<br>树莓派Raspberry Pi Pico 是一款搭载了 RP 2040 芯片的微处理器开发板，搭载双核 ARM Cortex M0+ 处理器，运行频率 133 MHz，内置 264 KB 的片上 RAM，可通过专用 QSPI 总线支持最高 16 MB 的片外闪存，DMA 控制器，外挂内插器和整数除法器，2 个 SPI、2 个 I2C、2 个 UART，16 个 PWM 通道，主机和设备支持的 USB 1.1，8 个树莓派可编程 I/O 状态，支持 UF2 的 USB 大容量存储启动模式。开发板上有30个GPIO接口，使用python的第三方库machine进行对各个引脚的控制，并通过GPIO26接口实现模拟信号的输入，即待测电路的电压值。<br><img src="https://img-blog.csdnimg.cn/20210617121048804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>HC-05蓝牙模块，是一个蓝牙转串口转换器，可以连接微控制器的其他设备，允许它们进行无线蓝牙通信。HC-05的主要工作是为了添加双向（全双工）的无线功能。它可以用于两个具有串行功能的微控制器之间的通信，也可以用于通过微控制性控制蓝牙设备的功能，反之亦然。模块启动后，任何蓝牙设备都可以发现它。在这里，我们通过其将单片机与手机建立连接，之后数据通过HC-05传输，并转换为串行流，然后由模块连接的控制器读取该串行流，与从控制器发送数据给蓝牙的方法相反。</p>
+<h1 id="三、电路"><a href="#三、电路" class="headerlink" title="三、电路"></a>三、电路</h1><p>（1）建立电路<br>我们通过杜邦线分别将树莓派的GPIO与测试电路、HC-05蓝牙模块、5V直流稳压电源、CLR元件等信号进行连接。预测电路的待测电压及GNU分别连接，向单片机输入电压等模拟信号；由外部电源给单片机供电，运行烧入单片机的程序；同时将串口模块输出信号3V3（OUT）与HC-05蓝牙模块连接起来，实现蓝牙通信功能；CLR元件能对电路实现通断控制，从而实现复位功能。<br>单片机串口模块 —————————— 测试电路<br>GPIO26 ————————————————— 正极<br>GND —————————————————— 负极</p>
+<p>单片机串口模块 ——————— HC-05蓝牙模块<br>3V3OUT ————————————————— VCC<br>GND ——————————————————— GND<br>GPIO0（TXD） —————————————— RXD<br>GPIO1（RXD） —————————————— TXD</p>
+<p>单片机串口模块 —————————— 外部电源<br>VSYS —————————————————— VCC<br>GND —————————————————— GUN</p>
+<p>单片机串口模块 —————————— CLR元件<br>3V3OUT ————————————————— 一端<br>GND —————————————————— 另一端</p>
+<p>（2）升级安装蓝牙相关软件包，添加pi用户到蓝牙组，并重启；<br>打开PC端串口工具，由于此时默认波特率为38400，故将软件端波特率选项选为38400。此时可以在命令窗口发送命令，以 “回车”即换行结尾。输入 AT，再按回车换行，点击发送，此时接收端的窗口会收到一条OK指令，说明通信成功。之后我们对波特率进行设置。在初次调试过程中，我们将波特率设置为可以和手机通信的波特率9600bits/s。发送指令AT+UART=9600,0,0换行，将设置波特率为9600，停止位是1位，奇偶效验位没有（none）。最后设置配对码。发送指令AT+PSWD=<1234>换行，将配对码设置为1234；发送指令AT+PSWD?换行，显示配对码为1234，说明设置成功。</p>
+<p>（3）HC-05蓝牙模块与手机连接，查看设备名；<br>进入蓝牙模式，HC-05蓝牙模块的指示灯会一秒钟闪两下。通过手机APPSPP蓝牙串口连接蓝牙。连接成功后，灯变成连闪两下。之后，我们将通过蓝牙模块连接手机进行无限通信。将USB串口拔下，再直接插上（这次不用按小钮），便进入了自动连接模式。PC软件端波特率设置为9600，16进制显示，16进制发送。手机蓝牙串口APP端设置为HEX模式。就可以进行通信了。如果传输文本，那么PC端去掉 16进制显示和16进制发送的勾选，app端去掉HEX模式的勾选即可。<br>（4）编写能控制输出处理后模拟量的程序函数；<br>（5）编写蓝牙模块与手机蓝牙的测试程序，确保两个模块正常运行；<br>（6）编写完整程序，使得能通过蓝牙模块发送和接收模拟信号信息；<br>（7） 写了一个交互模块，单片机测试的电压值处理后通过蓝牙无线通信传输至手机，使得使用者能够通过手机获取污水有关信息；手机可以通过蓝牙传输的方式，发送给树莓派，最后根据选择模式控制单片机的继电器从而改变电路中的净化功能。<br><img src="https://img-blog.csdnimg.cn/20210617121147852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E8%BE%A9%E8%AE%BA%E5%90%88%E9%9B%86/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E9%AB%98%E5%BE%B7%E7%88%AC%E8%99%AB1.0/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">一、写在最前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">二、相关介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%94%B5%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">三、电路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

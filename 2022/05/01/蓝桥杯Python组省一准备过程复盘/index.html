@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="把准备的全部代码整理了一下，也是自己的一个小复盘。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯python组省一">
+<meta property="og:url" content="https://yutong.github.io/2022/05/01/%E8%93%9D%E6%A1%A5%E6%9D%AFPython%E7%BB%84%E7%9C%81%E4%B8%80%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B%E5%A4%8D%E7%9B%98/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="把准备的全部代码整理了一下，也是自己的一个小复盘。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/37902733fc7749a28cd72b61ebb5d120.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9fd612b7a69040eab7db762e31a9556b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/224af47752b441a883c005eda1ee702a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2a1ef2c5824f4180af233a3abcecad08.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5f7c76da92024a458db643c44e20a3d3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a1d37fd6811b4e17a07dbf9885bdaf69.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aa49bacecd124515aa3047b5872063cc.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/45a17d7838f649c993af7ab01c39a4ff.png">
+<meta property="article:published_time" content="2022-04-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-28T07:13:37.237Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="蓝桥杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/37902733fc7749a28cd72b61ebb5d120.png">
+
+<link rel="canonical" href="https://yutong.github.io/2022/05/01/%E8%93%9D%E6%A1%A5%E6%9D%AFPython%E7%BB%84%E7%9C%81%E4%B8%80%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B%E5%A4%8D%E7%9B%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>蓝桥杯python组省一 | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2022/05/01/%E8%93%9D%E6%A1%A5%E6%9D%AFPython%E7%BB%84%E7%9C%81%E4%B8%80%E5%87%86%E5%A4%87%E8%BF%87%E7%A8%8B%E5%A4%8D%E7%9B%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          蓝桥杯python组省一
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-01T00:00:00+08:00">2022-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-28 15:13:37" itemprop="dateModified" datetime="2022-05-28T15:13:37+08:00">2022-05-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%93%9D%E6%A1%A5%E6%9D%AFpython/" itemprop="url" rel="index"><span itemprop="name">蓝桥杯python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>把准备的全部代码整理了一下，也是自己的一个小复盘。</p>
+ <span id="more"></span>
+<h1 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h1><p>通过十天左右的认真学习和准备，拿到了python组省一和国赛资格。给予了代码路上更大的自信，现在写起代码跟吃了德芙一样丝滑，报错解决就和喝水一样顺气自然。<br>不得不说，自信对于写代码解决报错而言真是个好东西(<em>^▽^</em>)<br><img src="https://img-blog.csdnimg.cn/37902733fc7749a28cd72b61ebb5d120.png" alt="在这里插入图片描述"></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><img src="https://img-blog.csdnimg.cn/9fd612b7a69040eab7db762e31a9556b.png" alt="在这里插入图片描述"></p>
+<h1 id="各版块内容"><a href="#各版块内容" class="headerlink" title="各版块内容"></a>各版块内容</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124547334">蓝桥杯系列1——python组真题</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124547334">https://blog.csdn.net/wtyuong/article/details/124547334</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124553971">蓝桥杯系列2——python基本语法</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124553971">https://blog.csdn.net/wtyuong/article/details/124553971</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560369">蓝桥杯系列3——基础算法</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560369">https://blog.csdn.net/wtyuong/article/details/124560369</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560407">蓝桥杯系列4——python基础练习</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560407">https://blog.csdn.net/wtyuong/article/details/124560407</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560438">蓝桥杯系列5——填空题练习</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560438">https://blog.csdn.net/wtyuong/article/details/124560438</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560522">蓝桥杯系列6——python技巧</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wtyuong/article/details/124560522">https://blog.csdn.net/wtyuong/article/details/124560522</a></p>
+<h1 id="全部"><a href="#全部" class="headerlink" title="全部"></a>全部</h1><p><a target="_blank" rel="noopener" href="https://download.csdn.net/download/WTYuong/85274463">我准备蓝桥杯python组时全部的代码及结果，供时间不太够的同学冲击省一。</a></p>
+<p><a target="_blank" rel="noopener" href="https://download.csdn.net/download/WTYuong/85274463">https://download.csdn.net/download/WTYuong/85274463</a></p>
+<p>其实博客内容基本都覆盖了，主要是里面是.ipynb文件版本，可以直接跑，并且更方便做笔记。也欢迎在博客下面留言邮箱，如果看到也会发过去滴(<em>╹▽╹</em>)</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>由于平时用python相较其他语言更多，希望有一个能系统重新学习python的契机，因此报的python组。<br>最开始看了很多如何准备，热血沸腾，立即在番茄ToDo制定了100h计划，但不习惯软件辅助计时，除了注册后没就没打开过了，但感觉准备时间累计零零散散差不多也有40h左右。<br>然后学校给我们开了蓝桥杯的练习系统，顺着基础练习刷了一些，一题就几行代码给了我莫大的自信٩꒰▽ ꒱۶⁼³₌₃ 。<br><img src="https://img-blog.csdnimg.cn/224af47752b441a883c005eda1ee702a.png" alt="在这里插入图片描述"><br>然后逐渐有了手感，最基本的输入输出、杨辉三角（循环，if判断，递归）等等捡起来了。<br><img src="https://img-blog.csdnimg.cn/2a1ef2c5824f4180af233a3abcecad08.png" alt="在这里插入图片描述"><br>就二月准备了一下，中间去玩其他比赛了(๑╹ヮ╹๑)ﾉ ，其他比赛也都取得了比预期更好的成绩hhh，不得不说自己运气这方面一直比较顶，有想一起参赛的可以找我呀嘿嘿。<br>在之后准备是比赛前五天，倒数第五天把往届真题做了一下，题目很有意思，就是两题写一个下午，一天只写了几题。。。。速度太慢了，因此不是很想准备了来着<em>(´ཀ`」∠)</em>。<br>倒数第四天清理旧课本想回收，意外把之前上课的课本又看了一遍，不得不说教材写的真好，可惜第一次学的时候懵懵懂懂hhh（最后课本被我自己留下来了，还额外买了几本感兴趣的python教程 (((o(<em>ﾟ▽ﾟ</em>)o)))♡<br><img src="https://img-blog.csdnimg.cn/5f7c76da92024a458db643c44e20a3d3.png" alt="在这里插入图片描述"><br>倒数第三天，对照着菜鸟教程敲了一些基本语法<em>φ</em>(．．) 。（感谢前男友的之前的提醒，最基本的变量要理解清白，python基础确实很重要）。<br><img src="https://img-blog.csdnimg.cn/a1d37fd6811b4e17a07dbf9885bdaf69.png" alt="在这里插入图片描述"><br>倒数第二天，小题和技巧练习（内置函数）。<br><img src="https://img-blog.csdnimg.cn/aa49bacecd124515aa3047b5872063cc.png" alt="在这里插入图片描述"></p>
+<p>倒数最后一天，发现了一个宝藏博主代码随想录的算法教程，他讲的好有意思！所以不知不觉学了一天算法٩(๑❛ᴗ❛๑)۶，把之前美赛自己琢磨的dp给系统化了，一下有点通的感觉hhh。然后学习了prim算法：最小生成树。</p>
+<blockquote>
+<p>完整版，⼤家可以直接看代码随想录网站：<a target="_blank" rel="noopener" href="https://programmercarl.com/">https://programmercarl.com/</a> 。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/45a17d7838f649c993af7ab01c39a4ff.png" alt="在这里插入图片描述"></p>
+<p>同学说只准备了一天一夜，和大佬还有很大的差距hhh，但是准备一下拿个省一也是很快乐的(～￣▽￣)～<br>能刷到这篇博客都是认真准备的同学，加油我们都可以！冲！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 蓝桥杯</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/22/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%A1%8C%E4%B8%9A%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%88%98/" rel="prev" title="Hadoop大数据行业部署实战">
+      <i class="fa fa-chevron-left"></i> Hadoop大数据行业部署实战
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/02/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%B3%BB%E5%88%971%E2%80%94%E2%80%94python%E7%BB%84%E7%9C%9F%E9%A2%98/" rel="next" title="蓝桥杯系列1——真题">
+      蓝桥杯系列1——真题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在最前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%84%E7%89%88%E5%9D%97%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">各版块内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E9%83%A8"><span class="nav-number">4.</span> <span class="nav-text">全部</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

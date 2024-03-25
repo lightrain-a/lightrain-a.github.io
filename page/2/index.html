@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/page/2/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yutong.github.io/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E9%85%8D%E7%BD%AEspark%EF%BC%8C%E5%B9%B6%E5%9C%A8idea%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/%E9%85%8D%E7%BD%AEspark%EF%BC%8C%E5%B9%B6%E5%9C%A8idea%E4%B8%AD%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:50" itemprop="dateModified" datetime="2022-05-26T14:13:50+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="配置spark，并在idea中搭建项目">TOC</a></p>
+<p>网上的普遍太久远，不太适配，记录自己的完美搭建</p>
+<h1 id="一、配置spark"><a href="#一、配置spark" class="headerlink" title="一、配置spark"></a>一、配置spark</h1><h2 id="1-配置maven（注意选择版本为3-6-3）"><a href="#1-配置maven（注意选择版本为3-6-3）" class="headerlink" title="1.配置maven（注意选择版本为3.6.3）"></a>1.配置maven（注意选择版本为3.6.3）</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/huo920/article/details/82082403">https://blog.csdn.net/huo920/article/details/82082403</a><br>但这一步是多余的</p>
+<h2 id="2-下载scala（注意版本对应为2-12）"><a href="#2-下载scala（注意版本对应为2-12）" class="headerlink" title="2.下载scala（注意版本对应为2.12）"></a>2.下载scala（注意版本对应为2.12）</h2><p>查看scala版本：scala -version<br>查看对应关系：<a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/org.apache.spark/spark-core">https://mvnrepository.com/artifact/org.apache.spark/spark-core</a><br><img src="https://img-blog.csdnimg.cn/e907e3ba8d7849eea07e03d06d9a250b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>安装scala参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1733776">https://cloud.tencent.com/developer/article/1733776</a><br>官网：<a target="_blank" rel="noopener" href="https://www.scala-lang.org/download/">https://www.scala-lang.org/download/</a><br>然后选择特定的版本<br><img src="https://img-blog.csdnimg.cn/736328894ed445bbb614a6f140d778a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>3.下载spark（注意版本选择3.1.3）<br>不要太新了，否则spark-shell会报错，需要降低版本<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a><br>检验：cmd中spark-shell<br><img src="https://img-blog.csdnimg.cn/73f89004779e424d9a5fcf479a3590ee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="二、搭建idea项目"><a href="#二、搭建idea项目" class="headerlink" title="二、搭建idea项目"></a>二、搭建idea项目</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1.创建项目"></a>1.创建项目</h2><p>由于版本较新，maven版本配置全靠自己琢磨，可惜自己没琢磨透<br>感谢好友@玥的热心帮助，通过直接创建项目解决问题<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen">https://blog.csdn.net/github_38924695/article/details/118510289?utm_source=app&amp;app_version=5.3.1&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a><br>注意：点击IDEA右上角放大镜左边的按钮（Project Structure），或者快捷键ctrl + shift + alt + S，点击Modules：<br>（要包括scala-sdk和spark的jars包：D:\Programs\pyspark\spark-3.1.3-bin-hadoop3.2\jars）<br><img src="https://img-blog.csdnimg.cn/e6ae2feb72074bbd9ce297bd4f101e35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="2-导包解决爆红"><a href="#2-导包解决爆红" class="headerlink" title="2.导包解决爆红"></a>2.导包解决爆红</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line">import org.apache.spark.sql.&#123;Dataset, SparkSession&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/126d15383d16440b968fedce4c037f7e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/98daabcf7f184b629f7478377ab5b441.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>3.成果展示<br><img src="https://img-blog.csdnimg.cn/397ef78d6d7445c8b9d068f82c3909b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>4.附上测试代码<br>注意！！package和object test1 为自己的哈</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package main.scala</span><br><span class="line"></span><br><span class="line">object test1 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(<span class="string">&quot;Hello Scala&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/88965290a2f64eda960e70816d57e579.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>三、心得<br>完结撒花，仙女落泪QAQ</p>
+<p>有问题可以发评论区，我看到会回复<br>折腾三天，理论把坑踩遍了hhh</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E9%AB%98%E5%BE%B7%E7%88%AC%E8%99%AB2.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/%E9%AB%98%E5%BE%B7%E7%88%AC%E8%99%AB2.0/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:14:56" itemprop="dateModified" datetime="2022-05-26T14:14:56+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="高德爬虫2.0">TOC</a></p>
+<h1 id="一、结果"><a href="#一、结果" class="headerlink" title="一、结果"></a>一、结果</h1><p><img src="https://img-blog.csdnimg.cn/20210605000743409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">gaode.py</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Created on Fri June 4 2021</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">@author: Wyt</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> quote</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</span><br><span class="line"><span class="keyword">from</span> transCoordinateSystem <span class="keyword">import</span> gcj02_to_wgs84</span><br><span class="line"><span class="keyword">import</span> openpyxl</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcity</span>(<span class="params">keywords</span>):</span></span><br><span class="line">    url1 = <span class="string">&quot;https://restapi.amap.com/v3/place/text&quot;</span></span><br><span class="line">    i = <span class="number">0</span>  <span class="comment"># 爬取的页面信息，i=2时即爬取第2页的数据。当 result[&#x27;count&#x27;]=0 时即此页面已经无信息，爬取所有数据时可以用此终止循环</span></span><br><span class="line">    req_url1 = poi_search_url + <span class="string">&quot;?key=&quot;</span> + amap_web_key + <span class="string">&#x27;&amp;extensions=all&amp;keywords=&#x27;</span> + quote(</span><br><span class="line">        keywords) + <span class="string">&#x27;&amp;offset=25&#x27;</span> + <span class="string">&#x27;&amp;page=&#x27;</span> + <span class="built_in">str</span>(i) + <span class="string">&#x27;&amp;output=json&#x27;</span></span><br><span class="line">    data1 = &#123;&#125;</span><br><span class="line">    f = request.urlopen(req_url1)</span><br><span class="line">    data1 = f.read()</span><br><span class="line">    data1 = data1.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    result1 = json.loads(data1)</span><br><span class="line">    city_list = []</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> result1[<span class="string">&#x27;suggestion&#x27;</span>][<span class="string">&#x27;cities&#x27;</span>]:</span><br><span class="line">            <span class="comment"># print(i[&#x27;name&#x27;])</span></span><br><span class="line">            city_list.append(i[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="built_in">print</span>(city_list)</span><br><span class="line">    <span class="keyword">return</span> city_list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单页获取pois,返回data</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getpoi_page</span>(<span class="params">cityname, keywords, page</span>):</span></span><br><span class="line">    req_url = poi_search_url + <span class="string">&quot;?key=&quot;</span> + amap_web_key + <span class="string">&#x27;&amp;extensions=all&amp;keywords=&#x27;</span> + quote(</span><br><span class="line">        keywords) + <span class="string">&#x27;&amp;city=&#x27;</span> + quote(cityname) + <span class="string">&#x27;&amp;citylimit=true&#x27;</span> + <span class="string">&#x27;&amp;offset=25&#x27;</span> + <span class="string">&#x27;&amp;page=&#x27;</span> + <span class="built_in">str</span>(</span><br><span class="line">        page) + <span class="string">&#x27;&amp;output=json&#x27;</span></span><br><span class="line"></span><br><span class="line">    data = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> request.urlopen(req_url) <span class="keyword">as</span> f1:</span><br><span class="line">        data = f1.read()</span><br><span class="line">        data = data.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将返回的poi数据装入集合返回</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hand</span>(<span class="params">poilist, result</span>):</span></span><br><span class="line">    <span class="comment"># result = json.loads(result)  # 将字符串转换为json</span></span><br><span class="line">    pois = result[<span class="string">&#x27;pois&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pois)):</span><br><span class="line">        poilist.append(pois[i])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据城市名称和分类关键字获取poi数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getpois</span>(<span class="params">cityname, keywords</span>):</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    poilist = []</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:  <span class="comment"># 使用while循环不断分页获取数据</span></span><br><span class="line">        result = getpoi_page(cityname, keywords, i)</span><br><span class="line">        <span class="built_in">print</span>(result)</span><br><span class="line">        result = json.loads(result)  <span class="comment"># 将字符串转换为json</span></span><br><span class="line">        <span class="comment"># errors修改：如果没有找到数据，则跳出</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> (result[<span class="string">&#x27;count&#x27;</span>] == <span class="string">&#x27;0&#x27;</span>) | (<span class="string">&#x27;count&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> result.keys()):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="comment"># 将结果装入集合返回</span></span><br><span class="line">        hand(poilist, result)</span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line">        <span class="comment"># print(&quot;______________________________&quot;)</span></span><br><span class="line">        <span class="built_in">print</span>(poilist)</span><br><span class="line">    <span class="keyword">return</span> poilist</span><br><span class="line"></span><br><span class="line"><span class="comment"># def write_to_excel(classfield,allcol):</span></span><br><span class="line"><span class="comment">#     print(classfield)</span></span><br><span class="line"><span class="comment">#     # 一个Workbook对象，这就相当于创建了一个Excel文件</span></span><br><span class="line"><span class="comment">#     book = openpyxl.Workbook()</span></span><br><span class="line"><span class="comment">#     sheet = book.create_sheet(index=0)</span></span><br><span class="line"><span class="comment">#     # 第一行(列标题)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 1,&#x27;品牌名称&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 2, &#x27;门店名称&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 3, &#x27;分类&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 4, &#x27;省&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 5, &#x27;市&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 6, &#x27;区/县&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 7, &#x27;地址&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 8, &#x27;经度&#x27;)</span></span><br><span class="line"><span class="comment">#     sheet.cell(1, 9, &#x27;维度&#x27;)</span></span><br><span class="line"><span class="comment">#     count=0</span></span><br><span class="line"><span class="comment">#     for i in allcol:</span></span><br><span class="line"><span class="comment">#         brand = i</span></span><br><span class="line"><span class="comment">#         poilist = getpois(cityname,brand)</span></span><br><span class="line"><span class="comment">#         print(brand)</span></span><br><span class="line"><span class="comment">#         for i in range(len(poilist)):</span></span><br><span class="line"><span class="comment">#             location = poilist[i][&#x27;location&#x27;]  # 经纬度</span></span><br><span class="line"><span class="comment">#             name = poilist[i][&#x27;name&#x27;]  # 店名</span></span><br><span class="line"><span class="comment">#             type = poilist[i][&#x27;type&#x27;]  # 分类</span></span><br><span class="line"><span class="comment">#             pname = poilist[i][&#x27;pname&#x27;]  # 省</span></span><br><span class="line"><span class="comment">#             cityname = poilist[i][&#x27;cityname&#x27;]  # 市</span></span><br><span class="line"><span class="comment">#             adname = poilist[i][&#x27;adname&#x27;]  # 区/县</span></span><br><span class="line"><span class="comment">#             address = poilist[i].get(&#x27;address&#x27;)  # 地址</span></span><br><span class="line"><span class="comment">#             lng = str(location).split(&quot;,&quot;)[0]  # 经度</span></span><br><span class="line"><span class="comment">#             lat = str(location).split(&quot;,&quot;)[1]  # 纬度</span></span><br><span class="line"><span class="comment">#             &#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment">#             result = gcj02_to_wgs84(float(lng), float(lat))</span></span><br><span class="line"><span class="comment">#             lng = result[0]</span></span><br><span class="line"><span class="comment">#             lat = result[1]</span></span><br><span class="line"><span class="comment">#             &#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment">#             # 每一行写入</span></span><br><span class="line"><span class="comment">#             # print(count + i + 1)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 1, brand)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 2, name)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 3, type)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 4, pname)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 5, cityname)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 6, adname)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 7, address)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 8, lng)</span></span><br><span class="line"><span class="comment">#             sheet.cell(count + i + 2, 9, lat)</span></span><br><span class="line"><span class="comment">#             print(brand+&quot;写入成功！&quot;)</span></span><br><span class="line"><span class="comment">#             count=count+len(poilist)</span></span><br><span class="line"><span class="comment">#         book.save(r&#x27;total_data_test5555.xlsx&#x27;)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#         book.close()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据写入excel</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_excel</span>(<span class="params"> poilist, classfield,count</span>):</span></span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">1</span>,<span class="string">&#x27;品牌名称&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;门店名称&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">3</span>, <span class="string">&#x27;分类&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">4</span>, <span class="string">&#x27;省&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">5</span>, <span class="string">&#x27;市&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">6</span>, <span class="string">&#x27;区/县&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">7</span>, <span class="string">&#x27;地址&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">8</span>, <span class="string">&#x27;经度&#x27;</span>)</span><br><span class="line">    sheet.cell(<span class="number">1</span>, <span class="number">9</span>, <span class="string">&#x27;维度&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># poilist 代表的是爬取的所有的内容</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(poilist)):</span><br><span class="line">        name = (poilist[i][<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">        <span class="built_in">type</span> = poilist[i][<span class="string">&#x27;type&#x27;</span>]</span><br><span class="line">        pname = poilist[i][<span class="string">&#x27;pname&#x27;</span>]  <span class="comment">#省名称</span></span><br><span class="line">        cityname = poilist[i][<span class="string">&#x27;cityname&#x27;</span>]  <span class="comment"># 市名称</span></span><br><span class="line">        adname = poilist[i][<span class="string">&#x27;adname&#x27;</span>]  <span class="comment">#区/县</span></span><br><span class="line">        <span class="comment"># errors修改：KeyErrors</span></span><br><span class="line">        <span class="comment"># 使用dict内置的get(key[,default])方法。如果key存在，则返回其value，否则返回default。</span></span><br><span class="line">        address = poilist[i].get(<span class="string">&#x27;address&#x27;</span>,<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"></span><br><span class="line">        location = poilist[i][<span class="string">&#x27;location&#x27;</span>]</span><br><span class="line">        lng = <span class="built_in">str</span>(location).split(<span class="string">&quot;,&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">        lat = <span class="built_in">str</span>(location).split(<span class="string">&quot;,&quot;</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#坐标转换</span></span><br><span class="line">        result = gcj02_to_wgs84(<span class="built_in">float</span>(lng), <span class="built_in">float</span>(lat))</span><br><span class="line">        lng = result[<span class="number">0</span>]</span><br><span class="line">        lat = result[<span class="number">1</span>]</span><br><span class="line">        <span class="built_in">print</span>(count + i)</span><br><span class="line">        sheet.cell(count + i, <span class="number">1</span>, <span class="built_in">str</span>(classfield))</span><br><span class="line">        sheet.cell(count + i, <span class="number">2</span>, <span class="built_in">str</span>(name))</span><br><span class="line">        sheet.cell(count + i, <span class="number">3</span>, <span class="built_in">str</span>(<span class="built_in">type</span>))</span><br><span class="line">        sheet.cell(count + i , <span class="number">4</span>, <span class="built_in">str</span>(pname))</span><br><span class="line">        sheet.cell(count + i, <span class="number">5</span>, <span class="built_in">str</span>(cityname))</span><br><span class="line">        sheet.cell(count + i, <span class="number">6</span>, <span class="built_in">str</span>(adname))</span><br><span class="line">        sheet.cell(count + i, <span class="number">7</span>, <span class="built_in">str</span>(address))</span><br><span class="line">        sheet.cell(count + i, <span class="number">8</span>, <span class="built_in">str</span>(lng))</span><br><span class="line">        sheet.cell(count + i, <span class="number">9</span>, <span class="built_in">str</span>(lat))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 最后，将以上操作保存到指定的Excel文件中</span></span><br><span class="line">    <span class="comment"># TODO 需要设置写入的excel路径</span></span><br><span class="line">    book.save(<span class="string">r&#x27;D:/Desktop/total_data.xlsx&#x27;</span>)</span><br><span class="line">    <span class="comment"># book.save(r&#x27;D:/Desktop/&#x27; + cityname + &quot;_&quot; + classfield + &#x27;.xls&#x27;)</span></span><br><span class="line">    book.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#按各行政区分别获取</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">for clas in classes:</span></span><br><span class="line"><span class="string">    classes_all_pois = []</span></span><br><span class="line"><span class="string">    for area in nanning_areas:</span></span><br><span class="line"><span class="string">        pois_area = getpois(area, clas)</span></span><br><span class="line"><span class="string">        print(&#x27;当前城区：&#x27; + str(area) + &#x27;, 分类：&#x27; + str(clas) + &quot;, 总的有&quot; + str(len(pois_area)) + &quot;条数据&quot;)</span></span><br><span class="line"><span class="string">        classes_all_pois.extend(pois_area)</span></span><br><span class="line"><span class="string">    print(&quot;所有城区的数据汇总，总数为：&quot; + str(len(classes_all_pois)))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    write_to_excel(classes_all_pois, cityname, clas)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    print(&#x27;================分类：&#x27;  + str(clas) + &quot;写入成功&quot;)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># book = openpyxl.Workbook()</span></span><br><span class="line"><span class="comment"># sheet = book.create_sheet(index=0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 申请的密钥</span></span><br><span class="line">    <span class="comment"># TODO 需要修改成为自己的密钥</span></span><br><span class="line">    amap_web_key = <span class="string">&#x27;3aae9df0e318a90227a9a5f5bc81847e&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 要爬取的API根</span></span><br><span class="line">    poi_search_url = <span class="string">&quot;http://restapi.amap.com/v3/place/text&quot;</span></span><br><span class="line">    poi_boundary_url = <span class="string">&quot;https://ditu.amap.com/detail/get/detail&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># cityname为需要爬取的POI所属的城市名，city_areas为城市下面的行政区，classes为多个POI分类名的集合.</span></span><br><span class="line">    <span class="comment"># (中文名或者代码都可以，代码详见高德地图的POI分类编码表)</span></span><br><span class="line">    <span class="comment"># classes = [ &#x27;1點點&#x27;, &#x27;24客便利店&#x27;]</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取品牌名称</span></span><br><span class="line">    <span class="comment"># TODO 需要修改成自己的【需要处理的品牌】的文件的路径</span></span><br><span class="line">    sheets = load_workbook(<span class="string">&quot;D:/Desktop/1.xlsx&quot;</span>).worksheets</span><br><span class="line">    classes = []</span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> sheets[<span class="number">0</span>][<span class="string">&#x27;A&#x27;</span>]:</span><br><span class="line">        classes.append(col.value)</span><br><span class="line">    classes.remove(<span class="string">&#x27;品牌名称&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(classes)</span><br><span class="line">    book = openpyxl.Workbook()</span><br><span class="line">    sheet = book.create_sheet(index=<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># 直接获取整个城市的POI数据</span></span><br><span class="line">    count = <span class="number">2</span></span><br><span class="line">    <span class="keyword">for</span> clas <span class="keyword">in</span> classes:</span><br><span class="line">        classes_all_pois = []</span><br><span class="line">        city = getcity(clas)</span><br><span class="line">        <span class="keyword">for</span> cityname <span class="keyword">in</span> city:</span><br><span class="line">            pois_area = getpois(cityname, clas)</span><br><span class="line">            classes_all_pois.extend(pois_area)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;当前城区：&#x27;</span> + <span class="built_in">str</span>(cityname) + <span class="string">&#x27;, 分类：&#x27;</span> + <span class="built_in">str</span>(clas) + <span class="string">&quot;, 总的有&quot;</span> + <span class="built_in">str</span>(<span class="built_in">len</span>(pois_area)) + <span class="string">&quot;条数据&quot;</span>)</span><br><span class="line">        write_to_excel(classes_all_pois, clas, count)</span><br><span class="line">        count = count + <span class="built_in">len</span>(classes_all_pois)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;所有城区的数据汇总，总数为：&quot;</span> + <span class="built_in">str</span>(<span class="built_in">len</span>(classes_all_pois)))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;================分类：&#x27;</span> + <span class="built_in">str</span>(clas) + <span class="string">&quot;写入成功&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="三、感想"><a href="#三、感想" class="headerlink" title="三、感想"></a>三、感想</h1><p>www一个月断断续续的更改，函数循环加主体循环把自己无限绕进去了，终于改完了</p>
+<p>感谢@Fzy，@Tj，@Xk的指导</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E9%AB%98%E5%BE%B7%E7%88%AC%E8%99%AB1.0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/%E9%AB%98%E5%BE%B7%E7%88%AC%E8%99%AB1.0/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:14:58" itemprop="dateModified" datetime="2022-05-26T14:14:58+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="高德爬虫实战">TOC</a></p>
+<h1 id="一、效果"><a href="#一、效果" class="headerlink" title="一、效果"></a>一、效果</h1><p>excel文件<img src="https://img-blog.csdnimg.cn/2021042316580616.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="https://img-blog.csdnimg.cn/202104231659124.png" alt="在这里插入图片描述"></p>
+<h2 id="1-py"><a href="#1-py" class="headerlink" title="1.py"></a>1.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> quote</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</span><br><span class="line"><span class="keyword">from</span> transCoordinateSystem <span class="keyword">import</span> gcj02_to_wgs84</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单页获取pois</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getpoi_page</span>(<span class="params">cityname, keywords, page</span>):</span></span><br><span class="line">    req_url = poi_search_url + <span class="string">&quot;?key=&quot;</span> + amap_web_key + <span class="string">&#x27;&amp;extensions=all&amp;keywords=&#x27;</span> + quote(</span><br><span class="line">        keywords) + <span class="string">&#x27;&amp;city=&#x27;</span> + quote(cityname) + <span class="string">&#x27;&amp;citylimit=true&#x27;</span> + <span class="string">&#x27;&amp;offset=25&#x27;</span> + <span class="string">&#x27;&amp;page=&#x27;</span> + <span class="built_in">str</span>(</span><br><span class="line">        page) + <span class="string">&#x27;&amp;output=json&#x27;</span></span><br><span class="line">    data = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> request.urlopen(req_url) <span class="keyword">as</span> f:</span><br><span class="line">        data = f.read()</span><br><span class="line">        data = data.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将返回的poi数据装入集合返回</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hand</span>(<span class="params">poilist, result</span>):</span></span><br><span class="line">    <span class="comment"># result = json.loads(result)  # 将字符串转换为json</span></span><br><span class="line">    pois = result[<span class="string">&#x27;pois&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pois)):</span><br><span class="line">        poilist.append(pois[i])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据城市名称和分类关键字获取poi数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getpois</span>(<span class="params">cityname, keywords</span>):</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    poilist = []</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:  <span class="comment"># 使用while循环不断分页获取数据</span></span><br><span class="line">        result = getpoi_page(cityname, keywords, i)</span><br><span class="line">        <span class="built_in">print</span>(result)</span><br><span class="line">        result = json.loads(result)  <span class="comment"># 将字符串转换为json</span></span><br><span class="line">        <span class="comment"># errors修改：如果没有找到数据，则跳出</span></span><br><span class="line">        <span class="keyword">if</span> result[<span class="string">&#x27;count&#x27;</span>] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 将结果装入集合返回</span></span><br><span class="line">        hand(poilist, result)</span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line">        <span class="comment"># print(&quot;______________________________&quot;)</span></span><br><span class="line">        <span class="comment"># print(poilist)</span></span><br><span class="line">    <span class="keyword">return</span> poilist</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据写入excel</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_excel</span>(<span class="params"> poilist, classfield, sheet</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第一行(列标题)</span></span><br><span class="line">    <span class="comment"># 品牌名称	门店名称	分类	省	市	区/县  地址	经度	维度</span></span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;品牌名称&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;门店名称&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">2</span>, <span class="string">&#x27;分类&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">3</span>, <span class="string">&#x27;省&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">4</span>, <span class="string">&#x27;市&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">5</span>, <span class="string">&#x27;区/县&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">6</span>, <span class="string">&#x27;地址&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">7</span>, <span class="string">&#x27;经度&#x27;</span>)</span><br><span class="line">    sheet.write(<span class="number">0</span>, <span class="number">8</span>, <span class="string">&#x27;维度&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(poilist)):</span><br><span class="line">        name = poilist[i][<span class="string">&#x27;name&#x27;</span>]</span><br><span class="line">        <span class="built_in">type</span> = poilist[i][<span class="string">&#x27;type&#x27;</span>]</span><br><span class="line">        pname = poilist[i][<span class="string">&#x27;pname&#x27;</span>]  <span class="comment">#省名称</span></span><br><span class="line">        cityname = poilist[i][<span class="string">&#x27;cityname&#x27;</span>]  <span class="comment"># 市名称</span></span><br><span class="line">        adname = poilist[i][<span class="string">&#x27;adname&#x27;</span>]  <span class="comment">#区/县</span></span><br><span class="line">        <span class="comment"># errors修改：KeyErrors</span></span><br><span class="line">        <span class="comment"># 使用dict内置的get(key[,default])方法。如果key存在，则返回其value，否则返回default。</span></span><br><span class="line">        address = poilist[i].get(<span class="string">&#x27;address&#x27;</span>,<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"></span><br><span class="line">        location = poilist[i][<span class="string">&#x27;location&#x27;</span>]</span><br><span class="line">        lng = <span class="built_in">str</span>(location).split(<span class="string">&quot;,&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">        lat = <span class="built_in">str</span>(location).split(<span class="string">&quot;,&quot;</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># adcode = poilist[i][&#x27;adcode&#x27;] #邮编</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">#坐标转换</span></span><br><span class="line">        result = gcj02_to_wgs84(<span class="built_in">float</span>(lng), <span class="built_in">float</span>(lat))</span><br><span class="line">        lng = result[<span class="number">0</span>]</span><br><span class="line">        lat = result[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 每一行写入</span></span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">0</span>, classfield)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">1</span>, name)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">2</span>, <span class="built_in">type</span>)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">3</span>, pname)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">4</span>, cityname)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">5</span>, adname)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">6</span>, address)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">7</span>, lng)</span><br><span class="line">        sheet.write(i + <span class="number">1</span>, <span class="number">8</span>, lat)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 最后，将以上操作保存到指定的Excel文件中</span></span><br><span class="line">    <span class="comment"># TODO 需要设置写入的excel路径</span></span><br><span class="line">    book.save(<span class="string">r&#x27;D:/Desktop/data4.xls&#x27;</span>)</span><br><span class="line">    <span class="comment"># book.save(r&#x27;D:/Desktop/&#x27; + cityname + &quot;_&quot; + classfield + &#x27;.xls&#x27;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#按各行政区分别获取</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">for clas in classes:</span></span><br><span class="line"><span class="string">    classes_all_pois = []</span></span><br><span class="line"><span class="string">    for area in nanning_areas:</span></span><br><span class="line"><span class="string">        pois_area = getpois(area, clas)</span></span><br><span class="line"><span class="string">        print(&#x27;当前城区：&#x27; + str(area) + &#x27;, 分类：&#x27; + str(clas) + &quot;, 总的有&quot; + str(len(pois_area)) + &quot;条数据&quot;)</span></span><br><span class="line"><span class="string">        classes_all_pois.extend(pois_area)</span></span><br><span class="line"><span class="string">    print(&quot;所有城区的数据汇总，总数为：&quot; + str(len(classes_all_pois)))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    write_to_excel(classes_all_pois, cityname, clas)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    print(&#x27;================分类：&#x27;  + str(clas) + &quot;写入成功&quot;)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 申请的密钥</span></span><br><span class="line"><span class="comment"># TODO 需要修改成为自己的密钥</span></span><br><span class="line">amap_web_key = <span class="string">&#x27;e4f4a2208ee6f1f6298f5cb2342d66fb&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 要爬取的API根</span></span><br><span class="line">poi_search_url = <span class="string">&quot;http://restapi.amap.com/v3/place/text&quot;</span></span><br><span class="line">poi_boundary_url = <span class="string">&quot;https://ditu.amap.com/detail/get/detail&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># cityname为需要爬取的POI所属的城市名，city_areas为城市下面的行政区，classes为多个POI分类名的集合.</span></span><br><span class="line"><span class="comment"># (中文名或者代码都可以，代码详见高德地图的POI分类编码表)</span></span><br><span class="line">cityname = <span class="string">&#x27;武汉&#x27;</span></span><br><span class="line"><span class="comment"># classes = [ &#x27;1點點&#x27;, &#x27;24客便利店&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取品牌名称</span></span><br><span class="line"><span class="comment"># TODO 需要修改成自己的【需要处理的品牌】的文件的路径</span></span><br><span class="line">sheets = load_workbook(<span class="string">&quot;D:/Desktop/3.xlsx&quot;</span>).worksheets</span><br><span class="line">classes=[]</span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> sheets[<span class="number">0</span>][<span class="string">&#x27;A&#x27;</span>]:</span><br><span class="line">    classes.append(col.value)</span><br><span class="line">classes.remove(<span class="string">&#x27;品牌名称&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(classes)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一个Workbook对象，这就相当于创建了一个Excel文件</span></span><br><span class="line">book = xlwt.Workbook(encoding=<span class="string">&#x27;utf-8&#x27;</span>, style_compression=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 在打开的excel中添加一个sheet</span></span><br><span class="line"><span class="comment"># 其中的test是这张表的名字,cell_overwrite_ok,表示是否可以覆盖单元格)</span></span><br><span class="line">sheet = book.add_sheet(<span class="string">&#x27;test&#x27;</span>, cell_overwrite_ok=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># sheet = book.add_sheet(classfield, cell_overwrite_ok=True)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#直接获取整个城市的POI数据</span></span><br><span class="line"><span class="keyword">for</span> clas <span class="keyword">in</span> classes:</span><br><span class="line">    classes_all_pois = []</span><br><span class="line">    pois_area = getpois(cityname, clas)</span><br><span class="line">    classes_all_pois.extend(pois_area)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;数据总数为：&quot;</span> + <span class="built_in">str</span>(<span class="built_in">len</span>(classes_all_pois)))</span><br><span class="line">    write_to_excel(classes_all_pois, clas, sheet)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;================分类：&#x27;</span>  + <span class="built_in">str</span>(clas) + <span class="string">&quot;写入成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="transCoordinateSystem-py"><a href="#transCoordinateSystem-py" class="headerlink" title="transCoordinateSystem.py"></a>transCoordinateSystem.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#经纬度坐标（WGS84）国测局火星坐标（GCJ02）百度坐标（BD09）相互转换</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">目前的的坐标体系分类：</span></span><br><span class="line"><span class="string">一是GPS坐标，也即WGS-84坐标是一个国际的标准，一般卫星导航，原始的GPS设备中的数据都是采用这一坐标系。国外的Google地图、OSM等采用的都是这一坐标。</span></span><br><span class="line"><span class="string">二是国测局坐标，国测局坐标GCJ-02坐标也叫火星坐标，是国家测绘局为了国家安全在原始坐标的基础上进行偏移得到的坐标，基本国内的电子地图、导航设备都是采用的这一坐标系，如：高德、搜搜、51地图MapABC地图，谷歌中国地图也是。</span></span><br><span class="line"><span class="string">三是百度坐标，百度坐标BD-09坐标是百度公司出于商业保护在国测局坐标基础上进行的二次加密。</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">x_pi = <span class="number">3.14159265358979324</span> * <span class="number">3000.0</span> / <span class="number">180.0</span></span><br><span class="line">pi = <span class="number">3.1415926535897932384626</span>  <span class="comment"># π</span></span><br><span class="line">a = <span class="number">6378245.0</span>  <span class="comment"># 长半轴</span></span><br><span class="line">ee = <span class="number">0.00669342162296594323</span>  <span class="comment"># 偏心率平方</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Geocoding</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, api_key</span>):</span></span><br><span class="line">        self.api_key = api_key</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">geocode</span>(<span class="params">self, address</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        利用高德geocoding服务解析地址获取位置坐标</span></span><br><span class="line"><span class="string">        :param address:需要解析的地址</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        geocoding = &#123;<span class="string">&#x27;s&#x27;</span>: <span class="string">&#x27;rsv3&#x27;</span>,</span><br><span class="line">                     <span class="string">&#x27;key&#x27;</span>: self.api_key,</span><br><span class="line">                     <span class="string">&#x27;city&#x27;</span>: <span class="string">&#x27;全国&#x27;</span>,</span><br><span class="line">                     <span class="string">&#x27;address&#x27;</span>: address&#125;</span><br><span class="line">        <span class="comment"># geocoding = urllib.urlencode(geocoding)</span></span><br><span class="line">        <span class="comment"># ret = urllib.urlopen(&quot;http://restapi.amap.com/v3/geocode/geo&#123;&#125;&quot;.format(geocoding))</span></span><br><span class="line">        url = <span class="string">&quot;http://restapi.amap.com/v3/geocode/geo?&quot;</span></span><br><span class="line">        ret = requests.get(url, params=geocoding)</span><br><span class="line">        <span class="keyword">if</span> ret.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="comment"># res = ret.json()</span></span><br><span class="line">            <span class="comment"># json_obj = json.loads(res)</span></span><br><span class="line">            json_obj = ret.json()</span><br><span class="line">            <span class="keyword">if</span> json_obj[<span class="string">&#x27;status&#x27;</span>] == <span class="string">&#x27;1&#x27;</span> <span class="keyword">and</span> <span class="built_in">int</span>(json_obj[<span class="string">&#x27;count&#x27;</span>]) &gt;= <span class="number">1</span>:</span><br><span class="line">                geocodes = json_obj[<span class="string">&#x27;geocodes&#x27;</span>][<span class="number">0</span>]</span><br><span class="line">                lng = <span class="built_in">float</span>(geocodes.get(<span class="string">&#x27;location&#x27;</span>).split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">                lat = <span class="built_in">float</span>(geocodes.get(<span class="string">&#x27;location&#x27;</span>).split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line">                <span class="keyword">return</span> [lng, lat]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcj02_to_bd09</span>(<span class="params">lng, lat</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    火星坐标系(GCJ-02)转百度坐标系(BD-09)</span></span><br><span class="line"><span class="string">    谷歌、高德——&gt;百度</span></span><br><span class="line"><span class="string">    :param lng:火星坐标经度</span></span><br><span class="line"><span class="string">    :param lat:火星坐标纬度</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    z = math.sqrt(lng * lng + lat * lat) + <span class="number">0.00002</span> * math.sin(lat * x_pi)</span><br><span class="line">    theta = math.atan2(lat, lng) + <span class="number">0.000003</span> * math.cos(lng * x_pi)</span><br><span class="line">    bd_lng = z * math.cos(theta) + <span class="number">0.0065</span></span><br><span class="line">    bd_lat = z * math.sin(theta) + <span class="number">0.006</span></span><br><span class="line">    <span class="keyword">return</span> [bd_lng, bd_lat]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bd09_to_gcj02</span>(<span class="params">bd_lon, bd_lat</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    百度坐标系(BD-09)转火星坐标系(GCJ-02)</span></span><br><span class="line"><span class="string">    百度——&gt;谷歌、高德</span></span><br><span class="line"><span class="string">    :param bd_lat:百度坐标纬度</span></span><br><span class="line"><span class="string">    :param bd_lon:百度坐标经度</span></span><br><span class="line"><span class="string">    :return:转换后的坐标列表形式</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    x = bd_lon - <span class="number">0.0065</span></span><br><span class="line">    y = bd_lat - <span class="number">0.006</span></span><br><span class="line">    z = math.sqrt(x * x + y * y) - <span class="number">0.00002</span> * math.sin(y * x_pi)</span><br><span class="line">    theta = math.atan2(y, x) - <span class="number">0.000003</span> * math.cos(x * x_pi)</span><br><span class="line">    gg_lng = z * math.cos(theta)</span><br><span class="line">    gg_lat = z * math.sin(theta)</span><br><span class="line">    <span class="keyword">return</span> [gg_lng, gg_lat]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wgs84_to_gcj02</span>(<span class="params">lng, lat</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    WGS84转GCJ02(火星坐标系)</span></span><br><span class="line"><span class="string">    :param lng:WGS84坐标系的经度</span></span><br><span class="line"><span class="string">    :param lat:WGS84坐标系的纬度</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> out_of_china(lng, lat):  <span class="comment"># 判断是否在国内</span></span><br><span class="line">        <span class="keyword">return</span> [lng, lat]</span><br><span class="line">    dlat = _transformlat(lng - <span class="number">105.0</span>, lat - <span class="number">35.0</span>)</span><br><span class="line">    dlng = _transformlng(lng - <span class="number">105.0</span>, lat - <span class="number">35.0</span>)</span><br><span class="line">    radlat = lat / <span class="number">180.0</span> * pi</span><br><span class="line">    magic = math.sin(radlat)</span><br><span class="line">    magic = <span class="number">1</span> - ee * magic * magic</span><br><span class="line">    sqrtmagic = math.sqrt(magic)</span><br><span class="line">    dlat = (dlat * <span class="number">180.0</span>) / ((a * (<span class="number">1</span> - ee)) / (magic * sqrtmagic) * pi)</span><br><span class="line">    dlng = (dlng * <span class="number">180.0</span>) / (a / sqrtmagic * math.cos(radlat) * pi)</span><br><span class="line">    mglat = lat + dlat</span><br><span class="line">    mglng = lng + dlng</span><br><span class="line">    <span class="keyword">return</span> [mglng, mglat]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gcj02_to_wgs84</span>(<span class="params">lng, lat</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    GCJ02(火星坐标系)转GPS84</span></span><br><span class="line"><span class="string">    :param lng:火星坐标系的经度</span></span><br><span class="line"><span class="string">    :param lat:火星坐标系纬度</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> out_of_china(lng, lat):</span><br><span class="line">        <span class="keyword">return</span> [lng, lat]</span><br><span class="line">    dlat = _transformlat(lng - <span class="number">105.0</span>, lat - <span class="number">35.0</span>)</span><br><span class="line">    dlng = _transformlng(lng - <span class="number">105.0</span>, lat - <span class="number">35.0</span>)</span><br><span class="line">    radlat = lat / <span class="number">180.0</span> * pi</span><br><span class="line">    magic = math.sin(radlat)</span><br><span class="line">    magic = <span class="number">1</span> - ee * magic * magic</span><br><span class="line">    sqrtmagic = math.sqrt(magic)</span><br><span class="line">    dlat = (dlat * <span class="number">180.0</span>) / ((a * (<span class="number">1</span> - ee)) / (magic * sqrtmagic) * pi)</span><br><span class="line">    dlng = (dlng * <span class="number">180.0</span>) / (a / sqrtmagic * math.cos(radlat) * pi)</span><br><span class="line">    mglat = lat + dlat</span><br><span class="line">    mglng = lng + dlng</span><br><span class="line">    <span class="keyword">return</span> [lng * <span class="number">2</span> - mglng, lat * <span class="number">2</span> - mglat]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bd09_to_wgs84</span>(<span class="params">bd_lon, bd_lat</span>):</span></span><br><span class="line">    lon, lat = bd09_to_gcj02(bd_lon, bd_lat)</span><br><span class="line">    <span class="keyword">return</span> gcj02_to_wgs84(lon, lat)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wgs84_to_bd09</span>(<span class="params">lon, lat</span>):</span></span><br><span class="line">    lon, lat = wgs84_to_gcj02(lon, lat)</span><br><span class="line">    <span class="keyword">return</span> gcj02_to_bd09(lon, lat)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_transformlat</span>(<span class="params">lng, lat</span>):</span></span><br><span class="line">    ret = -<span class="number">100.0</span> + <span class="number">2.0</span> * lng + <span class="number">3.0</span> * lat + <span class="number">0.2</span> * lat * lat + \</span><br><span class="line">          <span class="number">0.1</span> * lng * lat + <span class="number">0.2</span> * math.sqrt(math.fabs(lng))</span><br><span class="line">    ret += (<span class="number">20.0</span> * math.sin(<span class="number">6.0</span> * lng * pi) + <span class="number">20.0</span> *</span><br><span class="line">            math.sin(<span class="number">2.0</span> * lng * pi)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">20.0</span> * math.sin(lat * pi) + <span class="number">40.0</span> *</span><br><span class="line">            math.sin(lat / <span class="number">3.0</span> * pi)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">160.0</span> * math.sin(lat / <span class="number">12.0</span> * pi) + <span class="number">320</span> *</span><br><span class="line">            math.sin(lat * pi / <span class="number">30.0</span>)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_transformlng</span>(<span class="params">lng, lat</span>):</span></span><br><span class="line">    ret = <span class="number">300.0</span> + lng + <span class="number">2.0</span> * lat + <span class="number">0.1</span> * lng * lng + \</span><br><span class="line">          <span class="number">0.1</span> * lng * lat + <span class="number">0.1</span> * math.sqrt(math.fabs(lng))</span><br><span class="line">    ret += (<span class="number">20.0</span> * math.sin(<span class="number">6.0</span> * lng * pi) + <span class="number">20.0</span> *</span><br><span class="line">            math.sin(<span class="number">2.0</span> * lng * pi)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">20.0</span> * math.sin(lng * pi) + <span class="number">40.0</span> *</span><br><span class="line">            math.sin(lng / <span class="number">3.0</span> * pi)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">150.0</span> * math.sin(lng / <span class="number">12.0</span> * pi) + <span class="number">300.0</span> *</span><br><span class="line">            math.sin(lng / <span class="number">30.0</span> * pi)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">out_of_china</span>(<span class="params">lng, lat</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    判断是否在国内，不在国内不做偏移</span></span><br><span class="line"><span class="string">    :param lng:</span></span><br><span class="line"><span class="string">    :param lat:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> (lng &gt; <span class="number">73.66</span> <span class="keyword">and</span> lng &lt; <span class="number">135.05</span> <span class="keyword">and</span> lat &gt; <span class="number">3.86</span> <span class="keyword">and</span> lat &lt; <span class="number">53.55</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    lng = <span class="number">116.382997</span></span><br><span class="line">    lat = <span class="number">39.915156</span></span><br><span class="line">    result1 = gcj02_to_bd09(lng, lat)</span><br><span class="line">    result2 = bd09_to_gcj02(lng, lat)</span><br><span class="line">    result3 = wgs84_to_gcj02(lng, lat)</span><br><span class="line">    result4 = gcj02_to_wgs84(lng, lat)</span><br><span class="line">    result5 = bd09_to_wgs84(lng, lat)</span><br><span class="line">    result6 = wgs84_to_bd09(lng, lat)</span><br><span class="line"></span><br><span class="line">    g = Geocoding(<span class="string">&#x27;e4f4a2208ee6f1f6298f5cb2342d66fb&#x27;</span>)  <span class="comment"># 这里填写你的高德api的key</span></span><br><span class="line">    result7 = g.geocode(<span class="string">&#x27;武汉市武昌区&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(result1, result2, result3, result4, result5, result6, result7)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8EHC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/%E5%8D%95%E7%89%87%E6%9C%BA%E4%B8%8EHC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:14:56" itemprop="dateModified" datetime="2022-05-26T14:14:56+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="单片机与HC-05蓝牙模块通信">TOC</a></p>
+<h1 id="一、写在最前面"><a href="#一、写在最前面" class="headerlink" title="一、写在最前面"></a>一、写在最前面</h1><p>与物院、材院的同学一起，设计由霍尔元件、电磁铁和单片机等元素构成的水污染测试系统，通过自学完成单片机与HC-05蓝牙模块通信板块以及系统前端页面设计，获得全国物理实验三等奖、湖北省物理实验创新设计竞赛二等奖。<br>感谢@周 一个下午外加三晚上的单片机讲解，@队友们提供的物理实验的机会，@的APP前端设计</p>
+<h1 id="二、相关介绍"><a href="#二、相关介绍" class="headerlink" title="二、相关介绍"></a>二、相关介绍</h1><p>本实验以树莓派开发板作为控制板并加以5V的直流稳压电源，通过UART库初始化树莓派的单片机的串口，再使用初始化单片机的串口连接HC-05蓝牙模块，将单片机测试的电压值处理后通过蓝牙无线通信传输至手机，最后手机通过无线通信控制单片机的继电器从而改变电路中的净化功能。<br>树莓派Raspberry Pi Pico 是一款搭载了 RP 2040 芯片的微处理器开发板，搭载双核 ARM Cortex M0+ 处理器，运行频率 133 MHz，内置 264 KB 的片上 RAM，可通过专用 QSPI 总线支持最高 16 MB 的片外闪存，DMA 控制器，外挂内插器和整数除法器，2 个 SPI、2 个 I2C、2 个 UART，16 个 PWM 通道，主机和设备支持的 USB 1.1，8 个树莓派可编程 I/O 状态，支持 UF2 的 USB 大容量存储启动模式。开发板上有30个GPIO接口，使用python的第三方库machine进行对各个引脚的控制，并通过GPIO26接口实现模拟信号的输入，即待测电路的电压值。<br><img src="https://img-blog.csdnimg.cn/20210617121048804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>HC-05蓝牙模块，是一个蓝牙转串口转换器，可以连接微控制器的其他设备，允许它们进行无线蓝牙通信。HC-05的主要工作是为了添加双向（全双工）的无线功能。它可以用于两个具有串行功能的微控制器之间的通信，也可以用于通过微控制性控制蓝牙设备的功能，反之亦然。模块启动后，任何蓝牙设备都可以发现它。在这里，我们通过其将单片机与手机建立连接，之后数据通过HC-05传输，并转换为串行流，然后由模块连接的控制器读取该串行流，与从控制器发送数据给蓝牙的方法相反。</p>
+<h1 id="三、电路"><a href="#三、电路" class="headerlink" title="三、电路"></a>三、电路</h1><p>（1）建立电路<br>我们通过杜邦线分别将树莓派的GPIO与测试电路、HC-05蓝牙模块、5V直流稳压电源、CLR元件等信号进行连接。预测电路的待测电压及GNU分别连接，向单片机输入电压等模拟信号；由外部电源给单片机供电，运行烧入单片机的程序；同时将串口模块输出信号3V3（OUT）与HC-05蓝牙模块连接起来，实现蓝牙通信功能；CLR元件能对电路实现通断控制，从而实现复位功能。<br>单片机串口模块 —————————— 测试电路<br>GPIO26 ————————————————— 正极<br>GND —————————————————— 负极</p>
+<p>单片机串口模块 ——————— HC-05蓝牙模块<br>3V3OUT ————————————————— VCC<br>GND ——————————————————— GND<br>GPIO0（TXD） —————————————— RXD<br>GPIO1（RXD） —————————————— TXD</p>
+<p>单片机串口模块 —————————— 外部电源<br>VSYS —————————————————— VCC<br>GND —————————————————— GUN</p>
+<p>单片机串口模块 —————————— CLR元件<br>3V3OUT ————————————————— 一端<br>GND —————————————————— 另一端</p>
+<p>（2）升级安装蓝牙相关软件包，添加pi用户到蓝牙组，并重启；<br>打开PC端串口工具，由于此时默认波特率为38400，故将软件端波特率选项选为38400。此时可以在命令窗口发送命令，以 “回车”即换行结尾。输入 AT，再按回车换行，点击发送，此时接收端的窗口会收到一条OK指令，说明通信成功。之后我们对波特率进行设置。在初次调试过程中，我们将波特率设置为可以和手机通信的波特率9600bits/s。发送指令AT+UART=9600,0,0换行，将设置波特率为9600，停止位是1位，奇偶效验位没有（none）。最后设置配对码。发送指令AT+PSWD=<1234>换行，将配对码设置为1234；发送指令AT+PSWD?换行，显示配对码为1234，说明设置成功。</p>
+<p>（3）HC-05蓝牙模块与手机连接，查看设备名；<br>进入蓝牙模式，HC-05蓝牙模块的指示灯会一秒钟闪两下。通过手机APPSPP蓝牙串口连接蓝牙。连接成功后，灯变成连闪两下。之后，我们将通过蓝牙模块连接手机进行无限通信。将USB串口拔下，再直接插上（这次不用按小钮），便进入了自动连接模式。PC软件端波特率设置为9600，16进制显示，16进制发送。手机蓝牙串口APP端设置为HEX模式。就可以进行通信了。如果传输文本，那么PC端去掉 16进制显示和16进制发送的勾选，app端去掉HEX模式的勾选即可。<br>（4）编写能控制输出处理后模拟量的程序函数；<br>（5）编写蓝牙模块与手机蓝牙的测试程序，确保两个模块正常运行；<br>（6）编写完整程序，使得能通过蓝牙模块发送和接收模拟信号信息；<br>（7） 写了一个交互模块，单片机测试的电压值处理后通过蓝牙无线通信传输至手机，使得使用者能够通过手机获取污水有关信息；手机可以通过蓝牙传输的方式，发送给树莓派，最后根据选择模式控制单片机的继电器从而改变电路中的净化功能。<br><img src="https://img-blog.csdnimg.cn/20210617121147852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E8%BE%A9%E8%AE%BA%E5%90%88%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/%E8%BE%A9%E8%AE%BA%E5%90%88%E9%9B%86/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:14:58" itemprop="dateModified" datetime="2022-05-26T14:14:58+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="辩论合集">TOC</a></p>
+<h1 id="20210324-院决赛-被误解是-否表达者的宿命"><a href="#20210324-院决赛-被误解是-否表达者的宿命" class="headerlink" title="20210324 院决赛 被误解是/否表达者的宿命"></a>20210324 院决赛 被误解是/否表达者的宿命</h1><h2 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524165115118.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一辩稿"><a href="#一辩稿" class="headerlink" title="一辩稿"></a>一辩稿</h2><p>被误解是表达者的宿命</p>
+<p>谢谢主席，各位观众，各位评委大家晚上好！今天我方的观点是：被误解是表达者的宿命。</p>
+<p>正本清源开宗明义，误解指言语交际中听话人没有准确、全面理解说话人意义的现象。误解属于言语交际中的理解现象，误解的行为主体是听话人，被误解的内容是说话人意义，误解与非误解的根本区别在于说话人意义与听话人理解的信息量大小不一样。误解指(信源与信宿)之差，包括，增、减解，失、转解。<br>其次，表达者。表达者是指所有可以发表内心自我想法的个体，不同于简单的情感流露，其观点是较真的表达，激活交际双方的认知思维活动。<br>什么是宿命？宿命是可预知的、受到既定限制的命运。我方强调，宿命是不可避免的。<br>表达者的宿命，是说你这个人在表达的路途上不可避免地被误解。所以我们说，被误解是表达者的宿命。像是受伤是拳击者的宿命，即使强如泰森，要一次次战胜擂台上的劲敌，也不可能每一次都全身而退。</p>
+<p>今天我方判断这是不是表达者宿命，只要看表达者在事实层面上被误解是不是必然的。我方将围绕【为什么这种风险是必然的】展开叙述。</p>
+<p>首先，表达有局限性。雷声在闪电之后，说的永远比想的慢。表达者很难完全表达其想法，心理活动往往比由话语表达出来的复杂得多。表达者本身，是带有情感需求，且受后天环境影响的。表达者说出的信息，通常不是1+1的纯理性信息。而是动机，有需求的信息。<br>其次，理解过程必然涉及主观判断。表达的过程是一个“明示-推理”的过程，而不仅仅是编码、解码过程。从话语接收者角度考虑，他无法推理到全部说话者的全部信息，必然引起交流的错位。</p>
+<p>此外，表达者和倾听者存在认知鸿沟。由于语境因素，在信息传递与获取的过程中，会造成表达或理解上的误差。其中，语境因素，包括由交际双方在内的物质世界，社交世界和心理世界构成的交际语境和语言语境。其中，心理世界主要与说话者个体有关，如性格、情感、信仰、想法和动机。<br>而表达者本身表达的目的，就是扩充或挑战听众既有的观念体系。合格的表达，必须言之有物；而言之有物，要么是“不破不立”（否则就是废话），要么是“语不惊人死不休”（否则就是平庸）。表达者为什么一定会被误解？因为他们暂时不懂你的妙处或者说重要性。 </p>
+<p>最后，人注定会死亡，但我们可以决定自己的生活有多精彩。我们不需要战胜宿命，正因为知道会被误解，我们才要尽己所能的作出最好的表达，力求减少这种误差，让倾听者可以更好地理解我们的想法。作为倾听者，我们知道表达者难免被误解，因此更能宽以待人。</p>
+<p>综上，我方认为：在事实层面上，对一个表达者而言，总有被误解的情况存在。这种普遍 而且难以避免的情况，在我们看来是一种宿命的必然，而在价值层次上，这也可以启发我们去成为一个更好的表达者和倾听者。</p>
+<h3 id="质询"><a href="#质询" class="headerlink" title="质询"></a>质询</h3><p>定义：<br>“误解”，我们通过“理解结果标准”来确认是否存在，指对比说话人意义与听话人理解的信息量大小以区分。“没有准确、全面理解”，“错误理解”都算误解。<br>误解属于言语交际中的理解现象，它作为一个行为过程，是客观存在的。被误解的后续话语可以作为证明，但不是误解存在的标准。<br>误解是普遍存在的。<br>失解:理解者或是不能够，或是不愿意，对表达者的话语没有得出任何理解，或者说是没有从中获得除语码本身外的其它信息，与信源对立的部分，即信宿为零。<br>减解:就是对表达者的话语所应包含的意义未作充分的理解，从而使部分意义失落，使信宿小于信源。<br>增解:与减解相反，增解是指本来表达者在话语中未曾赋予的含义，而理解者从自己的推测和理会出发添加于其中，使信宿大于信源。所谓“说者无意，听者有心”，如古之“郢书燕说”之类.<br>转解:即接受者所理解出来的意义与表达者想要表达的意思不符，说者谓此，听者谓彼，信宿较信源有所转移。</p>
+<p>“宿命”，有时间限制。活着被误解，死后平反不能都算，不能唯结果论对一个人不公平。<br>一定会发生的。一定且至少一次。当然我方也愿意努力告诉各位，这种误解，有极大可能不止一次发生。<br>死是宿命，宣称长生不老不是打破宿命。<br>宿命指的是某件事情会人的一生高频发生。<br>“本质之必然”可以是“任何一个已知或未来的人都会被误解”，而不是“任何一次交流都必然被误解”</p>
+<p>“表达者”，不是所有人都是表达者。有思考的表达，<br>人的范围内（不算客观规律和物体），人的时间内，一生中。<br>表达的越多，越深，质量数量，被误解的可能性越大。<br>判断：<br>表达者在事实层面上被误解是不是必然的。基于被误解从结构及现实意义上可不可以被消除。</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><img src="https://img-blog.csdnimg.cn/20210524171729896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="20210409校赛-初赛1-教育发展应该以经济发展为前提-经济发展应该以教育发展为前提"><a href="#20210409校赛-初赛1-教育发展应该以经济发展为前提-经济发展应该以教育发展为前提" class="headerlink" title="20210409校赛 初赛1 教育发展应该以经济发展为前提/经济发展应该以教育发展为前提"></a>20210409校赛 初赛1 教育发展应该以经济发展为前提/经济发展应该以教育发展为前提</h1><h2 id="材料-1"><a href="#材料-1" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524170819848.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一辩稿3-0"><a href="#一辩稿3-0" class="headerlink" title="一辩稿3.0"></a>一辩稿3.0</h2><p>教育发展应该以经济发展为前提</p>
+<p>谢谢主席，问候在场各位！<br>开宗明义。发展是事物从产生开始，连续不断进步、向好的变更过程，这要求其中既有量的变化，又有质的变化。教育发展是指: 教育事业进步和拓展的程度。前提是指在此基础上的后续行为。基于如上定义，接下来我将以“何者作为前提能对当今中国的发展起到更有效的促进作用”为判准，从应然和实然两个层次 来论证我方观点：教育发展应该以经济发展为前提。<br>在应然层面。首先，文化的产生是生产力不断发展的结果。（对象：人的底层需求）马斯诺的需求层次是一级级满足的，先物质再精神，并非一蹴而就。经济发展后，有了消费能力，而后人们的需求端消费升级，消费结构改变，追求高质量高品质的生活，追求精神世界。“物质决定意识，主观愿望的实现必须依靠一定的物质条件。”当物质生产丰富到一定程度时，人们才有了获取知识、技能的需要，才有了教授的过程，开始出现“教育”。<br>其次，经济基础决定上层建筑。从经济基础衍生出的上层建筑，包括但不限于教育、国防、民生等。上层建筑对经济基础起到的是，综合的能动反作用。但后者不是前者的前提。教育是从经济中衍生出的上层建筑中的一种，它的产生和发展脱离不开相关的社会历史背景，主要反映现实的经济结构。教育要发展，就要有物质条件作为基础。（对象：物体）我方首先要表明的是，我们十分认同对方辩友刚刚对教育发展重要性的阐述。如今社会飞速发展，普及教育的基线不再是识汉字、算加减。在国家巨额教育经费的支持下，“数字课堂”的推广和应用高效推进了教育的改革。PPT投影设备，提高了抽象概念等知识的学习效率。正是以经济发展为中心的国家政策，有了经济的积累，国家才有底气去投入到更多 例如教育等方面的发展中，从而起到事半功倍的积极效果。“巧妇难为无米之炊”，诚然做饭这样的小事都无米难为，由此及彼，经济发展若不作为前提条件，没有物质条件，那么今天我们在这谈教育发展无疑坐而论道，事倍功半。<br>在实然层面，以经济建设为中心的基本路线，已在中国取得了阶段性成就。从改革开放到习近平新时代以来，我国发展一直以经济建设为中心，其他各项工作都服从和服务于这个中心，并取得了举世瞩目的成就。我国从改革开放的GDP全球第十，跨越到了第二。这正证明政策的优越性。<br>综上，我方认为：在事实层面上，没有经济增长带来的物质支持，教育发展的空中楼阁就不能落到实处。在实然层面上，实践检验真理，我们的选择是正确的。</p>
+<h1 id="20210416校赛-初赛2-经济发展应该以教育发展为前提"><a href="#20210416校赛-初赛2-经济发展应该以教育发展为前提" class="headerlink" title="20210416校赛 初赛2 经济发展应该以教育发展为前提"></a>20210416校赛 初赛2 经济发展应该以教育发展为前提</h1><h2 id="材料-2"><a href="#材料-2" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524170041671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一辩稿-1"><a href="#一辩稿-1" class="headerlink" title="一辩稿"></a>一辩稿</h2><p>经济发展应该以教育发展为前提</p>
+<p>谢谢主席，问候在场各位！<br>开宗明义。发展是事物从产生开始，连续不断进步、向好的变更过程。教育发展分为两个维度，一是深度，培养高精尖人才的精英教育。二是广度，全民的素质普及教育。经济发展是指：生产力的提高。前提是指后续行为的基础。基于如上定义，接下来我将以“何者作为前提能对当今中国的发展起到更有效的促进作用”为判准，来论证我方观点：经济发展应该以教育发展为前提。<br>第一，GDP增长逐渐平缓，教育能作为引领经济发展的新奇点。<br>首先，教育能有效促进创新人才的培养和技术的发展。19 世纪 60 年代前，韩国经济远不如朝鲜，企业创新以产品模仿为主，相关技术主要依靠进口。但韩国大力发展教育，在基础产业深度创新。2018年，韩国半导体销售额居世界第 1 位，创新指数在全球排名第 4，人均 GDP 突破了3 万美元。同为亚洲地区的韩国，其科技创新 高效的支撑着高科技产业的发展。<br>目前我国GDP跃居世界第二，但大而不强、臃肿虚胖，主要体现在创新能力不强。通过发展教育促进提高创新力，而创新力 引领和驱动发展 是我国发展的迫切要求。<br>其次，人才培养，能更好地应对芯片等掐脖子问题。当中兴被停止供应芯片时，当即宣布停摆。像芯片这种问题，不是烧钱就能解决的。知识无国界，但科学家有祖国。我们要自己掌握技术命脉，掌握世界最新知识的基础上，创造出世界各个学科最重要的新成果，获得一批重要的知识产权，为中国经济打下自主的基础。</p>
+<p>第二，教育能提高人们的道德水平和发现美的能力。<br>首先，经济发展水平提高，犯罪却逐渐低龄化。自2008年经济大幅度跨升以来，青年犯罪率逐步提高。2018年，青少年犯罪占全部犯罪的70%，且近几年呈现上升趋势。而教育发展，可以提高道德水平，降低犯罪率。Machin 研究发现，居民平均受教育年限每增加 1 年将使犯罪率降低 11%。<br>其次，当教育发展匹配不上经济发展的速度，人也感知不到幸福。政府对教育投入占GDP（即99万亿元）比重，达4.04%。在世界有可比数据的190个国家和地区中，居第110位，而人均GDP居65位。我方想说明，经济发展不断发展，但物欲也随之升高。如果没有自己判别幸福的能力，作为乌合之众的一员，不断内卷。哪怕经济发展的再好，大多数人也很难感知到幸福。古代经济发展没有现在好，但不是没有人民安居乐业，社会安定幸福的朝代。各方面平衡发展，社会才能发展的更好，人民才会更幸福。</p>
+<p>“一个女孩受教育，可以改变三代人。”教育的作用，不仅仅是提高当代人的创新能力，还有三观的培养，并潜移默化影响着对下一代的培育观念。教育的能量，远远高于经济的即时作用。虽然他的回报周期长，前期投入大，但是作用效果的持续时间也长。综上，我方认为，经济发展应该以教育发展为前提。</p>
+<h3 id="质询："><a href="#质询：" class="headerlink" title="质询："></a>质询：</h3><p>首先，是高科技带来的知识经济。教育培育技术创新型人才，能更好地应对芯片等掐脖子问题。知识无国界，但科学家有祖国。当今国家有能力为有志青年提供更好的学习条件，更好的科研条件。他们能在掌握世界最新知识的基础上，创造出世界各个学科最重要的新成果，获得一批重要的知识产权，为中国经济打下自主的基础。<br>（从小创新，不断学习不断创新。）<br>（以人为本。人民生活和国家更好。几十年前，经济不好，人还不是很快乐，人的发展）<br>（教育，高尚的品格，社会更美好。幸福很多。只发展经济，哪怕经济发展很好，物欲变高。经济升高，品质更好，犯罪下降，达到理想社会。）<br>其次，是受劳动力质量限制的生产力提高。中国制造时代的人口红利逐步消去，作为生产要素中最活跃的 劳动力因素，其质量限制生产力的提高。而教育匹配不上经济发展的速度。政府对教育投入占GDP（即99万亿元）比重，达4.04%。在世界有可比数据的190个国家和地区中，居第110位，而人均GDP居65位。各国都很重视教育的情况下，总书记在十九大提出，优先发展教育事业，弥补对教育投入的历史性欠账。现阶段更关键的是，提高劳动力质量。</p>
+<p>“一个女孩受教育，可以改变三代人。”教育的能量，远远高于经济的即时作用。虽然他的回报周期长，前期投入大，但是作用效果的持续时间也长。综上，我方认为，经济发展应该以教育发展为前提。</p>
+<p>教育提高了人们的道德标准</p>
+<h3 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h3><p>为培养和造就一批世界水平的科技领军人才和科学家，韩国先后于 1997 年和 2004 年实施“创意性研究振兴事业促进计划”和“国家科学家研究支援事业”。大量高素质的人才支撑信息通讯成为韩国基础产业，韩国在该领域进行了深度创新。2018 年，韩国国家创新指数在全球排名第 4，半导体销售额居世界第 1 位。人均 GDP 突破了 3 万美元。<br>高等教育方面，韩国一直注重教育工作，2015年教育支出的 GDP占比超过了 5.00%，并持续增加， 平均受教育年限超过 12 年，特别是高等教育毛入 学率超过了 93.00%。对比美国、日本等 16 个主要创新国家高等教育毛入学率的平均值，中国在高等教育方面仍有很大的发展空间。<br>教育发展，可以降低犯罪率。居民平均受教育年限每增加 1 年将使犯罪率降低 11%；<br>Machin 等（2010）针对英国的研究也发现，居民平均受教育年限每增加 1 年甚至可以令男性犯罪率降低 30%。</p>
+<p>要坚持社会主义先进文化前进方向，用社会主义核心价值观凝聚共识、汇聚力量，用优秀文化产品振奋人心、鼓舞士气，用中华优秀传统文化为人民提供丰润的道德滋养，提高精神文明建设水平。</p>
+<h1 id="20210417-校初赛3-经济发展应该以教育发展为前提"><a href="#20210417-校初赛3-经济发展应该以教育发展为前提" class="headerlink" title="20210417 校初赛3 经济发展应该以教育发展为前提"></a>20210417 校初赛3 经济发展应该以教育发展为前提</h1><h2 id="材料-3"><a href="#材料-3" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524170640632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一辩稿-2"><a href="#一辩稿-2" class="headerlink" title="一辩稿"></a>一辩稿</h2><p>经济发展应该以教育发展为前提</p>
+<p>谢谢主席，问候在场各位！<br>开宗明义。发展是事物从产生开始，连续不断进步、向好的变更过程。教育发展分为两个维度，一是深度，培养高精尖人才的精英教育。二是广度，全民的素质普及教育。经济发展是指：生产力的提高。前提是指后续行为的基础。基于如上定义，接下来我将以“何者作为前提能对当今中国的发展起到更有效的促进作用”为判准，来论证我方观点：经济发展应该以教育发展为前提。<br>第一，GDP增长逐渐平缓，教育能作为引领经济发展的新奇点。<br>首先，教育能有效促进创新人才的培养和技术的发展。19 世纪 60 年代前，韩国经济远不如朝鲜，企业创新以产品模仿为主，相关技术主要依靠进口。但韩国大力发展教育，在基础产业深度创新。2018年，韩国半导体销售额居世界第 1 位，创新指数在全球排名第 4，人均 GDP 突破了3 万美元。同为亚洲地区的韩国，其科技创新 高效的支撑着高科技产业的发展。<br>目前我国GDP跃居世界第二，但大而不强、臃肿虚胖，主要体现在创新能力不强。通过发展教育促进提高创新力，而创新力 引领和驱动发展 是我国发展的迫切要求。<br>其次，人才培养，能更好地应对芯片等掐脖子问题。当中兴被停止供应芯片时，当即宣布停摆。像芯片这种问题，不是烧钱就能解决的。知识无国界，但科学家有祖国。我们要自己掌握技术命脉，掌握世界最新知识的基础上，创造出世界各个学科最重要的新成果，获得一批重要的知识产权，为中国经济打下自主的基础。</p>
+<p>第二，教育能提高人们的道德水平和发现美的能力。<br>首先，经济发展水平提高，犯罪却逐渐低龄化。自2008年经济大幅度跨升以来，青年犯罪率逐步提高。2018年，青少年犯罪占全部犯罪的70%，且近几年呈现上升趋势。而教育发展，可以提高道德水平，降低犯罪率。Machin 研究发现，居民平均受教育年限每增加 1 年将使犯罪率降低 11%。<br>其次，当教育发展匹配不上经济发展的速度，人也感知不到幸福。政府对教育投入占GDP（即99万亿元）比重，达4.04%。在世界有可比数据的190个国家和地区中，居第110位，而人均GDP居65位。我方想说明，经济发展不断发展，但物欲也随之升高。如果没有自己判别幸福的能力，作为乌合之众的一员，不断内卷。哪怕经济发展的再好，大多数人也很难感知到幸福。古代经济发展没有现在好，但不是没有人民安居乐业，社会安定幸福的朝代。各方面平衡发展，社会才能发展的更好，人民才会更幸福。</p>
+<p>“一个女孩受教育，可以改变三代人。”教育的作用，不仅仅是提高当代人的创新能力，还有三观的培养，并潜移默化影响着对下一代的培育观念。教育的能量，远远高于经济的即时作用。虽然他的回报周期长，前期投入大，但是作用效果的持续时间也长。综上，我方认为，经济发展应该以教育发展为前提。</p>
+<h3 id="补充-1"><a href="#补充-1" class="headerlink" title="补充"></a>补充</h3><p><img src="https://img-blog.csdnimg.cn/20210524171820795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210524171911356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210524171943972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="20210428-校踢馆赛-恶人遭难，我可以幸灾乐祸"><a href="#20210428-校踢馆赛-恶人遭难，我可以幸灾乐祸" class="headerlink" title="20210428 校踢馆赛 恶人遭难，我可以幸灾乐祸"></a>20210428 校踢馆赛 恶人遭难，我可以幸灾乐祸</h1><h2 id="材料-4"><a href="#材料-4" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524172303345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一辩稿3-0-1"><a href="#一辩稿3-0-1" class="headerlink" title="一辩稿3.0"></a>一辩稿3.0</h2><p>恶人遭难，我可以幸灾乐祸</p>
+<p>谢谢主席，问候在场各位！</p>
+<p>首先提醒各位，什么是幸灾乐祸呢？幸灾乐祸一词出自《左传》，指的是在他人遇到灾祸时候产生快乐的情绪。其次恶人指的是做了恶，引起社会反感的人物。简而言之，今天我们要谈的就是在恶人遭难的时候，我们可不可以产生快乐的情绪。对于我方的观点，我们今天将会通过在事实层面上，恶人遭难的时候，我们必然会产生快乐的情绪，以及在价值层次上将会启发我们来论证。</p>
+<p>首先，幸灾乐祸是一种正义感的外化，人对恶的痛恨（和对正义的追求）。人对恶的痛恨是种本能，而这种本能我们没必要去磨灭。我们先来探讨，为什么会产生快乐的情绪呢？澳洲墨尔本大学研究显示，幸灾乐祸来源有三个罪有应得，羡慕和组内竞争。面对恶人时我们的快乐来源，自然而然是罪有应得。在此基础上心理学家辛格，对于因罪有应得而幸灾乐祸这种现象进行了进一步的探讨。它们通过研究人在观察坏人受“电击”时，发现大脑的“同理中枢”和“快乐中枢”的都会产生电生理的冲动。让人意外的是，在预先的分组里不论是道德状况良好的人还是道德状况不好（与道德无关）的人。大家大脑中不仅“同理中枢”会产生较强的电生理冲动，且同时“快乐中枢”也会活跃起来。科学家对于此种现象的解释是在坏人遭电击时，人们的快乐中枢活跃与人本身的道德无关，它来自于人们本质上对于邪恶的厌恶，是人们的一种本能在看到恶消解的时候便会快乐。总结来说，恶人遭难时我们的快乐，不是说我们对于人有什么看法，而是单纯的我们对于恶的抵制，是我们本能的良知，朴素正义感的一种外化，因此我们在恶人遭难的时候可以幸灾乐祸。</p>
+<p>其次在社会层面上， 2018年莫纳什大学心理学系做了一个很有趣的研究，探寻幸灾乐祸和见义勇为两件事的联系。结果发现在实验人员里，对于坏人幸灾乐祸的人往往见义勇为的意向更高。究其原因在于什么呢？因为我们心中有正义，恶人遭难时的幸灾乐祸在其中没有恶意的成分，也没有过分的残忍，只是一种正当的道德愉快，与其说我们的愉快以他人的痛苦为基础，不如说基于正义。同样见义勇为也是基于我们心中的正义，才能够在他人遭难时奋不顾身挺身而出，两者看似矛盾却殊途同归。在恶的消解时我们心中有了一颗种子，知道我们与恶不共戴天，随后长成参天大树守护着我们心里的正义源地。最终在他人遇险时支撑我们去践行正义，捍卫正义。而我们在社会的价值体系就是由正义与道德支撑的，对恶遭难的开心，实际上是链接人类正义观的纽带，我们都有了对恶的憎恶，才迫使我们都有了对正义的渴望，最终支撑起社会的价值体系。一个个对于正义的追寻才让我们的社会更加美好。</p>
+<p>以上。</p>
+<h3 id="质询-1"><a href="#质询-1" class="headerlink" title="质询"></a>质询</h3><p>幸灾乐祸（定义）：<br>在可以讨论的范围内，我方认为它是个中性词。幸灾乐祸是成语典故中对事件的描述，他人遇到灾祸时候产生快乐的情绪。情绪是开心和快乐，并没有说幸灾乐祸就不能同情。在我方刚刚提到的辛格的研究中，而在现实生活里，我们对恶人遭难幸灾乐祸和对他感到同情往往是同时存在的。<br>肯塔基大学的心理学家理查德·史密斯的新书《幸灾乐祸》（the joy of pain）主张：不要把幸灾乐祸妖魔化。我们要客观对待幸灾乐祸这种情绪。<br>您方今天在这里说它是一个贬义词，定义上就说它不包含同情，然后再拿您的定义来向我论证幸灾乐祸不包括同情这个观点，不就是循环论证吗。还是您方觉得，只有把它定性为一个贬义词的时候，您方论点才能完全成立，所以您方不敢认。<br>只是情绪，没有行为外化。如果对方能论证，幸灾乐祸一定会导致行为外化。那我们还能再讨论一下。<br>嘲讽是因为缺乏同情，不是因为幸灾乐祸。如果道德感高，最终同情会高于快乐。所以对方的这种结果太片面了。</p>
+<p>一论点。幸灾乐祸：<br>只会加深正义观的维护，不会作出违背正义感的事情。<br>幸灾乐祸是人对恶 痛恨的一种表现形式。人对恶的痛恨是种本能，而这种本能我们没必要去克制。克制会导致正义感的磨灭。</p>
+<p>我没有外加道德审判，我就是单纯的开心。恶人遭难，我开心。维护了我的正义观，对恶的痛恨。</p>
+<p>不可以幸灾乐祸，有两条路可以走通：①我们不可以有快乐的情绪；②同情永远大于快乐。</p>
+<p>幸灾乐祸和愤怒等情绪一样，我们可以幸灾乐祸，通过自我调控而无需无限制地积压。康德也说过：幸灾乐祸使得人类心中的恨变得可见了, 而那些不承认幸灾乐祸的文化，实际上是不愿或不敢看见自己心中的恨。强行压制，不是克制而是逃避，并且不敢外化自己的正义感，会造成正义感的磨灭。我方认为，压制的弊端大于利处。</p>
+<p>若如对方观点，如果不可以幸灾乐祸，难道我们要对恶人抱有更大的悲悯和同情吗？我们承认恶人遭难这个事情让我们愉悦，因为我们的价值体系就是由这一力量支撑的。在其中没有恶意的成分，也没有过分的残忍，只是一种正当的道德愉快。</p>
+<p>无论在何种条件下，“批评”的值都略小于“责任”，这大约体现了人类的仁慈</p>
+<h3 id="补充-2"><a href="#补充-2" class="headerlink" title="补充"></a>补充</h3><p><img src="https://img-blog.csdnimg.cn/20210524173747283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="202105112-校半决赛-在当下“女士优先”有-无助于性别平权"><a href="#202105112-校半决赛-在当下“女士优先”有-无助于性别平权" class="headerlink" title="202105112 校半决赛 在当下“女士优先”有/无助于性别平权"></a>202105112 校半决赛 在当下“女士优先”有/无助于性别平权</h1><h2 id="材料-5"><a href="#材料-5" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210524173903974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一辩稿3-0-2"><a href="#一辩稿3-0-2" class="headerlink" title="一辩稿3.0"></a>一辩稿3.0</h2><p>在当下“女士优先”有/无助于性别平权</p>
+<p>谢谢主席。我方的观点是，在当下“女士优先”无助于性别平权。<br>第一，“女士优先”是善意的“歧视”，随着推演变成展示男性绅士风度的工具。2019年谢菲尔德大学的研究显示，69%的人认为在当下“女士优先”是出于对女性的帮助。在“女士优先”的语境下，给女士贴上柔弱、需要时刻帮助的标签，认为女性弱而保护女性，这是善意的“歧视”。“女士优先”源于中世纪欧洲骑士阶级的价值观——骑士精神，将男性视为了天生的保护者，女性则是被照顾者。《堂吉诃德》中的骑士所信奉的公主是一个根本不存在的人，他为“公主”奔走于世，荒唐做事。反应的是骑士价值观中的唯心和唯我思想——骑士所臣服、向往的是自我自许的正义和幸福。“公主”的存在，只是衬托骑士精神的道具。社交场合为女性拉座椅，是为显示绅士风度，而与女性本身无关。1954年以前美国是当时男女平权做的最好的国家，连小混混都会帮女人开车门、拉椅子、按电梯，但1950年还没有一个女生得到法学院的录取资格。作为中世纪浪漫主义文学精神产物的“女士优先”，这样的“风度翩翩”的价值观使女性地位看起来更高，但并没有得到质的提高，无助于性别平权。<br>第二，在“女性优先”的氛围下，女性会不自主的认可女性很弱的刻板印象，从而变得更弱。女性专用停车场的事情在社会引起很大的反对，但具2016年山东大学研究表明，47%的女性认为女性停车场是好事，因为自己真的停不好车，而女性停车场能帮助到自己停车。我们扪心自问一下，女士真的停不好车吗？女士真的比男士弱嘛？答案当然是否定的，但这些带有善意的歧视却让女士对自己产生了怀疑。比利时心理学家杜蒙就在多个研究中证实，越采取保护照拂女性的态度和行为，女性就越会产生自我怀疑，降低自尊，从而强化女性弱者与附庸的地位，从女性自己的认知上就削弱了女性的社会竞争力。“女士优先”隐藏传播的是，将“女士”这个概念视为柔弱、一贯加以保护从而隔离女性，将其物化、捧杀的思想。信服于此的女性也只会把自己定义为花瓶一样的角色——认可了一个物化自己的环境，认同女性弱势这一观念，给自己上了枷锁，没有将自己放在与男性同等的位置上。自我束缚，对倡导男女平等不利。所以，想要不因为性别而被区别对待，先得放弃那些因为性别而获得的好处，男性和女性除了性征之外，没有任何区别。<br>“女士优先”造成了这些与初衷违背的不可控的差异，都不同程度上影响着人们被接受、被认可的机会、甚至是可能性。这些“difference that doesn’t make a difference”所导致的不平等，是我们所不希望看到的。男女平权，从来不是追求特权。我们希望：不会再因为你是女性，而轻视你或给你特别的保护，不会再因为你是男性，而器重你或把你的一切努力当作理所当然。综上，我方认为，在当下“女士优先”无助于性别平权。</p>
+<h3 id="质询：（往刻板印象上靠）"><a href="#质询：（往刻板印象上靠）" class="headerlink" title="质询：（往刻板印象上靠）"></a>质询：（往刻板印象上靠）</h3><p>1.什么是刻板印象？<br>刻板印象是： “女人就不适合读计算机” 这种缺乏基本的逻辑支持，但是却是这个人的固有印象。<br>2.付出不被看见。<br>不被看见正是因为刻板印象。在义务与权利一致的情况下，刻板印象会被打破，而女士优先不会。<br>3.为什么女性可以放产假？<br>请对方认清男女有别和男女平等。承认女性和男性生理上的差异，就会认识到她们作为女性本身需要这种权利。性别平等的目的应该是共生互补，不是零和对立。而不是男女平权之后，女性应该和担任相同的工作、享受相同的假期，这本身才是对人权、对女性权利的歧视。我们只争取权利上的平等，而不是一切的平等，追求的是存在差异的各个不同的人之间平等的权利。<br>4.为什么还要区分各种人群追求的权利？<br>因为各个人群受到歧视的地方是不同的，所以要进行区分。但总体都是对人权的争取。举例来说，对于女性，她们的生育权、堕胎权、家庭暴力问题、享受产假的权利、性暴力问题等上面更为关注，而这些问题是其他群体不会或者不容易遇到的，所以需要分开来具体看，具体争取。<br>5.有需要怎么办？<br>是有可以自己修电器的女生的，是有可以一个人做好所有的事的女生的。你不行只是你不行，不是女性不行。反映到职场上就是，完成不了应该完成的工作，这是因为在这个领域的能力不行，跟性别无关。当然，并不是盲目推崇靠自己完成所有的事这种行为，懂得寻求适当的帮助也是一种能力，但是需要帮助是因为个人能力的原因，而不是因为是女性。</p>
+<h3 id="补充-3"><a href="#补充-3" class="headerlink" title="补充"></a>补充</h3><p>中世纪的骑士精神，被认为是绅士风度的体现，然而在最讲绅士风度的英国，几个世纪对女士优先却没有带来妇女的投票权，直到1918年女性靠流血抗争换来基本的政治权利。可见女士优先从来不是在所有的方面对女性进行优待，也不是按照女性的意愿对其进行优待，这是一种我不要你觉得我要我觉得的优待。<br>另一方面，德国心理学家贝克尔等专家的诸多实证研究中指出，在这种自我怀疑和无能感之下，这种“善意的性别歧视”又进一步用其看似积极的糖衣，掩盖了其隐蔽的性别歧视的本质，增加了女性对性别现状的满意度，从而削弱了女性对性别不平等的感知；<br>更进一步而言，奥克兰大学心理学教授克里斯研究也证实女性认可善意的性别歧视之后，随着时间的推移，这些女性会更愿意认可恶意的性别歧视，从宏观上来看也的确如此。<br>普林斯顿大学心理学教授菲斯克等学者的研究指出，从不同国家之间进行比较，在“善意的性别歧视”更为普遍的国家，恶意的性别歧视也更为突出，女性的社会生活地位也更为低下，这种相关性甚至高达0.9，几乎是完美相关。因此善意的性别其实掩盖了父权制的压迫性，是对父权之下将女性边缘化与工具化价值观的延续和肯定，是助纣为虐的帮凶。</p>
+<p>公交车上播放“请给有需要的乘客让座”，什么样的人需要帮助？</p>
+<h1 id="20210528-校决赛"><a href="#20210528-校决赛" class="headerlink" title="20210528 校决赛"></a>20210528 校决赛</h1><h2 id="材料-6"><a href="#材料-6" class="headerlink" title="材料"></a>材料</h2><p><img src="https://img-blog.csdnimg.cn/20210712220212395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210712220236270.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="参考"></p>
+<h2 id="一辩稿3-0-3"><a href="#一辩稿3-0-3" class="headerlink" title="一辩稿3.0"></a>一辩稿3.0</h2><p>过程更能体现年轻人奋斗的价值<br>质量互变规律揭示了事物从量变开始，质变是量变的结果。量变是过程，质变是结果。我将从三个方面论证，过程更能体现年轻人奋斗的价值。<br>第一，过程与奋斗价值的相关性更高，对奋斗的体现更加直接且丰富，更能体现奋斗的价值。选择题蒙对和做对结果一样，但两者的价值不一样。偶然因素等干扰项作用于结果，会对奋斗的结果造成巨大的影响。在结果一定的情况下，没办法体现人与人之间奋斗价值的区别：谁在这个过程中付出的更多。只有去考量过程，我们才能看到一个人真正努力拼搏的成分占比多少。《老人与海》中老渔人桑提亚哥天天出海，一连40天没有将一条鱼带上岸。诸葛亮鞠躬尽瘁死而后已，蜀王朝还是被魏国灭亡了。他们的奋斗难道没有价值吗？老人作为“打不败的失败者”，与海奋斗时英勇且毫不气馁。诸葛亮为“兴复汉室”呕心沥血，报先帝而忠陛下。奋斗带给个人的磨炼，带给社会的精神，就是奋斗价值的体现。过程比结果更值得铭记。<br>第二，过程导向是一种进取的奋斗观，更容易激励年轻人脚踏实地，肯定自己奋斗的价值。据2020年壹心理报道：过于追求结果导向，把目光聚焦到结果上，结果与现状的差距会不断带来焦虑等情绪。成王败寇的价值导向，正是过大的压力的来源。费雷德里克森的“积极情绪扩建理论”指出，恐惧、抑郁等负面情绪大多指向逃避退缩等行为。更看重结果导致压力过大，负面情绪降低效率，反而不利于学习与工作。2017年怀化学院对怀化学院、湖南大学等五所高校的研究表明：在乎结果的被测者，其情绪、情感易受成败左右，与抑郁量有非常显著的正相关。在大部分大学生有较大压力的情况下，鼓励大学生适当淡化在乎结果，培养平常心，同时保持和发扬拼搏精神。2014年陕西师范大学的研究表明，在父母和自身对自己都有较高的期待的情况下，面对严峻的就业趋势，一时难以接受便会产生落差。青年成才的天才毕竟是少数，而成王败寇的价值导向，在奋斗路上亦步亦趋不断施压，大部分年轻人在压力的不断增加下越陷越深，普遍抑郁。青年不如意十之八九，沉淀时失败时不否定自己奋斗的价值，面对挫折不放弃继续奋斗，脚踏实地的走好每一步的心态是我们所倡导的。<br>第三，以过程为奋斗导向，可以为自己为世界拓宽边界。2016年中国职教学会研究表明，学生报考计算机77.74%是因为有好的就业企业和工资高等原因，只有 22.26%是因为本人感兴趣报考。现在年轻人大都更看重结果，哪里赚钱就往哪奔，不论自己喜欢与否。在这种因为结果有价值而追逐结果的观念下，年轻人变得世俗化，到处找那个更容易达到结果的道路。我方倡导年轻人都做自己擅长喜欢的事情，每个人都扮演好自己的螺丝钉，不一股脑往热门行业跑，最后被卷在这个世界里。这个时代的年轻人不是追逐者，而是引领者，对于社会和国家的意义绝不是目前带来多么大的收益，而是为这个国家社会为这个世界增加多元。开普勒致力于投入到研究行星运行的规律之中，纵使究其一生仍没有真正破解其奥秘。但在他的手稿之上，伟大的牛顿站在巨人的肩膀上提出了万有引力定律。而这正是那个科学复兴的时代的缩影，无数的科学家不求结果以自己的过程为后人铺路，造就了那个辉煌的科学史诗，他们奋斗的价值在史上熠熠生辉。一个全新的邻域往往代表着未知和失败，注重结果的人往往不敢驻足其中。一个十年始终如一的研究，却还没有得到成果的科学家，他为我们探索了很多的未知。奋斗意味着前途未卜，踏上征程不一定会有结果。但过程为导向——只要开始踏上征程，价值就会被体现。在还没产生结果之前，一切皆有可能，我会为更多的可能性去努力。我们将不只看到成功的人，如果这个人他没成功，他的价值也绝不会减损。</p>
+<h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><h2 id="0516一路走到决赛"><a href="#0516一路走到决赛" class="headerlink" title="0516一路走到决赛"></a>0516一路走到决赛</h2><p>1.一路走到决赛，有什么感想吗？<br>2.你觉得计信辩论队是一个怎样的集体？<br>3.对于自己的队友有没有想说的话？<br>4.你希望家人来看你比赛吗？</p>
+<p>1.挺意外的，没想到会走这么远。但我们确实值得，因为每次都准备的很充分。这次辩论是成长的一次邀请，在路上明显感知到自身变化，很荣幸选择参与其中。<br>2.计信辩论队的人都很有主见有个人特色，同时很温柔能包容一切。看似完全不同甚至相反的元素，却能同时出现在这，是一件奇妙的事情。但互补相互关联使我们团结的更紧密，一切都恰如其分。在这里能看到多元的世界，和他们一起准备辩论的过程是有趣且快乐的。让心欢喜，<br>3.Nice to meet you!<br>4.期待但又没那么想。在家更多讲感情，所以很少理性地谈论非此即彼的观点。期待借助辩论赛，给家人看到我逻辑严密地论述自己认同的观点的那一面。而且可以很自豪地和他们说，在辩论中收获的种种。但想让他们看我的下一场辩论，而不是这一场。因为自己进步速度很快，感觉下次的辩论会更有魅力哈哈哈哈。</p>
+<h2 id="0527感想"><a href="#0527感想" class="headerlink" title="0527感想"></a>0527感想</h2><p>计信yyds</p>
+<p>这次辩论是成长的一次邀请，在路上明显感知到自身变化，很荣幸选择参与其中</p>
+<p>学到了好多www每次一篇稿子改三大版，参考二十多篇文献。阅读倒是没事，理解消化转述表达实在绝了。方学长教会了查文献，梅队周队教抗压，邬莉学姐太帅了啊啊啊，玙是人间宝藏，还有晓露学姐和张学长，林均和敏儿<br><img src="https://img-blog.csdnimg.cn/20210712221730215.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打完之后收到了妈咪送的玫瑰，好甜na<br>我妈说我没自信……确实花了一个星期才缓过来QAQ<br>我以为了解点中国历史就比较nice了，结果打踢馆赛那一场备赛的时候，世界历史都能信手拈来。（后来狂看书hhh<br>平时感觉自己挺能说的，结果模拟辩论的时候，不能很好的表达出自己的观点，而且思路很容易被带着跑<br>最后一点是，我的辩论没有长远的目的性，偏向于争一些阶段性的成果，但实质没有注入灵魂。辩论本质可能更偏于于博弈吧，而不是压倒说法。</p>
+<p>学到了很多，也很开心的一段旅程~</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/Yu&Django%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/Yu&Django%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:15:02" itemprop="dateModified" datetime="2022-05-26T14:15:02+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="Yu&amp;Django环境配置的那些事">TOC</a></p>
+<h1 id="一、写在最最前面"><a href="#一、写在最最前面" class="headerlink" title="一、写在最最前面"></a>一、写在最最前面</h1><p>谁能想到，小雨竟又回到了Django的怀抱呢。真是世事无常(ಥ_ಥ)<br>寒假其实有学写Django框架爱鲜蜂项目的任务。但，暑假的小雨对于寒假学习的Django没有很多印象了，，，<br>当时寒假的小雨还没有做笔记意识，重新配置的艰辛让小雨明白了很多事情哈哈哈哈。因此现在的小雨感觉，工坊关于定期查看笔记的决策不要太好了:-）<br>python django框架开发周期短，集成度高，对初学者比较友好。<br>网上关于Django的环境配置教程比较零碎，感谢学长们提供的笔记及相关链接的支持。<br>@刘 @杨 ……<br>在此记录下Pycharm和django相关安装、配置过程。<br>现在，让我们开始一段新的旅程吧 ~</p>
+<h1 id="二、Django基本介绍"><a href="#二、Django基本介绍" class="headerlink" title="二、Django基本介绍"></a>二、Django基本介绍</h1><p>python django框架开发周期短，集成度高，对初学者比较友好。在此记录下Pycharm和django相关安装、配置过程</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzy5210123/article/details/80178128">pycharm+Django配置与基本介绍</a><br>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xzy5210123/article/details/80178128">https://blog.csdn.net/xzy5210123/article/details/80178128</a></p>
+</blockquote>
+<ul>
+<li>templates目录 放置html文件</li>
+<li>manage.py 与项目进行交互的命令行工具集的入口，相当于项目管理器，运行后会显示一些可供调用的子命令</li>
+<li>wsgi.py python服务器网关接口，与web服务器之间的接口（通信关键，一般不要改动）</li>
+<li>urls.py URL配置文件，即每个页面的地址</li>
+<li>settings.py 全局配置文件，包含数据库、web应用、时间等</li>
+</ul>
+<h1 id="三、各种安装与环境配置"><a href="#三、各种安装与环境配置" class="headerlink" title="三、各种安装与环境配置"></a>三、各种安装与环境配置</h1><p>写在最前面：环境配置讲究细心耐心专心！！！</p>
+<h2 id="1-Python-安装和配置-已安装的可跳过"><a href="#1-Python-安装和配置-已安装的可跳过" class="headerlink" title="1.Python 安装和配置(已安装的可跳过)"></a>1.Python 安装和配置(已安装的可跳过)</h2><p>如下：</p>
+<pre><code> 1.下载Python
+</code></pre><p> 如果还未安装Python环境，需要先下载Python安装包。<br>Python 下载地址：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a><br><img src="https://img-blog.csdnimg.cn/20200720203855713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>浏览器下载 .exe文件<br><img src="https://img-blog.csdnimg.cn/20200720203920935.png" alt="在这里插入图片描述"><br>注意：目前 Django 1.6.x 以上版本已经完全兼容 Python 3.x。</p>
+<pre><code> 2.开始安装Python
+</code></pre><p> 安装 Python 只需要在官网下载安装包，然后一直点击 “Next” 按钮即可。（笔者之前安装过了，此处为借的图）<br><img src="https://img-blog.csdnimg.cn/202007202039536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择安装路径，可以不安装在C盘，记住安装到哪就行了，默认也行，我安装在<br>C:\Program Files\Java\jdk1.8.0_131<br>（如果你也是Django项目，可以选择和我一样，省事哈哈哈）<br>建议不要删除这个.exe，因为默认安装中是没有pip依赖模板的。如果不删除，后期可以通过.exe文件的打开重新设置（参考后文的重新安装部分），直接安装pip，更简单。<br>如果删除了，笔者也提供了pip下载的方式。</p>
+<h3 id="1-1-Python-pip-安装与使用"><a href="#1-1-Python-pip-安装与使用" class="headerlink" title="1.1 Python pip 安装与使用"></a>1.1 Python pip 安装与使用</h3><pre><code> ①简介
+</code></pre><p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。</p>
+<p>目前如果你在 python.org 下载最新版本的安装包，则是已经自带了该工具。</p>
+<p>Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。</p>
+<p>pip 官网：<a target="_blank" rel="noopener" href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></p>
+<p>可以通过以下命令来判断是否已安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200721153504216.png" alt="在这里插入图片描述"></p>
+<p>如果你还未安装，则可以使用以下方法来安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   <span class="comment"># 下载安装脚本</span></span><br><span class="line">$ sudo python get-pip.py    <span class="comment"># 运行安装脚本</span></span><br></pre></td></tr></table></figure>
+<pre><code>注意：用哪个版本的 Python 运行安装脚本，pip 就被关联到
+哪个版本，如果是 Python3 则执行以下命令：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo python3 get-pip.py    <span class="comment"># 运行安装脚本</span></span><br></pre></td></tr></table></figure>
+<pre><code>一般情况 pip 对应的是 Python 2.7，
+pip3 对应的是 Python 3.x。
+</code></pre><p>部分 Linux 发行版可直接用包管理器安装 pip，如 Debian 和 Ubuntu：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure>
+<h4 id="pip-常用命令"><a href="#pip-常用命令" class="headerlink" title="pip 常用命令"></a>pip 常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip --version  <span class="comment">#显示版本和路径</span></span><br><span class="line">pip --<span class="built_in">help</span> <span class="comment">#获取帮助</span></span><br><span class="line">pip install -U pip <span class="comment">#升级 pip</span></span><br></pre></td></tr></table></figure>
+<p>如果这个升级命令出现问题 ，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install SomePackage              <span class="comment"># 最新版本</span></span><br><span class="line">pip install SomePackage==1.0.4       <span class="comment"># 指定版本</span></span><br><span class="line">pip install <span class="string">&#x27;SomePackage&gt;=1.0.4&#x27;</span>     <span class="comment"># 最小版本</span></span><br></pre></td></tr></table></figure>
+<p>比如要安装 Django。用以下的一条命令就可以，方便快捷。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install Django==1.7 <span class="comment">#升级包</span></span><br><span class="line">pip install --upgrade SomePackage</span><br><span class="line"><span class="comment">#升级指定的包，通过使用==, &gt;=, &lt;=, &gt;, &lt; 来指定一个版本号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall SomePackage <span class="comment">#卸载包</span></span><br><span class="line">pip search SomePackage <span class="comment">#搜索包</span></span><br><span class="line">pip show  <span class="comment">#显示安装包信息</span></span><br><span class="line">pip show -f SomePackage <span class="comment">#查看指定包的详细信息</span></span><br><span class="line">pip list <span class="comment">#列出已安装的包</span></span><br><span class="line">pip list -o <span class="comment">#查看可升级的包</span></span><br></pre></td></tr></table></figure>
+<p>注意，如果 Python2 和 Python3 同时有 pip，则使用方法如下：<br>Python2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 -m pip install XXX</span><br></pre></td></tr></table></figure>
+<p>Python3:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install XXX</span><br></pre></td></tr></table></figure>
+<p>若由于一些局域网的原因，使用 pip 出现 “connection timeout”，连接超时可以使用国内的镜像网站下载：<br> <a target="_blank" rel="noopener" href="http://e.pypi.python.org">http://e.pypi.python.org</a><br> <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple">http://pypi.douban.com/simple</a><br>命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install -i http://pypi.douban.com/simple --trusted-host pypi.douban.com packagename </span><br><span class="line"><span class="comment"># packagename是要下载的包的名字</span></span><br><span class="line">pip install -i http://e.pypi.python.org --trusted-host e.pypi.python.org --upgrade pip </span><br><span class="line"><span class="comment"># 升级pip</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Python-的重新安装"><a href="#1-2-Python-的重新安装" class="headerlink" title="1.2 Python 的重新安装"></a>1.2 Python 的重新安装</h3><p>笔者为重新安装，过程如下：<br>下载方法和安装一样<br><img src="https://img-blog.csdnimg.cn/20200720204234981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200720204249998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200720204307319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200720204320915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>重新安装成功。<br>美中不足：没更改安装路径，还是第一次的位置。<br><img src="https://img-blog.csdnimg.cn/20200720204358570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-3-Python-配置"><a href="#1-3-Python-配置" class="headerlink" title="1.3 Python 配置"></a>1.3 Python 配置</h3><p>安装完成后，需要设置 Python 环境变量。<br>①右击，计算机——属性——高级系统设置——打开环境变量的配置窗口，在系统环境变量一栏点击新建。（后面就不放图了哈）<br><img src="https://img-blog.csdnimg.cn/20200404184710188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200404184642902.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020040418475123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>②（如果细节不确定，可以参考SpringBoot的那篇文章）<br>修改系统变量 path，添加 Python 安装地址，本文实例使用的是：<br>C:\Users\15488\Desktop\爱鲜峰项目\Scripts\<br>C:\Users\15488\Desktop\爱鲜峰项目\<br>需要根据实际安装情况来设置。<br>（由于笔者前面在重新安装过程中，选择了将Python添加到环境变量，所以笔者的环境变量是自己生成的）</p>
+<p>  配置好如图<br>  <img src="https://img-blog.csdnimg.cn/202007202108040.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>最后验证一下
+</code></pre><p>1.win + R–&gt;输入cmd，进入cmd命令行<br>2.输入：python —version 就可以查看版本信息，如果显示如下信息，则表示环境配置成功<br><img src="https://img-blog.csdnimg.cn/20200720211048527.png" alt="在这里插入图片描述"></p>
+<h2 id="2-pycharm的安装"><a href="#2-pycharm的安装" class="headerlink" title="2.pycharm的安装"></a>2.pycharm的安装</h2><h3 id="2-1-软件简介"><a href="#2-1-软件简介" class="headerlink" title="2.1 软件简介"></a>2.1 软件简介</h3><p>◆ ◆ ◆<br>PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</p>
+<h3 id="2-2-软件获取"><a href="#2-2-软件获取" class="headerlink" title="2.2 软件获取"></a>2.2 软件获取</h3><p>◆ ◆ ◆<br>笔者为学生，有学生账号，所以于官网下载<br>pycharm下载地址：<a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/download/#section=windows">http://www.jetbrains.com/pycharm/download/#section=windows</a></p>
+<p>点击download进行下载，注意选择Professional专业版<br>pycharm下载地址：<a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/download/#section=windows">http://www.jetbrains.com/pycharm/download/#section=windows</a></p>
+<p>点击download进行下载，注意选择Professional专业版<br><img src="https://img-blog.csdnimg.cn/20200721190659632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-3-软件安装"><a href="#2-3-软件安装" class="headerlink" title="2.3 软件安装"></a>2.3 软件安装</h3><p>下载完成后，找到图标打开<br>打开.exe，next<br>选择安装路径<br>勾选这两个，下一步，直接install<br><img src="https://img-blog.csdnimg.cn/20200721191008649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="3-pycharm-配置-Django"><a href="#3-pycharm-配置-Django" class="headerlink" title="3.pycharm 配置 Django"></a>3.pycharm 配置 Django</h2><p>前置条件：已安装python（见上面）<br>在安装 Django 前，系统需要已经安装了Python的开发环境。</p>
+<pre><code> 1.在pycharm中新建项目Django
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20200721191621671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图中编号1处为项目位置；编号2处为使用的模板语言类型，默认为Django模板语言；编号3处是保存项目页面HTML的文件夹名称，默认为templates；编号4处是应用名，一般根据Web应用的实际功能来命名。<br>本示例中，项目位置为E:\test，应用名为test1。（注：项目与应用不能同名）</p>
+<pre><code> 2.创建项目
+</code></pre><p>设置填写完毕后，点击右下角的Create，创建项目。<br><img src="https://img-blog.csdnimg.cn/20200721191728359.png" alt="在这里插入图片描述"><br>是<br><img src="https://img-blog.csdnimg.cn/20200721191759898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code> 3.配置Pycharm中python的环境
+
+ ①序号1点击，选择add
+</code></pre><p>出现这个界面，按标注的顺序一路点下去<br><img src="https://img-blog.csdnimg.cn/20200721191846537.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721191928591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code> ②下载Django
+</code></pre><p>file —-&gt; settings ——&gt; project 解释器 —-&gt; 点击+ ——&gt; 输入Django —-&gt; install(如果选择版本时,选择 CheckBox ,选择指定版本)<br><img src="https://img-blog.csdnimg.cn/20200721192001166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>安装成功的界面<br><img src="https://img-blog.csdnimg.cn/20200721192030540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中，我在安装Django中出现了两个问题</p>
+<h3 id="Django安装出现问题"><a href="#Django安装出现问题" class="headerlink" title="Django安装出现问题"></a>Django安装出现问题</h3><pre><code> ①Available packages 页面无法正常显示
+</code></pre><p>原因：安装pycharm时，未选择.py<br>解决：卸载重新安装</p>
+<h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><p>扩展<a target="_blank" rel="noopener" href="https://blog.csdn.net/yuangan1529/article/details/80800411">Pycharm配置（1）——解释器（interpreter）</a></p>
+<pre><code> ②Django下载失败
+</code></pre><p>最上方:<br>pip install django<br>详情：<code>pip._vendor.requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=&#39;files.pypi.tuna.tsinghua.edu.cn&#39;, port=443): Read timed out.</code><br>原因：<br>1）pip需要undergrade<br>2）pip需要设置镜像<br>解决：<br>首先，进入python安装目录下的Scripts内，打开控制台输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 --default-timeout=100 install -U</span><br></pre></td></tr></table></figure>
+<p>调整默认超时时间之后还是一样会报错。<br>一下午一直在改，感觉都没改对，因为改的地方都报错。<br>但通过不断的重复安装，最后还是成功了，不知道是什么原因。希望之后可以知道。</p>
+<h2 id="4-Django其他安装方法（Linux、Mac、Windows）"><a href="#4-Django其他安装方法（Linux、Mac、Windows）" class="headerlink" title="4.Django其他安装方法（Linux、Mac、Windows）"></a>4.Django其他安装方法（Linux、Mac、Windows）</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/django/django-install.html">Django 安装</a></p>
+<h1 id="四、创建运行Django项目"><a href="#四、创建运行Django项目" class="headerlink" title="四、创建运行Django项目"></a>四、创建运行Django项目</h1><h2 id="1-创建Django项目"><a href="#1-创建Django项目" class="headerlink" title="1.创建Django项目"></a>1.创建Django项目</h2><h3 id="1-1-使用命令行创建项目"><a href="#1-1-使用命令行创建项目" class="headerlink" title="1.1 使用命令行创建项目"></a>1.1 使用命令行创建项目</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject 项目名称</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-使用-Pycharm-创建项目"><a href="#1-2-使用-Pycharm-创建项目" class="headerlink" title="1.2 使用 Pycharm 创建项目"></a>1.2 使用 Pycharm 创建项目</h3><p>file —-&gt; new project —— 选择Django —-&gt; 配置路径和项目名称 —-&gt; 配置环境(默认用系统环境) ——&gt; 点击create(完成创建)<br><img src="https://img-blog.csdnimg.cn/20200721200101918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="2-项目目录介绍"><a href="#2-项目目录介绍" class="headerlink" title="2.项目目录介绍"></a>2.项目目录介绍</h2><p>|—-test2 # 项目的/目录<br>  |—-test2 # 项目目录<br>      |—-<strong>init</strong>.py<br>      |—-settings.py # 配置文件<br>      |—-urls.py # 路由系统 ===&gt; url与视图的对应关系<br>      |—-wsgi.py # runserver命令就使用wsgiref模块做简单的web server |—-manage.py # 管理文件<br><img src="https://img-blog.csdnimg.cn/20200721200131820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="3-创建应用"><a href="#3-创建应用" class="headerlink" title="3.创建应用"></a>3.创建应用</h2><h3 id="3-1-使用命令行模式创建应用"><a href="#3-1-使用命令行模式创建应用" class="headerlink" title="3.1 使用命令行模式创建应用"></a>3.1 使用命令行模式创建应用</h3><p>在 Terminal 中输入 python manage.py startapp 应用名:<br><img src="https://img-blog.csdnimg.cn/20200721200220345.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721200228662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="3-2-使用-Pycharm-创建应用"><a href="#3-2-使用-Pycharm-创建应用" class="headerlink" title="3.2 使用 Pycharm 创建应用"></a>3.2 使用 Pycharm 创建应用</h3><p><img src="https://img-blog.csdnimg.cn/20200721200254602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>注意：使用命令行创建的应用，一定要在 settings.py—&gt;INSTALLED_APPS 中加入你的应用名字进行注册, 使用Pycharm创建的应用则不用。 认识应用结构<br><img src="https://img-blog.csdnimg.cn/20200721200309951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4-运行项目"><a href="#4-运行项目" class="headerlink" title="4. 运行项目"></a>4. 运行项目</h2><h3 id="4-1-使用命令行运行项目"><a href="#4-1-使用命令行运行项目" class="headerlink" title="4.1 使用命令行运行项目"></a>4.1 使用命令行运行项目</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py runserver </span><br><span class="line">manage.py runserver <span class="number">80</span>      <span class="comment"># 指定端口</span></span><br></pre></td></tr></table></figure>
+<p>注意：要在 manage.py 同级目录执行命令。<br><img src="https://img-blog.csdnimg.cn/20200721200411337.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721200418903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="4-2-Pycharm-启动项目"><a href="#4-2-Pycharm-启动项目" class="headerlink" title="4.2 Pycharm 启动项目"></a>4.2 Pycharm 启动项目</h3><p>点击右上角的绿色的三角按钮。<br>如需更改配置信息，请下拉选择 edit configurations，进行配置。<br><img src="https://img-blog.csdnimg.cn/2020072120044339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721200450330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>配置完以上信息之后，直接按 Ctrl+shift+F10 运行一下 manage.py 文件。<br>出现如下结果，表示配置成功。<br><img src="https://img-blog.csdnimg.cn/20200721200511461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="五、参考文献"><a href="#五、参考文献" class="headerlink" title="五、参考文献"></a>五、参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Kiwi-456/p/11122221.html">https://www.cnblogs.com/Kiwi-456/p/11122221.html</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/python-pip-install-usage.html">https://www.runoob.com/w3cnote/python-pip-install-usage.html</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/django/django-install.html">https://www.runoob.com/django/django-install.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/huo920/article/details/82082403">https://blog.csdn.net/huo920/article/details/82082403</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzy5210123/article/details/80178128">https://blog.csdn.net/xzy5210123/article/details/80178128</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yuangan1529/article/details/80800411">https://blog.csdn.net/yuangan1529/article/details/80800411</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/window%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85spark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/window%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85spark/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:50" itemprop="dateModified" datetime="2022-05-26T14:13:50+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>393</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>window环境下安装spark<br>(转载）<br>这个非常成功<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149469688">https://zhuanlan.zhihu.com/p/149469688</a></p>
+<p>加上参考<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2">https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/windows%E4%B8%ADpyspark%E7%9A%84%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/windows%E4%B8%ADpyspark%E7%9A%84%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:50" itemprop="dateModified" datetime="2022-05-26T14:13:50+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="Windows 中pyspark的配置">TOC</a></p>
+<h1 id="1-Windows-安装配置-PySpark-开发环境（详细步骤-原理分析）"><a href="#1-Windows-安装配置-PySpark-开发环境（详细步骤-原理分析）" class="headerlink" title="1. Windows 安装配置 PySpark 开发环境（详细步骤+原理分析）"></a>1. Windows 安装配置 PySpark 开发环境（详细步骤+原理分析）</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1701582">https://cloud.tencent.com/developer/article/1701582</a><br>使用 python api 编写 pyspark 代码提交运行时，为了不破坏 spark 原有的运行架构，会将写好的代码首先在 python 解析器中运行(cpython)，Spark 代码归根结底是运行在 JVM 中的，这里 python 借助 Py4j 实现 Python 和 Java 的交互,即通过 Py4j 将 pyspark 代码“解析”到 JVM 中去运行。例如，在 pyspark 代码中实例化一个 SparkContext 对象，那么通过 py4j 最终在 JVM 中会创建 scala 的 SparkContext 对象及后期对象的调用、在 JVM 中数据处理消息的日志会返回到 python 进程中、如果在代码中会回收大量结果数据到 Driver 端中，也会通过 socket 通信返回到 python 进程中。这样在python进程和JVM进程之间就有大量通信。<br>①Windows 配置 python 环境变量<br>②Windows 配置 spark 环境变量<br>③python 环境中安装 py4j 模块(python 调用 java API 的中间通信模块)<br>进入python安装目录\Scripts使用pip install py4j<br>验证py4j是否安装成功：python &gt;&gt;&gt;import py4j回车<br>④安装PySpark模块<br>使用pip安装pyspark。pip install pyspark 会安装最新的版本的pyspark。<br>⑤pyspark验证<br>⑥WordCount 测试环境是否配置成功</p>
+<h1 id="2-Windows系统下解压”-tar”文件出错，提示：无法创建符号链接，可能需要以管理器身份运行winrar，参考："><a href="#2-Windows系统下解压”-tar”文件出错，提示：无法创建符号链接，可能需要以管理器身份运行winrar，参考：" class="headerlink" title="2. Windows系统下解压”.tar”文件出错，提示：无法创建符号链接，可能需要以管理器身份运行winrar，参考："></a>2. Windows系统下解压”.tar”文件出错，提示：无法创建符号链接，可能需要以管理器身份运行winrar，参考：</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2">https://blog.csdn.net/ruangaoyan/article/details/100154959?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&amp;utm_relevant_index=2</a><br> <img src="https://img-blog.csdnimg.cn/9b6f71e1d10b4f34bd86c64c838c63d2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>原因：用户管理员权限(必须管理权权限，否则无效)<br>通过命令行解决：以管理员身份运行cmd，进入待解压文件目录下<br>start winrar x -y hadoop-3.2.3.tar</p>
+<h1 id="3-java环境不能有空格"><a href="#3-java环境不能有空格" class="headerlink" title="3.java环境不能有空格"></a>3.java环境不能有空格</h1><p>①参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012175183/article/details/117730692">https://blog.csdn.net/u012175183/article/details/117730692</a><br>添加D:\Program Files的链接D:\ProgramFiles<br>mklink/J D:\ProgramFiles “D:\Program Files”<br>//       快捷方式路径       原路径<br>//路径名有空格时需要加双引号    “有空格 的路径”<br>②参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35535690/article/details/81976032">https://blog.csdn.net/qq_35535690/article/details/81976032</a><br>使用编辑器打开E:\Hadoop2.7.7\hadoop-2.7.7\etc\hadoop\hadoop-env.cmd<br>修改JAVA_HOME的路径<br>把set JAVA_HOME改为jdk的位置<br> <img src="https://img-blog.csdnimg.cn/cf5eb8c3fb7d4889bf7f7f04a562149d.png" alt="在这里插入图片描述"></p>
+<h1 id="4-windows环境下paspark开发环境报错"><a href="#4-windows环境下paspark开发环境报错" class="headerlink" title="4. windows环境下paspark开发环境报错"></a>4. windows环境下paspark开发环境报错</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44285445/article/details/108710043">https://blog.csdn.net/weixin_44285445/article/details/108710043</a><br>①下载所安装的 Spark 版本对应的 Hadoop 版本的压缩包<br>②参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346219061">https://zhuanlan.zhihu.com/p/346219061</a><br>[问题解决篇-32] hadoop 各个版本的hadoop.dll 下载路径<br>C:\Windows\System32下缺少hadoop.dll,把这个文件拷贝到C:\Windows\System32下面即可。<br>在<a target="_blank" rel="noopener" href="https://github.com/cdarlint/winutils下载对应的hadoop.dll和winutils.ex文件">https://github.com/cdarlint/winutils下载对应的hadoop.dll和winutils.ex文件</a><br><img src="https://img-blog.csdnimg.cn/d47a0c4d54094c058b05b069bb4acb33.png" alt="在这里插入图片描述"></p>
+<p>③将hadoop-2.6.5\bin 下hadoop.dll 文件winutils.exe 文件拷贝到 C:\Windows\System32④配置hadoop环境，修改path变量<br>HADOOP_HOME：D:\Programs\hadoop-3.2.3<br>%HADOOP_HOME%\bin<br>⑤测试 hadoop version和spark<br><img src="https://img-blog.csdnimg.cn/76a426edb7dd4476b5b84959cbfb70e5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="5-spark报错：org-apache-hadoop-io-nativeio-NativeIO-Windows-access0-Ljava-lang-String；I-Z"><a href="#5-spark报错：org-apache-hadoop-io-nativeio-NativeIO-Windows-access0-Ljava-lang-String；I-Z" class="headerlink" title="5. spark报错：org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Ljava/lang/String；I)Z"></a>5. spark报错：org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Ljava/lang/String；I)Z</h1><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dkl12/article/details/118767618">https://blog.csdn.net/dkl12/article/details/118767618</a></p>
+<h1 id="6-spark报错：WARN-util-Utils-Service-‘SparkUI’-could-not-bind-on-port-4040-Attempting-port-4041-4042等错误"><a href="#6-spark报错：WARN-util-Utils-Service-‘SparkUI’-could-not-bind-on-port-4040-Attempting-port-4041-4042等错误" class="headerlink" title="6. spark报错：WARN util.Utils: Service ‘SparkUI’ could not bind on port 4040. Attempting port 4041.4042等错误"></a>6. spark报错：WARN util.Utils: Service ‘SparkUI’ could not bind on port 4040. Attempting port 4041.4042等错误</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/angelasp/p/13274455.html">https://www.cnblogs.com/angelasp/p/13274455.html</a><br>解决：关闭进程端口</p>
+<h1 id="7-Python版本与spark版本不一致，报错Exception-Python-in-worker-has-different-version-3-10-than-that-in-driver-3-7"><a href="#7-Python版本与spark版本不一致，报错Exception-Python-in-worker-has-different-version-3-10-than-that-in-driver-3-7" class="headerlink" title="7.Python版本与spark版本不一致，报错Exception: Python in worker has different version 3.10 than that in driver 3.7"></a>7.Python版本与spark版本不一致，报错Exception: Python in worker has different version 3.10 than that in driver 3.7</h1><p>参考:<a target="_blank" rel="noopener" href="https://blog.csdn.net/lyw5200/article/details/111316602">https://blog.csdn.net/lyw5200/article/details/111316602</a></p>
+<h1 id="8-Spark编程笔记-4-RDD数据读写"><a href="#8-Spark编程笔记-4-RDD数据读写" class="headerlink" title="8. Spark编程笔记(4)-RDD数据读写"></a>8. Spark编程笔记(4)-RDD数据读写</h1><p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103024687">https://zhuanlan.zhihu.com/p/103024687</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/ssh%E6%9C%AC%E6%9C%BA%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%B1%E8%B4%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/ssh%E6%9C%AC%E6%9C%BA%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:44" itemprop="dateModified" datetime="2022-05-26T14:13:44+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@<a href="ssh本机连接服务器失败(ssh: connect to host 111.47.28.118 port 9722: Connection timed out">TOC</a></p>
+<h1 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h1><p>最后发现是老师换服务器了，之前的那个没有用了，所以连接不上（๑乛◡乛๑卡在了奇怪的地方）。<br>说不准你也是hhh，可以先去确认一下。<br>仅供之后的自己参考，且留作纪念。</p>
+<h1 id="一-问题描述"><a href="#一-问题描述" class="headerlink" title="一. 问题描述"></a>一. 问题描述</h1><p>　　想要在本机连接服务器… 可是装好mobaxterm后, 发现输入ssh端口号和ip时报错, 但账号应该是对的。</p>
+<p>​通过cmd直接连接也报错ssh: connect to host 111.47.28.118 port 9722: Connection timed out</p>
+<h1 id="二-解决问题"><a href="#二-解决问题" class="headerlink" title="二.解决问题"></a>二.解决问题</h1><p>　　参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Cherrison-Time/p/11587816.html">ssh本机失败(ssh: connect to host localhost port 22: Connection refused) - Cherrison_Time - 博客园 (cnblogs.com)</a></p>
+<p>  <strong>发现原因可能是: 端口没有打开, 本地防火墙拒绝, 本机没有ssh服务;</strong></p>
+<h2 id="先关闭防火墙："><a href="#先关闭防火墙：" class="headerlink" title="先关闭防火墙："></a>先关闭防火墙：</h2><p><img src="https://img-blog.csdnimg.cn/29e34cb15733457994590739df5ce204.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="">然后本机没有ssh服务,使用linux的时候ssh是经常使用的, 但是本机却可能是没有ssh服务的, 所以我们要安装ssh服务;<br>查看是否有ssh服务<br><img src="https://img-blog.csdnimg.cn/a633814ab33c4b23a1c059abbc9794e6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="启用windows的ssh功能"><a href="#启用windows的ssh功能" class="headerlink" title="启用windows的ssh功能:"></a>启用windows的ssh功能:</h2><p>参加链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44570083/article/details/109435794">1、杂项：Windows服务器openssh连接(含ssh免密登录)</a><br>Windows系统其实提供了ssh的拓展功能，只不过默认没有打开。就像wsl一样，这些功能受众很小，一般人根本用不上它。所以我们需要手动去打开它，服务器和客户端上都要去打开，不然用不了。也可以通过第三方软件去实现这个功能，客户端用xshell，服务器用freesshd。不过这些都是需要安装第三方软件的，不靠谱。我们选择的是windows内置的openssh的功能。</p>
+<p>1、打开Windows系统设置，点击应用选项<br>2、点击应用和功能选项卡里可选功能<br>3、点击添加功能<br>4、搜索ssh，会出现以下两个结果。一般情况下服务器只要安装OpenSSH服务器，客户端那就安装OpenSSH客户端即可。不过我这里建议大家两个都装上，至少在服务器上要两个都装上（为什么？后面再说）。客户端上那无所谓，装一个就行了。安装的时间比较慢，稍等便可即可。</p>
+<h2 id="然后配置服务器自启动"><a href="#然后配置服务器自启动" class="headerlink" title="然后配置服务器自启动"></a>然后配置服务器自启动</h2><p>1、服务器上两个软件都安装好后需要配置下服务自启动，以便每次重启电脑都能自动启动服务。在服务里，找到这个东西OpenSSH SSH Server<br>2、点击属性设置，将启动类型设置成自动启动，并且点击启动按钮，立即启动服务。</p>
+<h2 id="回环测试"><a href="#回环测试" class="headerlink" title="回环测试"></a>回环测试</h2><p>1、打开PowerShell或者CMD，输入 ssh CX@127.0.0.1测试本地是否可以正常连接，这里用的就是上面第4点安装的ssh客户端去连接自己的ssh服务器。回车后，输入yes！。（格式：ssh 用户名@IP地址），我这里是本地所以直接填的网卡回环地址。客户机如果想要连接服务器的话需要填写服务器实际的ip地址，填127.0.0.1是没用的。<br><img src="https://img-blog.csdnimg.cn/b7d6d2afad6b41df819aa1321c9b5f16.png" alt="在这里插入图片描述"></p>
+<ol>
+<li><strong>生成ssh秘钥</strong><br>打开控制台<br>在该路径下创建一个.ssh目录（可以使用命令，也可以手动创建）<br>进入.ssh目录<br>运行ssh-keygen<br>然后一直按回车执行就可以<img src="https://img-blog.csdnimg.cn/39f15cce772d4fd6bbc8d27a179b83af.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>完成后看到.ssh目录下会多出两个文件id_rsa和id_rsa.pub，就说明成功了<br><img src="https://img-blog.csdnimg.cn/4b42d9baca154d289b1624d315f2f64f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+<li><strong>创建config文件并配置相关信息</strong><br>在.ssh目录下新建一个config文件，并打开<br>配置信息：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host <span class="built_in">test</span> </span><br><span class="line">  Port 22  &lt;端口号，你的远程服务器的sshd服务的端口号，默认是22&gt;</span><br><span class="line">  HostName  196.168.2.3 &lt;主机地址，前面是乱填的&gt;</span><br><span class="line">  User root &lt;用户名，默认是root&gt;</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa&lt;存放密钥的地址，默认填&gt;</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<p>Host：连接的时候使用的名称，自己定义<br>Port：端口号，你的远程服务器的sshd服务的端口号，默认是22<br>HostName：主机地址，前面是乱填的<br>User：用户名，默认是root<br>IdentityFile：存放密钥的地址，不会就按上面填就好<br>编辑完成后，然后保存。千万别填错！别填错！填错！尤其是IdentityFile和IdentitiesOnly。（我不会告诉你我就是填错过的）</p>
+<p>这样本地就配置好了</p>
+<ol>
+<li><strong>配置环境变量</strong><br>该指令只能在.ssh路径下才可以运行，所有我们可以将该路径配置为全局环境变量，这样就可在任何路径下使用了</li>
+</ol>
+<p>打开我的电脑-&gt;属性<br>打开高级系统管理<br>打开环境变量<br>点击path-&gt;编辑<br>复制.ssh目录路径，点击新建-&gt;将.ssh目录的路径粘贴到内容区域<br>保存确认<br><img src="https://img-blog.csdnimg.cn/8f94ffe755be4b0e89bbd09545f75022.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="远端连接"><a href="#远端连接" class="headerlink" title="远端连接"></a>远端连接</h2><h3 id="密码连接"><a href="#密码连接" class="headerlink" title="密码连接"></a>密码连接</h3><p>  和上面本地回环测试差不多，在客户端机器上，输入连接命令，不过需要把ip地址换成服务器实际的ip地址。我这里给服务器配置的是固定ip192.168.1.100。只要<strong>两台机器在一个局域网内</strong>，同时<strong>服务器端端口被放行</strong>或者防火墙被关闭，是可以直接输入密码连接成功的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/Python%20turtle+opencv%E8%87%AA%E5%8A%A8%E7%BB%98%E5%9B%BE%E5%A2%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/25/Python%20turtle+opencv%E8%87%AA%E5%8A%A8%E7%BB%98%E5%9B%BE%E5%A2%A9/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:52" itemprop="dateModified" datetime="2022-05-26T14:13:52+08:00">2022-05-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://lightrain.top/2022/02/12/%E4%BA%BA%E6%89%8B%E4%B8%80%E5%A2%A9%20%E2%80%94%E2%80%94%20python%E8%87%AA%E5%8A%A8%E7%BB%98%E5%88%B6%E5%86%B0%E5%A2%A9%E5%A2%A9/#more">自由敬业友善</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC   二、IntelliJ IDEA创建Servlet最新方法https:&#x2F;&#x2F;blog.csdn.net&#x2F;gaoqingliang521&#x2F;article&#x2F;details&#x2F;108677301先和上述网址一样，在IntelliJ IDEA创建一个Web项目，完成后，将目标目录复制到该web项目下 1.ctrl+CV步骤①UserManage一级目录下将src目录直接替换。配置文件全部不用管。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/Java_web%E4%B9%8BEclipse%E5%AF%BC%E5%8C%85%E4%B8%BAIDEA/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC   二、IntelliJ IDEA创建Servlet最新方法https:&#x2F;&#x2F;blog.csdn.net&#x2F;gaoqingliang521&#x2F;article&#x2F;details&#x2F;108677301先和上述网址一样，在IntelliJ IDEA创建一个Web项目，完成后，将目标目录复制到该web项目下 1.ctrl+CV步骤①UserManage一级目录下将src目录直接替换。配置文件全部不用管。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7720e7482c984ad1960c147addecabd9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/67ef2e39fba948658b2029dbac14a680.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b8439bf851804cf3b3f3898640a2320a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ffcccabf802642c1abd222813cb4640a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/23d7c52a5c404145bb30dfcb1afcbb7a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d554182286064b8ba7752daef7a1e1e4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a09896e636384efea6d29a38bbd27fab.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5fa6f7c86c5c4c60b8fb324002ac17f3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4121351dadd946e7940908bfe7c9d27b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c0aa9b77f6d44b9a835e763531bba227.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3fd8405d6ec94b66886919b5d4fe3b7e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fcd1d547d3954d6f8d774d2a2a76797e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9d8037cc3e294a50844df4a764883a10.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f45e027cefd44ba9a09f604daade0416.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a298918a0ced469bad9f8d2db616340a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/61b30209e77c405e9c549af083c5d6c6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/645b3a4325a647c5b8a51e8119f4147e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2b75d68d807a4fe0b3d6fb8132b9f1c7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3e5b40d0206d4afc905fec38f739a7dd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/debdba11eec042dc90018e46816654fe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_14,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/30a6cfffb6504e1c956e35e0244b4e70.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0c7b36923f174e6894c35ee547fa2bb5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/31b756f04777432db9149b9b0454d5ae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0110545b1e0e4fb8a02d26d157afd66a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aab25c367e7b4324a9e823d71ed37323.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdn.net/20171205174307999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MzQ0NjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200924213206871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3F6aDIwMTg=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c91f2c8ebb184e0698d5dce8bdd079db.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8132578e0c6f42c0ad0c015175108317.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f3e06212b1af44c598a72f774b94f1ed.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_16,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2024-03-25T08:23:31.014Z">
+<meta property="article:modified_time" content="2022-05-26T06:14:56.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/7720e7482c984ad1960c147addecabd9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/Java_web%E4%B9%8BEclipse%E5%AF%BC%E5%8C%85%E4%B8%BAIDEA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/Java_web%E4%B9%8BEclipse%E5%AF%BC%E5%8C%85%E4%B8%BAIDEA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:14:56" itemprop="dateModified" datetime="2022-05-26T14:14:56+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="Java_web之Eclipse导包为IDEA--UserManage">TOC</a></p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+# 一、前言
+<font color=#999AAA >Eclipse的包import为IDEA
+对java_web环境有了进一步理解
+感谢@tj@fzy
+收获很大，各个语言的环境配置相通
+</font>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+<h1 id="二、IntelliJ-IDEA创建Servlet最新方法"><a href="#二、IntelliJ-IDEA创建Servlet最新方法" class="headerlink" title="二、IntelliJ IDEA创建Servlet最新方法"></a>二、IntelliJ IDEA创建Servlet最新方法</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gaoqingliang521/article/details/108677301">https://blog.csdn.net/gaoqingliang521/article/details/108677301</a><br>先和上述网址一样，在IntelliJ IDEA创建一个Web项目，完成后，将目标目录复制到该web项目下</p>
+<h2 id="1-ctrl-CV步骤"><a href="#1-ctrl-CV步骤" class="headerlink" title="1.ctrl+CV步骤"></a>1.ctrl+CV步骤</h2><h3 id="①UserManage一级目录下"><a href="#①UserManage一级目录下" class="headerlink" title="①UserManage一级目录下"></a>①UserManage一级目录下</h3><p>将src目录直接替换。<br><img src="https://img-blog.csdnimg.cn/7720e7482c984ad1960c147addecabd9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/67ef2e39fba948658b2029dbac14a680.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>配置文件全部不用管。<br><img src="https://img-blog.csdnimg.cn/b8439bf851804cf3b3f3898640a2320a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="②Web二级目录下"><a href="#②Web二级目录下" class="headerlink" title="②Web二级目录下"></a>②Web二级目录下</h3><p>login.html复制过来，并改名为index.html<br><img src="https://img-blog.csdnimg.cn/ffcccabf802642c1abd222813cb4640a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/23d7c52a5c404145bb30dfcb1afcbb7a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>UserManage3\WebRoot目录下的login.html文件为显示网页</p>
+<h3 id="③WEB-INF三级目录下"><a href="#③WEB-INF三级目录下" class="headerlink" title="③WEB-INF三级目录下"></a>③WEB-INF三级目录下</h3><p>lib文件夹下内容全复制进去。<br><img src="https://img-blog.csdnimg.cn/d554182286064b8ba7752daef7a1e1e4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/a09896e636384efea6d29a38bbd27fab.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>UserManage3\WebRoot\WEB-INF目录下的classes和web.xml都不用管，在配置环境后会自动创建下面的内容。</p>
+<p>（其中，classes在步骤一创建中，将其隐藏了）</p>
+<p><img src="https://img-blog.csdnimg.cn/5fa6f7c86c5c4c60b8fb324002ac17f3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="&lt;img src=&quot;C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211112113304567.png&quot; alt=&quot;image-20211112113304567&quot; style=&quot;zoom:50%;&quot; /&gt;"></p>
+<h2 id="2-配置项目环境，配置Project-Structure"><a href="#2-配置项目环境，配置Project-Structure" class="headerlink" title="2.配置项目环境，配置Project Structure"></a>2.配置项目环境，配置Project Structure</h2><p><img src="https://img-blog.csdnimg.cn/4121351dadd946e7940908bfe7c9d27b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_17,color_FFFFFF,t_70,g_se,x_16" alt="&lt;img src=&quot;C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211118235103214.png&quot; alt=&quot;image-20211118235103214&quot; style=&quot;zoom:50%;&quot; /&gt;"></p>
+<h3 id="①Libraries中创建仓库"><a href="#①Libraries中创建仓库" class="headerlink" title="①Libraries中创建仓库"></a>①Libraries中创建仓库</h3><p><img src="https://img-blog.csdnimg.cn/c0aa9b77f6d44b9a835e763531bba227.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_17,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/3fd8405d6ec94b66886919b5d4fe3b7e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/fcd1d547d3954d6f8d774d2a2a76797e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="②Modules中将刚刚打包的java-web导入"><a href="#②Modules中将刚刚打包的java-web导入" class="headerlink" title="②Modules中将刚刚打包的java_web导入"></a>②Modules中将刚刚打包的java_web导入</h3><p>Dependencies</p>
+<p><img src="https://img-blog.csdnimg.cn/9d8037cc3e294a50844df4a764883a10.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="&lt;img src=&quot;C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211112113159089.png&quot; alt=&quot;image-20211112113159089&quot; style=&quot;zoom:50%;&quot; /&gt;"></p>
+<p>Path<br><img src="https://img-blog.csdnimg.cn/f45e027cefd44ba9a09f604daade0416.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/a298918a0ced469bad9f8d2db616340a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="③Artifacts"><a href="#③Artifacts" class="headerlink" title="③Artifacts"></a>③Artifacts</h3><p><img src="https://img-blog.csdnimg.cn/61b30209e77c405e9c549af083c5d6c6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-vBsETzwa-1637252284137)(C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211118235838950.png)\]"></p>
+<h3 id="④SDK"><a href="#④SDK" class="headerlink" title="④SDK"></a>④SDK</h3><p><img src="https://img-blog.csdnimg.cn/645b3a4325a647c5b8a51e8119f4147e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2GHMux7X-1637252284139)(C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211119000249141.png)\]"></p>
+<h2 id="3-Tomcat配置"><a href="#3-Tomcat配置" class="headerlink" title="3.Tomcat配置"></a>3.Tomcat配置</h2><p><img src="https://img-blog.csdnimg.cn/2b75d68d807a4fe0b3d6fb8132b9f1c7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/3e5b40d0206d4afc905fec38f739a7dd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/debdba11eec042dc90018e46816654fe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_14,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/30a6cfffb6504e1c956e35e0244b4e70.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="4-全部导入后，可以修改"><a href="#4-全部导入后，可以修改" class="headerlink" title="4.全部导入后，可以修改"></a>4.全部导入后，可以修改</h2><p>1.rename com.zm-&gt;com.wyt</p>
+<p>2.src目录下的db.properties为本机sql目录</p>
+<p>3.</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2n0p3bop-1637252284144)(C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211116085843764.png)]<br><img src="https://img-blog.csdnimg.cn/0c7b36923f174e6894c35ee547fa2bb5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>4.</p>
+<p><img src="https://img-blog.csdnimg.cn/31b756f04777432db9149b9b0454d5ae.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="5-终"><a href="#5-终" class="headerlink" title="5.终"></a>5.终</h2><p>idea</p>
+<p><img src="https://img-blog.csdnimg.cn/0110545b1e0e4fb8a02d26d157afd66a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>网页</p>
+<p><img src="https://img-blog.csdnimg.cn/aab25c367e7b4324a9e823d71ed37323.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-thpgNcT5-1637252284148)(C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211119001336894.png)\]"></p>
+<h1 id="三、其他"><a href="#三、其他" class="headerlink" title="三、其他"></a>三、其他</h1><h2 id="1-设置Import-Project"><a href="#1-设置Import-Project" class="headerlink" title="1.设置Import Project"></a>1.设置Import Project</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qiaodaima0/article/details/99207346">https://blog.csdn.net/qiaodaima0/article/details/99207346</a></p>
+<h2 id="2-向idea中导入myeclipse中的web项目"><a href="#2-向idea中导入myeclipse中的web项目" class="headerlink" title="2.向idea中导入myeclipse中的web项目"></a>2.向idea中导入myeclipse中的web项目</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/malz_zh/article/details/84487717">https://blog.csdn.net/malz_zh/article/details/84487717</a></p>
+<h2 id="3-报错："><a href="#3-报错：" class="headerlink" title="3.报错："></a>3.报错：</h2><h3 id="①启动Tomcat-出现-Can’t-load-AMD-64-bit-dll-on-a-IA-32-bit-platform"><a href="#①启动Tomcat-出现-Can’t-load-AMD-64-bit-dll-on-a-IA-32-bit-platform" class="headerlink" title="①启动Tomcat 出现 Can’t load AMD 64-bit .dll on a IA 32-bit platform"></a>①启动Tomcat 出现 Can’t load AMD 64-bit .dll on a IA 32-bit platform</h3><blockquote>
+<p>Can’t load AMD 64-bit .dll on a IA 32-bit platform</p>
+</blockquote>
+<h4 id="解决①"><a href="#解决①" class="headerlink" title="解决①"></a>解决①</h4><p>因为本机JDK版本为32位的，而Tomcat为64位版本，所以启动出错，删除本地JDK版本（或者环境变量改为java_32)，然后去官网下载64位版本的，重新安装<br><a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<p><img src="https://img-blog.csdn.net/20171205174307999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MzQ0NjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<p>自己有64版本，直接选择</p>
+<h3 id="②日志乱码"><a href="#②日志乱码" class="headerlink" title="②日志乱码"></a>②日志乱码</h3><p>IDEA:tomcat打印台乱码问题的解决及相关设置</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qzh2018/article/details/108783965?utm_source=app&amp;app_version=4.18.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen">https://blog.csdn.net/qzh2018/article/details/108783965?utm_source=app&amp;app_version=4.18.0&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen</a></p>
+<p>乱码格式：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200924213206871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3F6aDIwMTg=,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p>
+<h4 id="解决②"><a href="#解决②" class="headerlink" title="解决②"></a>解决②</h4><p>在 tomcat / conf 目录下，设置 logging.properties ，增加参数 java.util.logging.ConsoleHandler.encoding = GBK，重启后终于可以了</p>
+<h3 id="③"><a href="#③" class="headerlink" title="③"></a>③</h3><blockquote>
+<p>[2021-11-17 11:37:19,238] Artifact MyProject31:war exploded: com.intellij.javaee.oss.admin.jmx.JmxAdminException: com.intellij.execution.ExecutionException: <strong>Cannot write</strong> ‘C:\Users\15488\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\698dab8d-6ae4-40f8-925e-db252fc56b21\conf\Catalina\localhost\http:##localhost:8080#Usermanager.xml’. C:\Users\15488\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\698dab8d-6ae4-40f8-925e-db252fc56b21\conf\Catalina\localhost\http:<strong>##</strong>localhost:8080#Usermanager.xml (文件名、目录名或卷标语法不正确。)</p>
+</blockquote>
+<p>C:\Users\15488\AppData\Local\JetBrains\IntelliJIdea2020.3\tomcat\698dab8d-6ae4-40f8-925e-db252fc56b21\conf\Catalina\localhost</p>
+<h3 id="解决③"><a href="#解决③" class="headerlink" title="解决③"></a>解决③</h3><h4 id="百度1："><a href="#百度1：" class="headerlink" title="百度1："></a>百度1：</h4><p>Artifact exploded:com.intellij.javaee.oss.admin.jmx.JmxAdminException:<br>com.intellij.execution.ExecutionException: Cannot write</p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://my.oschina.net/dccjll/blog/1553319">https://my.oschina.net/dccjll/blog/1553319</a></p>
+</blockquote>
+<p>发现是tomcat设置中的网址路径不对</p>
+<h4 id="百度2："><a href="#百度2：" class="headerlink" title="百度2："></a>百度2：</h4><h1 id="localhost-8080-Usermanager-xml-文件名、目录名或卷标语法不正确。"><a href="#localhost-8080-Usermanager-xml-文件名、目录名或卷标语法不正确。" class="headerlink" title="localhost:8080#Usermanager.xml (文件名、目录名或卷标语法不正确。)"></a>localhost:8080#Usermanager.xml (文件名、目录名或卷标语法不正确。)</h1><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://bbs.csdn.net/topics/290001139">https://bbs.csdn.net/topics/290001139</a></p>
+</blockquote>
+<p>发现原因：<a target="_blank" rel="noopener" href="http://test/rc/jsp/top.jsp这哪是路径啊~...这是URL,你用什么读的?如果是FileInputStream之类的得用c:\xxx这样的路径">http://test/rc/jsp/top.jsp这哪是路径啊~...这是URL,你用什么读的?如果是FileInputStream之类的得用c:\xxx这样的路径</a></p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013058618/article/details/70791910">https://blog.csdn.net/u013058618/article/details/70791910</a></p>
+</blockquote>
+<p>如果是windows地址，记得手动输入，粘贴复制会包含不可见字符、空格，所以一直提示文件找不到<br>将tomcat设置中的原来的网址路径<br><img src="https://img-blog.csdnimg.cn/c91f2c8ebb184e0698d5dce8bdd079db.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>改为<br><img src="https://img-blog.csdnimg.cn/8132578e0c6f42c0ad0c015175108317.png" alt="在这里插入图片描述"></p>
+<h4 id="解决③-1"><a href="#解决③-1" class="headerlink" title="解决③"></a>解决③</h4><p>这个文件是配置后生成的，每个机子的web.xml不一样不能复制过去。<br>因此导致的不能读写文件。<br><img src="https://img-blog.csdnimg.cn/f3e06212b1af44c598a72f774b94f1ed.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pivWXXmrLg=,size_16,color_FFFFFF,t_70,g_se,x_16" alt="&lt;img src=&quot;C:\Users\15488\AppData\Roaming\Typora\typora-user-images\image-20211119000925461.png&quot; alt=&quot;image-20211119000925461&quot; style=&quot;zoom:50%;&quot; /&gt;"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E8%87%AA%E5%8A%A8%E7%BB%98%E5%88%B6%E5%90%89%E7%A5%A5%E7%89%A9/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/MATLAB%E4%B8%8B%E8%BD%BD%E6%97%B6%E6%8A%A5%E9%94%99%E5%8E%9F%E5%9B%A0/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81IntelliJ-IDEA%E5%88%9B%E5%BB%BAServlet%E6%9C%80%E6%96%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">二、IntelliJ IDEA创建Servlet最新方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ctrl-CV%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">1.ctrl+CV步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0UserManage%E4%B8%80%E7%BA%A7%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">①UserManage一级目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1Web%E4%BA%8C%E7%BA%A7%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">②Web二级目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2WEB-INF%E4%B8%89%E7%BA%A7%E7%9B%AE%E5%BD%95%E4%B8%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">③WEB-INF三级目录下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%EF%BC%8C%E9%85%8D%E7%BD%AEProject-Structure"><span class="nav-number">1.2.</span> <span class="nav-text">2.配置项目环境，配置Project Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0Libraries%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">1.2.1.</span> <span class="nav-text">①Libraries中创建仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1Modules%E4%B8%AD%E5%B0%86%E5%88%9A%E5%88%9A%E6%89%93%E5%8C%85%E7%9A%84java-web%E5%AF%BC%E5%85%A5"><span class="nav-number">1.2.2.</span> <span class="nav-text">②Modules中将刚刚打包的java_web导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2Artifacts"><span class="nav-number">1.2.3.</span> <span class="nav-text">③Artifacts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A3SDK"><span class="nav-number">1.2.4.</span> <span class="nav-text">④SDK</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Tomcat%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">3.Tomcat配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%85%A8%E9%83%A8%E5%AF%BC%E5%85%A5%E5%90%8E%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BF%AE%E6%94%B9"><span class="nav-number">1.4.</span> <span class="nav-text">4.全部导入后，可以修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%BB%88"><span class="nav-number">1.5.</span> <span class="nav-text">5.终</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%85%B6%E4%BB%96"><span class="nav-number">2.</span> <span class="nav-text">三、其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AE%BE%E7%BD%AEImport-Project"><span class="nav-number">2.1.</span> <span class="nav-text">1.设置Import Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%90%91idea%E4%B8%AD%E5%AF%BC%E5%85%A5myeclipse%E4%B8%AD%E7%9A%84web%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.2.</span> <span class="nav-text">2.向idea中导入myeclipse中的web项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8A%A5%E9%94%99%EF%BC%9A"><span class="nav-number">2.3.</span> <span class="nav-text">3.报错：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A0%E5%90%AF%E5%8A%A8Tomcat-%E5%87%BA%E7%8E%B0-Can%E2%80%99t-load-AMD-64-bit-dll-on-a-IA-32-bit-platform"><span class="nav-number">2.3.1.</span> <span class="nav-text">①启动Tomcat 出现 Can’t load AMD 64-bit .dll on a IA 32-bit platform</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E2%91%A0"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">解决①</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A1%E6%97%A5%E5%BF%97%E4%B9%B1%E7%A0%81"><span class="nav-number">2.3.2.</span> <span class="nav-text">②日志乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E2%91%A1"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">解决②</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%91%A2"><span class="nav-number">2.3.3.</span> <span class="nav-text">③</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E2%91%A2"><span class="nav-number">2.3.4.</span> <span class="nav-text">解决③</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BE%E5%BA%A61%EF%BC%9A"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">百度1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BE%E5%BA%A62%EF%BC%9A"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">百度2：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#localhost-8080-Usermanager-xml-%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E7%9B%AE%E5%BD%95%E5%90%8D%E6%88%96%E5%8D%B7%E6%A0%87%E8%AF%AD%E6%B3%95%E4%B8%8D%E6%AD%A3%E7%A1%AE%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">localhost:8080#Usermanager.xml (文件名、目录名或卷标语法不正确。)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E2%91%A2-1"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">解决③</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

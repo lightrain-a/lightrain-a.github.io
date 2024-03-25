@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="蓝桥杯系列3——基础算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯系列3——基础算法">
+<meta property="og:url" content="https://yutong.github.io/2022/05/04/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%B3%BB%E5%88%973%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="蓝桥杯系列3——基础算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/45378a7abdbc485ab681c6cb73187782.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6861e13e2a864b028473009d2371fe65.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dc85620dd0614a4eaf192b3ee5516d8f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b5d1571857f740f6aa4e8d9516d76f3e.png">
+<meta property="article:published_time" content="2022-05-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-28T07:15:55.256Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="蓝桥杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/45378a7abdbc485ab681c6cb73187782.png">
+
+<link rel="canonical" href="https://yutong.github.io/2022/05/04/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%B3%BB%E5%88%973%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>蓝桥杯系列3——基础算法 | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2022/05/04/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%B3%BB%E5%88%973%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          蓝桥杯系列3——基础算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-04 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-04T00:00:00+08:00">2022-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-28 15:15:55" itemprop="dateModified" datetime="2022-05-28T15:15:55+08:00">2022-05-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%93%9D%E6%A1%A5%E6%9D%AFpython/" itemprop="url" rel="index"><span itemprop="name">蓝桥杯python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>蓝桥杯系列3——基础算法</p>
+ <span id="more"></span>
+<h1 id="prim算法：最小生成树"><a href="#prim算法：最小生成树" class="headerlink" title="prim算法：最小生成树"></a>prim算法：最小生成树</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eb41177d1?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1Eb41177d1?spm_id_from=333.337.search-card.all.click</a></p>
+<p>强推，一下看懂了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">_ = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>) <span class="comment"># 正无穷</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prim</span>(<span class="params">graph,n</span>):</span></span><br><span class="line">    dist=[_]*n <span class="comment"># 记录最短权值</span></span><br><span class="line">    visit=[<span class="literal">False</span>]*n <span class="comment"># 记录是否连通(去过)</span></span><br><span class="line">    preIndex=[<span class="number">0</span>]*n <span class="comment"># 记录每次寻找的起点</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#     # 第一个顶点</span></span><br><span class="line"><span class="comment">#     visit[0] = True</span></span><br><span class="line"><span class="comment">#     for i in range(n): # 相邻的边权值</span></span><br><span class="line"><span class="comment">#         dist[i] = graph[0][i] </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 找到当前无向图的最小生成树</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        mindist=_+<span class="number">1</span></span><br><span class="line">        nextIndex = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 扫描Scan：找到基于当前i，i行中哪一列距离最小作为下一个节点，前提是那个节点没有去过</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> dist[j]&lt; mindist <span class="keyword">and</span> <span class="keyword">not</span> visit[j]: <span class="comment"># visit[j] == False</span></span><br><span class="line">                mindist = dist[j]</span><br><span class="line">                nextIndex =j </span><br><span class="line">        visit[nextIndex]= <span class="literal">True</span> <span class="comment"># 添加Add</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 更新Update：由于前面找到下一个节点了，下面构建下一个节点的dist矩阵，要看nextIndex这一行</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> dist[j]&gt;graph[nextIndex][j] <span class="keyword">and</span> <span class="keyword">not</span> visit[j]: <span class="comment"># visit[j] == False</span></span><br><span class="line">                dist[j]=graph[nextIndex][j]</span><br><span class="line">                preIndex[j]=nextIndex</span><br><span class="line">                </span><br><span class="line">    <span class="keyword">return</span> dist,preIndex</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    n=<span class="number">6</span></span><br><span class="line">    <span class="comment"># A到B的权重是6</span></span><br><span class="line">    graph=[[<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,_,_,_],</span><br><span class="line">           [<span class="number">6</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>,_,_],</span><br><span class="line">           [<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,_],</span><br><span class="line">           [_,<span class="number">5</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">           [_,_,<span class="number">4</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>],</span><br><span class="line">           [_,_,_,<span class="number">3</span>,<span class="number">5</span>,<span class="number">0</span>]]</span><br><span class="line">    </span><br><span class="line">    dist,preIndex=prim(graph,n)</span><br><span class="line">    <span class="built_in">print</span>(dist)</span><br><span class="line">    <span class="built_in">print</span>(preIndex)</span><br></pre></td></tr></table></figure>
+<pre><code>[inf, 2, 3, 3, 2, 3]
+[0, 2, 0, 2, 3, 3]
+</code></pre><h1 id="算法提高-最小生成树"><a href="#算法提高-最小生成树" class="headerlink" title="算法提高 最小生成树"></a>算法提高 最小生成树</h1><p>给定带权无向图，求出一颗最小的生成树。</p>
+<p>输入格式：<br>输入多组测试数据。第一行为N,M，依次是点数和边数。接下来M行，每行三个整数U,V,W，代表连接U,V的边，和权值W。保证图连通。n=m=0标志着测试文件的结束。</p>
+<p>输出格式：<br>对于每组数据，输出方差，四舍五入到0.01。输出格式按照样例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 图初始化</span></span><br><span class="line">N,M = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">_ = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">graph =[[_ <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读图</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    U,V,W = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    graph[U-<span class="number">1</span>][V-<span class="number">1</span>] = W</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    graph[i][i] = <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(graph)</span><br></pre></td></tr></table></figure>
+<pre><code>4 5
+1 2 1
+2 3 2
+3 4 2
+4 1 1
+2 4 3
+[[0, 1, inf, inf], [inf, 0, 2, 3], [inf, inf, 0, 2], [1, inf, inf, 0]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读图 </span></span><br><span class="line">_ = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Prim</span>(<span class="params">graph,n</span>):</span></span><br><span class="line">    dist=[_]*n <span class="comment">#记录最短权值</span></span><br><span class="line">    preIndex=[<span class="number">0</span>]*n <span class="comment">#记录出发点</span></span><br><span class="line">    visit=[<span class="literal">False</span>]*n <span class="comment">#记录是否访问过</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="comment"># 扫描Scan</span></span><br><span class="line">        mindist = _</span><br><span class="line">        nextIndex = -<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> dist[j] &lt; mindist <span class="keyword">and</span> <span class="keyword">not</span> visit[j]:</span><br><span class="line">                mindist = dist[j]</span><br><span class="line">                nextIndex = j</span><br><span class="line">                </span><br><span class="line">        <span class="comment"># 添加Add</span></span><br><span class="line"><span class="comment">#         preIndex[i] = nextIndex</span></span><br><span class="line">        visit[nextIndex] = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 更新Update</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> dist[j] &gt; graph[nextIndex][j] <span class="keyword">and</span> <span class="keyword">not</span> visit[j]:</span><br><span class="line">                dist[j] = graph[nextIndex][j]</span><br><span class="line">                preIndex[i] = nextIndex</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dist,preIndex</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    n=<span class="number">6</span></span><br><span class="line">    <span class="comment"># A到B的权重是6</span></span><br><span class="line">    graph=[[<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,_,_,_],</span><br><span class="line">           [<span class="number">6</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>,_,_],</span><br><span class="line">           [<span class="number">3</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">4</span>,_],</span><br><span class="line">           [_,<span class="number">5</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">           [_,_,<span class="number">4</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>],</span><br><span class="line">           [_,_,_,<span class="number">3</span>,<span class="number">5</span>,<span class="number">0</span>]]</span><br><span class="line">    </span><br><span class="line">    dist,preIndex=prim(graph,n)</span><br><span class="line">    <span class="built_in">print</span>(dist)</span><br><span class="line">    <span class="built_in">print</span>(preIndex)            </span><br></pre></td></tr></table></figure>
+<pre><code>[inf, 2, 3, 3, 2, 3]
+[0, 2, 0, 2, 3, 3]
+</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>① 二维数组初始化 graph =[[_ for i in range(N)]for i in range(N)]</p>
+<p>② 初始化。一个访问与否bool visit，一个起始节点，一个最短路径。</p>
+<p>③ 扫描Scan，添加Add，更新Update</p>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="手写笔记"><a href="#手写笔记" class="headerlink" title="手写笔记"></a>手写笔记</h2><p><img src="https://img-blog.csdnimg.cn/45378a7abdbc485ab681c6cb73187782.png" alt="请添加图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/6861e13e2a864b028473009d2371fe65.png" alt="请添加图片描述"><br><img src="https://img-blog.csdnimg.cn/dc85620dd0614a4eaf192b3ee5516d8f.png" alt="请添加图片描述"><br><img src="https://img-blog.csdnimg.cn/b5d1571857f740f6aa4e8d9516d76f3e.png" alt="请添加图片描述"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 蓝桥杯</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/05/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%B3%BB%E5%88%972%E2%80%94%E2%80%94python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="prev" title="蓝桥杯系列2——python基本语法">
+      <i class="fa fa-chevron-left"></i> 蓝桥杯系列2——python基本语法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/05/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%B3%BB%E5%88%974%E2%80%94%E2%80%94python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/" rel="next" title="蓝桥杯系列4——python基础练习">
+      蓝桥杯系列4——python基础练习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#prim%E7%AE%97%E6%B3%95%EF%BC%9A%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">prim算法：最小生成树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%8F%90%E9%AB%98-%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">算法提高 最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">2.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">3.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%86%99%E7%AC%94%E8%AE%B0"><span class="nav-number">3.1.</span> <span class="nav-text">手写笔记</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

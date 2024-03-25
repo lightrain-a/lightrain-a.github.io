@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC 一、写在最最前面谁能想到，小雨竟又回到了Django的怀抱呢。真是世事无常(ಥ_ಥ)寒假其实有学写Django框架爱鲜蜂项目的任务。但，暑假的小雨对于寒假学习的Django没有很多印象了，，，当时寒假的小雨还没有做笔记意识，重新配置的艰辛让小雨明白了很多事情哈哈哈哈。因此现在的小雨感觉，工坊关于定期查看笔记的决策不要太好了:-）python django框架开发周期短，集成度高，对初学者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/Yu&Django%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC 一、写在最最前面谁能想到，小雨竟又回到了Django的怀抱呢。真是世事无常(ಥ_ಥ)寒假其实有学写Django框架爱鲜蜂项目的任务。但，暑假的小雨对于寒假学习的Django没有很多印象了，，，当时寒假的小雨还没有做笔记意识，重新配置的艰辛让小雨明白了很多事情哈哈哈哈。因此现在的小雨感觉，工坊关于定期查看笔记的决策不要太好了:-）python django框架开发周期短，集成度高，对初学者">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720203855713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720203920935.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202007202039536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721153504216.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720204234981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720204249998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720204307319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720204320915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720204358570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404184710188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404184642902.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020040418475123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202007202108040.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200720211048527.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721190659632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721191008649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721191621671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721191728359.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721191759898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721191846537.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721191928591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721192001166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721192030540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200101918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200131820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200220345.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200228662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200254602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200309951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200411337.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200418903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020072120044339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200450330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200721200511461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2024-03-25T08:23:31.034Z">
+<meta property="article:modified_time" content="2022-05-26T06:15:02.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200720203855713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/Yu&Django%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/Yu&Django%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:15:02" itemprop="dateModified" datetime="2022-05-26T14:15:02+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="Yu&amp;Django环境配置的那些事">TOC</a></p>
+<h1 id="一、写在最最前面"><a href="#一、写在最最前面" class="headerlink" title="一、写在最最前面"></a>一、写在最最前面</h1><p>谁能想到，小雨竟又回到了Django的怀抱呢。真是世事无常(ಥ_ಥ)<br>寒假其实有学写Django框架爱鲜蜂项目的任务。但，暑假的小雨对于寒假学习的Django没有很多印象了，，，<br>当时寒假的小雨还没有做笔记意识，重新配置的艰辛让小雨明白了很多事情哈哈哈哈。因此现在的小雨感觉，工坊关于定期查看笔记的决策不要太好了:-）<br>python django框架开发周期短，集成度高，对初学者比较友好。<br>网上关于Django的环境配置教程比较零碎，感谢学长们提供的笔记及相关链接的支持。<br>@刘 @杨 ……<br>在此记录下Pycharm和django相关安装、配置过程。<br>现在，让我们开始一段新的旅程吧 ~</p>
+<h1 id="二、Django基本介绍"><a href="#二、Django基本介绍" class="headerlink" title="二、Django基本介绍"></a>二、Django基本介绍</h1><p>python django框架开发周期短，集成度高，对初学者比较友好。在此记录下Pycharm和django相关安装、配置过程</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzy5210123/article/details/80178128">pycharm+Django配置与基本介绍</a><br>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xzy5210123/article/details/80178128">https://blog.csdn.net/xzy5210123/article/details/80178128</a></p>
+</blockquote>
+<ul>
+<li>templates目录 放置html文件</li>
+<li>manage.py 与项目进行交互的命令行工具集的入口，相当于项目管理器，运行后会显示一些可供调用的子命令</li>
+<li>wsgi.py python服务器网关接口，与web服务器之间的接口（通信关键，一般不要改动）</li>
+<li>urls.py URL配置文件，即每个页面的地址</li>
+<li>settings.py 全局配置文件，包含数据库、web应用、时间等</li>
+</ul>
+<h1 id="三、各种安装与环境配置"><a href="#三、各种安装与环境配置" class="headerlink" title="三、各种安装与环境配置"></a>三、各种安装与环境配置</h1><p>写在最前面：环境配置讲究细心耐心专心！！！</p>
+<h2 id="1-Python-安装和配置-已安装的可跳过"><a href="#1-Python-安装和配置-已安装的可跳过" class="headerlink" title="1.Python 安装和配置(已安装的可跳过)"></a>1.Python 安装和配置(已安装的可跳过)</h2><p>如下：</p>
+<pre><code> 1.下载Python
+</code></pre><p> 如果还未安装Python环境，需要先下载Python安装包。<br>Python 下载地址：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a><br><img src="https://img-blog.csdnimg.cn/20200720203855713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>浏览器下载 .exe文件<br><img src="https://img-blog.csdnimg.cn/20200720203920935.png" alt="在这里插入图片描述"><br>注意：目前 Django 1.6.x 以上版本已经完全兼容 Python 3.x。</p>
+<pre><code> 2.开始安装Python
+</code></pre><p> 安装 Python 只需要在官网下载安装包，然后一直点击 “Next” 按钮即可。（笔者之前安装过了，此处为借的图）<br><img src="https://img-blog.csdnimg.cn/202007202039536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择安装路径，可以不安装在C盘，记住安装到哪就行了，默认也行，我安装在<br>C:\Program Files\Java\jdk1.8.0_131<br>（如果你也是Django项目，可以选择和我一样，省事哈哈哈）<br>建议不要删除这个.exe，因为默认安装中是没有pip依赖模板的。如果不删除，后期可以通过.exe文件的打开重新设置（参考后文的重新安装部分），直接安装pip，更简单。<br>如果删除了，笔者也提供了pip下载的方式。</p>
+<h3 id="1-1-Python-pip-安装与使用"><a href="#1-1-Python-pip-安装与使用" class="headerlink" title="1.1 Python pip 安装与使用"></a>1.1 Python pip 安装与使用</h3><pre><code> ①简介
+</code></pre><p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。</p>
+<p>目前如果你在 python.org 下载最新版本的安装包，则是已经自带了该工具。</p>
+<p>Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。</p>
+<p>pip 官网：<a target="_blank" rel="noopener" href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></p>
+<p>可以通过以下命令来判断是否已安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200721153504216.png" alt="在这里插入图片描述"></p>
+<p>如果你还未安装，则可以使用以下方法来安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   <span class="comment"># 下载安装脚本</span></span><br><span class="line">$ sudo python get-pip.py    <span class="comment"># 运行安装脚本</span></span><br></pre></td></tr></table></figure>
+<pre><code>注意：用哪个版本的 Python 运行安装脚本，pip 就被关联到
+哪个版本，如果是 Python3 则执行以下命令：
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo python3 get-pip.py    <span class="comment"># 运行安装脚本</span></span><br></pre></td></tr></table></figure>
+<pre><code>一般情况 pip 对应的是 Python 2.7，
+pip3 对应的是 Python 3.x。
+</code></pre><p>部分 Linux 发行版可直接用包管理器安装 pip，如 Debian 和 Ubuntu：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure>
+<h4 id="pip-常用命令"><a href="#pip-常用命令" class="headerlink" title="pip 常用命令"></a>pip 常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip --version  <span class="comment">#显示版本和路径</span></span><br><span class="line">pip --<span class="built_in">help</span> <span class="comment">#获取帮助</span></span><br><span class="line">pip install -U pip <span class="comment">#升级 pip</span></span><br></pre></td></tr></table></figure>
+<p>如果这个升级命令出现问题 ，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install SomePackage              <span class="comment"># 最新版本</span></span><br><span class="line">pip install SomePackage==1.0.4       <span class="comment"># 指定版本</span></span><br><span class="line">pip install <span class="string">&#x27;SomePackage&gt;=1.0.4&#x27;</span>     <span class="comment"># 最小版本</span></span><br></pre></td></tr></table></figure>
+<p>比如要安装 Django。用以下的一条命令就可以，方便快捷。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install Django==1.7 <span class="comment">#升级包</span></span><br><span class="line">pip install --upgrade SomePackage</span><br><span class="line"><span class="comment">#升级指定的包，通过使用==, &gt;=, &lt;=, &gt;, &lt; 来指定一个版本号</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall SomePackage <span class="comment">#卸载包</span></span><br><span class="line">pip search SomePackage <span class="comment">#搜索包</span></span><br><span class="line">pip show  <span class="comment">#显示安装包信息</span></span><br><span class="line">pip show -f SomePackage <span class="comment">#查看指定包的详细信息</span></span><br><span class="line">pip list <span class="comment">#列出已安装的包</span></span><br><span class="line">pip list -o <span class="comment">#查看可升级的包</span></span><br></pre></td></tr></table></figure>
+<p>注意，如果 Python2 和 Python3 同时有 pip，则使用方法如下：<br>Python2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 -m pip install XXX</span><br></pre></td></tr></table></figure>
+<p>Python3:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install XXX</span><br></pre></td></tr></table></figure>
+<p>若由于一些局域网的原因，使用 pip 出现 “connection timeout”，连接超时可以使用国内的镜像网站下载：<br> <a target="_blank" rel="noopener" href="http://e.pypi.python.org">http://e.pypi.python.org</a><br> <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple">http://pypi.douban.com/simple</a><br>命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install -i http://pypi.douban.com/simple --trusted-host pypi.douban.com packagename </span><br><span class="line"><span class="comment"># packagename是要下载的包的名字</span></span><br><span class="line">pip install -i http://e.pypi.python.org --trusted-host e.pypi.python.org --upgrade pip </span><br><span class="line"><span class="comment"># 升级pip</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Python-的重新安装"><a href="#1-2-Python-的重新安装" class="headerlink" title="1.2 Python 的重新安装"></a>1.2 Python 的重新安装</h3><p>笔者为重新安装，过程如下：<br>下载方法和安装一样<br><img src="https://img-blog.csdnimg.cn/20200720204234981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200720204249998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200720204307319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200720204320915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>重新安装成功。<br>美中不足：没更改安装路径，还是第一次的位置。<br><img src="https://img-blog.csdnimg.cn/20200720204358570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-3-Python-配置"><a href="#1-3-Python-配置" class="headerlink" title="1.3 Python 配置"></a>1.3 Python 配置</h3><p>安装完成后，需要设置 Python 环境变量。<br>①右击，计算机——属性——高级系统设置——打开环境变量的配置窗口，在系统环境变量一栏点击新建。（后面就不放图了哈）<br><img src="https://img-blog.csdnimg.cn/20200404184710188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200404184642902.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020040418475123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>②（如果细节不确定，可以参考SpringBoot的那篇文章）<br>修改系统变量 path，添加 Python 安装地址，本文实例使用的是：<br>C:\Users\15488\Desktop\爱鲜峰项目\Scripts\<br>C:\Users\15488\Desktop\爱鲜峰项目\<br>需要根据实际安装情况来设置。<br>（由于笔者前面在重新安装过程中，选择了将Python添加到环境变量，所以笔者的环境变量是自己生成的）</p>
+<p>  配置好如图<br>  <img src="https://img-blog.csdnimg.cn/202007202108040.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>最后验证一下
+</code></pre><p>1.win + R–&gt;输入cmd，进入cmd命令行<br>2.输入：python —version 就可以查看版本信息，如果显示如下信息，则表示环境配置成功<br><img src="https://img-blog.csdnimg.cn/20200720211048527.png" alt="在这里插入图片描述"></p>
+<h2 id="2-pycharm的安装"><a href="#2-pycharm的安装" class="headerlink" title="2.pycharm的安装"></a>2.pycharm的安装</h2><h3 id="2-1-软件简介"><a href="#2-1-软件简介" class="headerlink" title="2.1 软件简介"></a>2.1 软件简介</h3><p>◆ ◆ ◆<br>PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</p>
+<h3 id="2-2-软件获取"><a href="#2-2-软件获取" class="headerlink" title="2.2 软件获取"></a>2.2 软件获取</h3><p>◆ ◆ ◆<br>笔者为学生，有学生账号，所以于官网下载<br>pycharm下载地址：<a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/download/#section=windows">http://www.jetbrains.com/pycharm/download/#section=windows</a></p>
+<p>点击download进行下载，注意选择Professional专业版<br>pycharm下载地址：<a target="_blank" rel="noopener" href="http://www.jetbrains.com/pycharm/download/#section=windows">http://www.jetbrains.com/pycharm/download/#section=windows</a></p>
+<p>点击download进行下载，注意选择Professional专业版<br><img src="https://img-blog.csdnimg.cn/20200721190659632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="2-3-软件安装"><a href="#2-3-软件安装" class="headerlink" title="2.3 软件安装"></a>2.3 软件安装</h3><p>下载完成后，找到图标打开<br>打开.exe，next<br>选择安装路径<br>勾选这两个，下一步，直接install<br><img src="https://img-blog.csdnimg.cn/20200721191008649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="3-pycharm-配置-Django"><a href="#3-pycharm-配置-Django" class="headerlink" title="3.pycharm 配置 Django"></a>3.pycharm 配置 Django</h2><p>前置条件：已安装python（见上面）<br>在安装 Django 前，系统需要已经安装了Python的开发环境。</p>
+<pre><code> 1.在pycharm中新建项目Django
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20200721191621671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图中编号1处为项目位置；编号2处为使用的模板语言类型，默认为Django模板语言；编号3处是保存项目页面HTML的文件夹名称，默认为templates；编号4处是应用名，一般根据Web应用的实际功能来命名。<br>本示例中，项目位置为E:\test，应用名为test1。（注：项目与应用不能同名）</p>
+<pre><code> 2.创建项目
+</code></pre><p>设置填写完毕后，点击右下角的Create，创建项目。<br><img src="https://img-blog.csdnimg.cn/20200721191728359.png" alt="在这里插入图片描述"><br>是<br><img src="https://img-blog.csdnimg.cn/20200721191759898.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code> 3.配置Pycharm中python的环境
+
+ ①序号1点击，选择add
+</code></pre><p>出现这个界面，按标注的顺序一路点下去<br><img src="https://img-blog.csdnimg.cn/20200721191846537.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721191928591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code> ②下载Django
+</code></pre><p>file —-&gt; settings ——&gt; project 解释器 —-&gt; 点击+ ——&gt; 输入Django —-&gt; install(如果选择版本时,选择 CheckBox ,选择指定版本)<br><img src="https://img-blog.csdnimg.cn/20200721192001166.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>安装成功的界面<br><img src="https://img-blog.csdnimg.cn/20200721192030540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中，我在安装Django中出现了两个问题</p>
+<h3 id="Django安装出现问题"><a href="#Django安装出现问题" class="headerlink" title="Django安装出现问题"></a>Django安装出现问题</h3><pre><code> ①Available packages 页面无法正常显示
+</code></pre><p>原因：安装pycharm时，未选择.py<br>解决：卸载重新安装</p>
+<h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><p>扩展<a target="_blank" rel="noopener" href="https://blog.csdn.net/yuangan1529/article/details/80800411">Pycharm配置（1）——解释器（interpreter）</a></p>
+<pre><code> ②Django下载失败
+</code></pre><p>最上方:<br>pip install django<br>详情：<code>pip._vendor.requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=&#39;files.pypi.tuna.tsinghua.edu.cn&#39;, port=443): Read timed out.</code><br>原因：<br>1）pip需要undergrade<br>2）pip需要设置镜像<br>解决：<br>首先，进入python安装目录下的Scripts内，打开控制台输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 --default-timeout=100 install -U</span><br></pre></td></tr></table></figure>
+<p>调整默认超时时间之后还是一样会报错。<br>一下午一直在改，感觉都没改对，因为改的地方都报错。<br>但通过不断的重复安装，最后还是成功了，不知道是什么原因。希望之后可以知道。</p>
+<h2 id="4-Django其他安装方法（Linux、Mac、Windows）"><a href="#4-Django其他安装方法（Linux、Mac、Windows）" class="headerlink" title="4.Django其他安装方法（Linux、Mac、Windows）"></a>4.Django其他安装方法（Linux、Mac、Windows）</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/django/django-install.html">Django 安装</a></p>
+<h1 id="四、创建运行Django项目"><a href="#四、创建运行Django项目" class="headerlink" title="四、创建运行Django项目"></a>四、创建运行Django项目</h1><h2 id="1-创建Django项目"><a href="#1-创建Django项目" class="headerlink" title="1.创建Django项目"></a>1.创建Django项目</h2><h3 id="1-1-使用命令行创建项目"><a href="#1-1-使用命令行创建项目" class="headerlink" title="1.1 使用命令行创建项目"></a>1.1 使用命令行创建项目</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject 项目名称</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-使用-Pycharm-创建项目"><a href="#1-2-使用-Pycharm-创建项目" class="headerlink" title="1.2 使用 Pycharm 创建项目"></a>1.2 使用 Pycharm 创建项目</h3><p>file —-&gt; new project —— 选择Django —-&gt; 配置路径和项目名称 —-&gt; 配置环境(默认用系统环境) ——&gt; 点击create(完成创建)<br><img src="https://img-blog.csdnimg.cn/20200721200101918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="2-项目目录介绍"><a href="#2-项目目录介绍" class="headerlink" title="2.项目目录介绍"></a>2.项目目录介绍</h2><p>|—-test2 # 项目的/目录<br>  |—-test2 # 项目目录<br>      |—-<strong>init</strong>.py<br>      |—-settings.py # 配置文件<br>      |—-urls.py # 路由系统 ===&gt; url与视图的对应关系<br>      |—-wsgi.py # runserver命令就使用wsgiref模块做简单的web server |—-manage.py # 管理文件<br><img src="https://img-blog.csdnimg.cn/20200721200131820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="3-创建应用"><a href="#3-创建应用" class="headerlink" title="3.创建应用"></a>3.创建应用</h2><h3 id="3-1-使用命令行模式创建应用"><a href="#3-1-使用命令行模式创建应用" class="headerlink" title="3.1 使用命令行模式创建应用"></a>3.1 使用命令行模式创建应用</h3><p>在 Terminal 中输入 python manage.py startapp 应用名:<br><img src="https://img-blog.csdnimg.cn/20200721200220345.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721200228662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="3-2-使用-Pycharm-创建应用"><a href="#3-2-使用-Pycharm-创建应用" class="headerlink" title="3.2 使用 Pycharm 创建应用"></a>3.2 使用 Pycharm 创建应用</h3><p><img src="https://img-blog.csdnimg.cn/20200721200254602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>注意：使用命令行创建的应用，一定要在 settings.py—&gt;INSTALLED_APPS 中加入你的应用名字进行注册, 使用Pycharm创建的应用则不用。 认识应用结构<br><img src="https://img-blog.csdnimg.cn/20200721200309951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4-运行项目"><a href="#4-运行项目" class="headerlink" title="4. 运行项目"></a>4. 运行项目</h2><h3 id="4-1-使用命令行运行项目"><a href="#4-1-使用命令行运行项目" class="headerlink" title="4.1 使用命令行运行项目"></a>4.1 使用命令行运行项目</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py runserver </span><br><span class="line">manage.py runserver <span class="number">80</span>      <span class="comment"># 指定端口</span></span><br></pre></td></tr></table></figure>
+<p>注意：要在 manage.py 同级目录执行命令。<br><img src="https://img-blog.csdnimg.cn/20200721200411337.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721200418903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="4-2-Pycharm-启动项目"><a href="#4-2-Pycharm-启动项目" class="headerlink" title="4.2 Pycharm 启动项目"></a>4.2 Pycharm 启动项目</h3><p>点击右上角的绿色的三角按钮。<br>如需更改配置信息，请下拉选择 edit configurations，进行配置。<br><img src="https://img-blog.csdnimg.cn/2020072120044339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200721200450330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>配置完以上信息之后，直接按 Ctrl+shift+F10 运行一下 manage.py 文件。<br>出现如下结果，表示配置成功。<br><img src="https://img-blog.csdnimg.cn/20200721200511461.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dUWXVvbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="五、参考文献"><a href="#五、参考文献" class="headerlink" title="五、参考文献"></a>五、参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Kiwi-456/p/11122221.html">https://www.cnblogs.com/Kiwi-456/p/11122221.html</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/python-pip-install-usage.html">https://www.runoob.com/w3cnote/python-pip-install-usage.html</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/django/django-install.html">https://www.runoob.com/django/django-install.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/huo920/article/details/82082403">https://blog.csdn.net/huo920/article/details/82082403</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/xzy5210123/article/details/80178128">https://blog.csdn.net/xzy5210123/article/details/80178128</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yuangan1529/article/details/80800411">https://blog.csdn.net/yuangan1529/article/details/80800411</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/window%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85spark/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E8%BE%A9%E8%AE%BA%E5%90%88%E9%9B%86/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%86%99%E5%9C%A8%E6%9C%80%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">一、写在最最前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Django%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">二、Django基本介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%90%84%E7%A7%8D%E5%AE%89%E8%A3%85%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">三、各种安装与环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Python-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84%E5%8F%AF%E8%B7%B3%E8%BF%87"><span class="nav-number">3.1.</span> <span class="nav-text">1.Python 安装和配置(已安装的可跳过)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Python-pip-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.1 Python pip 安装与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pip-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">pip 常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Python-%E7%9A%84%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.2.</span> <span class="nav-text">1.2 Python 的重新安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Python-%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.3.</span> <span class="nav-text">1.3 Python 配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-pycharm%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">3.2.</span> <span class="nav-text">2.pycharm的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1 软件简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E8%BD%AF%E4%BB%B6%E8%8E%B7%E5%8F%96"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2 软件获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">3.2.3.</span> <span class="nav-text">2.3 软件安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-pycharm-%E9%85%8D%E7%BD%AE-Django"><span class="nav-number">3.3.</span> <span class="nav-text">3.pycharm 配置 Django</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django%E5%AE%89%E8%A3%85%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.1.</span> <span class="nav-text">Django安装出现问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="nav-number">3.3.2.</span> <span class="nav-text">解释器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Django%E5%85%B6%E4%BB%96%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%EF%BC%88Linux%E3%80%81Mac%E3%80%81Windows%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">4.Django其他安装方法（Linux、Mac、Windows）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%90%E8%A1%8CDjango%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">四、创建运行Django项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BADjango%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.1.</span> <span class="nav-text">1.创建Django项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.1.1.</span> <span class="nav-text">1.1 使用命令行创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E4%BD%BF%E7%94%A8-Pycharm-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.1.2.</span> <span class="nav-text">1.2 使用 Pycharm 创建项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.2.</span> <span class="nav-text">2.项目目录介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">3.创建应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="nav-number">4.3.1.</span> <span class="nav-text">3.1 使用命令行模式创建应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E4%BD%BF%E7%94%A8-Pycharm-%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="nav-number">4.3.2.</span> <span class="nav-text">3.2 使用 Pycharm 创建应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.4.</span> <span class="nav-text">4. 运行项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.1 使用命令行运行项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Pycharm-%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.2 Pycharm 启动项目</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">5.</span> <span class="nav-text">五、参考文献</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

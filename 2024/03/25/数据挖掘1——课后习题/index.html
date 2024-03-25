@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC 部分习题第一章：引论1.3 定义以下数据挖掘功能：特征化、区分、关联和相关性分析、分类、回归、聚类、离群点分析。使用你熟悉的现实生活中的数据库，给出每种数据挖掘功能的例子。   特征化是目标类数据的一般特性或者特征的汇总。例如可以通过收集销量在前10%的物品的信息，再进行特征汇总。 区分是将目标类数据对象的一般特性与一个或多个对比类对象的一般特性进行比较。例如将销量增加10%和销量减少3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%981%E2%80%94%E2%80%94%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC 部分习题第一章：引论1.3 定义以下数据挖掘功能：特征化、区分、关联和相关性分析、分类、回归、聚类、离群点分析。使用你熟悉的现实生活中的数据库，给出每种数据挖掘功能的例子。   特征化是目标类数据的一般特性或者特征的汇总。例如可以通过收集销量在前10%的物品的信息，再进行特征汇总。 区分是将目标类数据对象的一般特性与一个或多个对比类对象的一般特性进行比较。例如将销量增加10%和销量减少3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2daaba15ba544798902c19377ba09430.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/537adc41d3db4aadbc1c4308bc06134a.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/10038a3177434b4da577140f5f518fdb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a9eb451cc9fb484c9c253c97d52ef035.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e5750d40a1c44feba31750d6956f15d8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f734b249a2c34ac8a545ff732f56b323.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/432e6c857f1447bd96ab11ecdfbdc9a7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bea2c787e7a84c4682719680c0adf9a6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a94c1646151340358c14c5896d6bb518.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/60670c11682f4a4286384ed8d5ba3940.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0b065e264cb04707af9097db268b09d5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/341ee94307e94f5c9f6d4e2d3719f67f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7c768380938543c18ca598dab39554ff.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/12f17aa7c91248d1927c9cf31fb4b7a5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/670fd2d273874b3ebdf15bd883eadb63.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5a985f6739444a9791a739befcac85bc.webp">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/21895ce26a604a4ab738cf583e686702.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/17ae5ac00904457699376e219b26d156.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c86fcbc278344219a510de7fe4fb37b7.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9f05664e60c241b2913fa7986c7a94b0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/639fa03761c847e6b58c4db6c3014b7b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4447f77c4703463586fd4c01f045356b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1084a72375ec4c3393d0226bbf6bf48c.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/81c1a9abb5034967b44071508abf2731.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6ac38d5c2dc8402bb23b88dbb9e091cc.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fc8b7c73953648ae8198fb68c360527e.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9d0d7a921711487197b2f8c4adf5c0aa.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f5561effb93f44349866aad0bcb6feb9.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ff00715afa4545fc9052f559cc87cddf.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fcd9df2258eb4f2fab8e89dc9bb978b2.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f0add00d20ef46bd9a4a804e97a78f37.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8d629d37664b4ae1915c4fa5e35e1bb6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c0ee0004ec3d48f7bc4735bcd7f4d546.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d1c8ba6cd11a4f819f16abfe154121eb.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8027669b31f4498c9b3969b45d94a56a.png">
+<meta property="article:published_time" content="2024-03-25T08:23:31.060Z">
+<meta property="article:modified_time" content="2022-05-26T06:13:44.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2daaba15ba544798902c19377ba09430.png">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%981%E2%80%94%E2%80%94%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%981%E2%80%94%E2%80%94%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:44" itemprop="dateModified" datetime="2022-05-26T14:13:44+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.9k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="数据挖掘1——课后习题">TOC</a></p>
+<h1 id="部分习题"><a href="#部分习题" class="headerlink" title="部分习题"></a>部分习题</h1><h2 id="第一章：引论"><a href="#第一章：引论" class="headerlink" title="第一章：引论"></a>第一章：引论</h2><h3 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h3><blockquote>
+<p>定义以下数据挖掘功能：特征化、区分、关联和相关性分析、分类、回归、聚类、离群点分析。使用你熟悉的现实生活中的数据库，给出每种数据挖掘功能的例子。</p>
+</blockquote>
+<ul>
+<li><strong>特征化</strong>是目标类数据的一般特性或者特征的汇总。例如可以通过收集销量在前10%的物品的信息，再进行特征汇总。</li>
+<li><strong>区分</strong>是将目标类数据对象的一般特性与一个或多个对比类对象的一般特性进行比较。例如将销量增加10%和销量减少30%的物品放在一起进行比较。</li>
+<li><strong>频繁模式</strong>：频繁模式(frequent pattern)是在数据中频繁出现的模式。挖掘频繁模式导致发现数据中有趣的<strong>关联和相关性</strong>。</li>
+<li><strong>关联</strong>是类与类之间的联接，使一个类知道另一个类的属性和方法。例如Apriori算法挖掘产生布尔关联规则所需频繁项集。</li>
+<li><strong>相关性分析</strong>是两个或多个具备相关性的变量元素进行分析，从而衡量两个因素的的相关密切程度。例如分析人的身高和体重之间的关系。</li>
+<li><strong>分类</strong>是找出描述和区分数据类或概念的模型，以便能够使用模型预测类标号位置的对象的类标号。例如找出描述销量增加30%和销量减少30%的物品，通过对其特征进行描述和建模，再对一个新的物品根据其特征将其分类。</li>
+<li><strong>回归</strong>建立连续值函数模型，用于<strong>预测</strong>缺失的难以确定的数据值。例如补全未采样的数据。</li>
+<li><strong>聚类</strong>根据最大化类内相似性、最小化类间相似性的原则分析数据对象，但<strong>不进行类标号</strong>。例如可以对客户数据进行分析，以簇形式表示每个购物目标群。</li>
+<li><strong>离群点</strong>分析指研究那些与数据的一般行为或模型不一致的数据离散点，可以从中挖掘某种模式。例如使用离群点分析发现信用卡诈骗使用活动。</li>
+</ul>
+<h3 id="1-4"><a href="#1-4" class="headerlink" title="1.4"></a>1.4</h3><blockquote>
+<p>给出一个例子，其中数据挖掘对于工商企业的成功是至关重要的。该工商企业需要什么数据挖掘功能？这种模式能够通过简单的查询处理或统计分析得到吗？</p>
+</blockquote>
+<p>超市营销系统中采用Apriori算法发掘潜藏在商品中的某些关系，细化商品的布局和摆放。超市对销售数据进行分析，能够统计商品的销售情况，找出商品间存在的内在关联，预测新商品是否畅销。根据顾客购买记录，使用序列模式挖掘顾客的消费变化，分析顾客的忠诚程度。电商平台基于用户的基本属性（年龄、性别）、购买能力、行为特征、兴趣爱好，使用数据挖掘技术构建客户画像，实现精准营销。</p>
+<h3 id="1-5"><a href="#1-5" class="headerlink" title="1.5"></a>1.5</h3><blockquote>
+<p>解释区分和分类、特征化和聚类、分类和回归之间的区别和相似之处。</p>
+</blockquote>
+<p><strong>区分</strong>指的是将目标类数据的一般特性和一个或多个对比类对象的一般特性进行比较，即找出两者之间的<strong>特征区别</strong>；<br><strong>分类</strong>指的是找出一种模型来描述和区分数据类型或概念，并<strong>预测类标号</strong>未知的对象的类标号。<br><strong>相似性</strong>在于他们都要对目标类数据对象进行处理和分析，输出结果都是类别特征，这些类别是预先指定的。<br><strong>区别</strong>：区分只是找出特征区别，分类是预测类标号。</p>
+<p><strong>特征化</strong>是对目标类数据的的一般特性或特征的汇总，即在进行数据特征化时很清楚特征化的这些数据的特点是什么；<br><strong>聚类</strong>是分析数据对象，按照“最大化类内相似度、最小化类间相似度”的原则进行聚类或分组。即在不考虑明确标签分类的情况下进行分析。<br><strong>相似处</strong>在于刻画目标的总体特征。<br><strong>区别</strong>：特征化是对每一列特征维度，聚类是行与行之间元素维度。</p>
+<p><strong>分类</strong>用于找出一种模型来描述和区分数据类型或概念，并预测类标号未知的对象的类标号；<br><strong>回归</strong>则是建立一个连续值函数模型，而不是离散、无序的标号。<br><strong>相似点</strong>：用函数进行预测。<br><strong>区别</strong>：分类是离散值，回归是连续值。</p>
+<h2 id="第二章：认识数据"><a href="#第二章：认识数据" class="headerlink" title="第二章：认识数据"></a>第二章：认识数据</h2><h3 id="2-5"><a href="#2-5" class="headerlink" title="2.5"></a>2.5</h3><blockquote>
+<p>简要概述如何计算被如下属性描述的对象的相异性。</p>
+</blockquote>
+<p><strong>（a）标称属性</strong><br>两个对象i和j之间的相异性根据不匹配率来计算：<br><img src="https://img-blog.csdnimg.cn/2daaba15ba544798902c19377ba09430.png" alt="请添加图片描述"><br>其中，p为刻画对象的属性总数，m是匹配的数目。</p>
+<p><strong>（b）非对称的二元属性</strong><br>可以依据二元属性的列联表去计算，计算公式如下：<img src="https://img-blog.csdnimg.cn/537adc41d3db4aadbc1c4308bc06134a.png" alt="请添加图片描述"><br>其中，r为在对象i中取1、在对象j中取0的属性数；s为在对象i中取0、对象j中取1的属性数；q为在对象i和j中都取1的属性数。</p>
+<p><strong>（c）数值属性</strong><br>使用闵可夫斯基距离进行计算，即欧几里得距离和曼哈顿距离的推广，定义如下：<br><img src="https://img-blog.csdnimg.cn/10038a3177434b4da577140f5f518fdb.png" alt="请添加图片描述"><br>其中，h是实数，h≥1。且当h = 1时，它代表曼哈顿距离（即，L1范数）；当h = 2时表示欧几里得距离（即，L2范数）。</p>
+<p><strong>（d）词频向量</strong><br>使用余弦相似度进行计算，其计算公式如下：<br><img src="https://img-blog.csdnimg.cn/a9eb451cc9fb484c9c253c97d52ef035.png" alt="请添加图片描述"><br>其中，余弦值0意味着两个向量呈90°夹角（正交），没有匹配。余弦值越接近于1，夹角越小，向量之间的匹配度越大。</p>
+<h3 id="2-6"><a href="#2-6" class="headerlink" title="2.6"></a>2.6</h3><blockquote>
+<p>给定两个被元组(22,1,42,10)和(20,0,36,8)表示的对象。<br>（a）计算这两个对象之间的欧几里得距离。<br>（b）计算这两个对象之间的曼哈顿距离。<br>（c）使用q=3，计算这两个对象之间的闵可夫斯基距离。<br>（d）计算这两个对象之间的上确界距离。</p>
+</blockquote>
+<p>（a）计算两个对象之间的欧几里得距离：<br><img src="https://img-blog.csdnimg.cn/e5750d40a1c44feba31750d6956f15d8.png" alt="请添加图片描述"><br>（b）计算两个对象之间的曼哈顿距离：<br><img src="https://img-blog.csdnimg.cn/f734b249a2c34ac8a545ff732f56b323.png" alt="请添加图片描述"><br>（c）使用q=3，计算这两个对象之间的闵可夫斯基距离：<br><img src="https://img-blog.csdnimg.cn/432e6c857f1447bd96ab11ecdfbdc9a7.png" alt="请添加图片描述"><br>（d）计算这两个对象之间的上确界距离：<br><img src="https://img-blog.csdnimg.cn/bea2c787e7a84c4682719680c0adf9a6.png" alt="请添加图片描述"></p>
+<h2 id="第三章：数据预处理"><a href="#第三章：数据预处理" class="headerlink" title="第三章：数据预处理"></a>第三章：数据预处理</h2><h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3><blockquote>
+<p>数据质量可以从多方面评估，包括准确性、完整性、一致性问题。 提出其他两个方面的数据质量。</p>
+</blockquote>
+<p><strong>准确性</strong>：由于技术的限制或人为的失误，有些需要准确投入营销，比如生日折扣等的商品，可能会失去作用。</p>
+<p><strong>完整性</strong>：由于技术的限制或人为的失误，有些需要准确投入营销比如生日折扣等的商品可能会失去作用。<br>如果要对某宝、某东或者某宁的买家信息进行一个数据挖掘，从而用来营销其他东西，比如要对地址进行挖掘，此时详细、完整的地址数据则是一个必备的特性。</p>
+<p><strong>一致性问题</strong>：由于某些不可抗因素而导致的数据不一致，例如多个数据源命名不一致时会影响数据集成等。比如技术问题，在并发量大的情况下，记录数据时出现问题；或者某些数据值是一样的，然而在不同的数据库中其命名却不一样；这些不一致性问题在数据挖掘时则会影响挖掘的结果。</p>
+<p>数据质量的<strong>其他两个尺度</strong>：时效性和可信性。</p>
+<p><strong>时效性</strong>：数据必须在一定时间范围内可用，以便对决策有用。</p>
+<p><strong>可信性</strong>：数据值必须在可能结果的范围内，以便对决策有用。</p>
+<h3 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h3><blockquote>
+<p>在实际数据中，某些属性缺少值的元组是常见的情况。 描述解决此问题的各种方法。<br>处理数据元组中缺少值的问题的各种方法包括：</p>
+</blockquote>
+<p><strong>（a）忽略元组</strong>：通常在缺少类标签时执行此操作（假设挖掘任务涉及分类或描述）。除非元组包含缺少值的几个属性，否则此方法不太有效。当每个属性的缺失值的百分比相差很大时，这尤其差劲。</p>
+<p><strong>（b）手动填充</strong>缺失值：通常，此方法很耗时，对于缺失值很多的大型数据集，这可能不是一个合理的任务，尤其是当填充值不容易确定时。</p>
+<p>（c）使用<strong>全局常量</strong>填充缺失值：用相同的常量替换所有缺失的属性值，例如“ Unknown”或-∞之类的标签。如果将缺失的值替换为“未知”，则挖掘程序可能会错误地认为它们构成了一个有趣的概念，因为它们都具有一个共同的值，即“未知”。因此，尽管此方法很简单，但不建议使用。</p>
+<p>（d）将<strong>属性均值</strong>用于定量（数字）值或将属性模式用于分类（标称）值：例如，假设AllElectronics客户的平均收入为$ 28,000。 使用此值替换任何缺失的收入值。</p>
+<p>（e）对于属于与给定元组<strong>相同类别</strong>的所有样本，使用<strong>定量</strong>（数值）值的属性均值或分类（名义）值的属性模式：例如，如果根据信用风险对客户进行分类，则替换缺失的与给定元组处于相同信用风险类别的客户的平均收入值。</p>
+<p>（f）使用<strong>最可能的值</strong>来填补缺失值：这可以通过回归，使用贝叶斯形式主义的基于推理的工具或决策树归纳法来确定。 例如，使用数据集中的其他客户属性，我们可以构建决策树来预测收入的缺失值。</p>
+<h3 id="3-4"><a href="#3-4" class="headerlink" title="3.4"></a>3.4</h3><blockquote>
+<p>讨论数据集成需要考虑的问题。</p>
+</blockquote>
+<p>数据集成涉及将来自多个源的数据组合到一个一致的数据存储中。 在这种集成过程中必须考虑的问题包括：</p>
+<ul>
+<li>模式集成：必须集成来自不同数据源的元数据，以匹配等效的实际实体。 这称为实体识别问题。</li>
+<li>处理冗余数据：派生的属性可能是冗余的，不一致的属性命名也可能导致结果数据集中的冗余。 在元组级别可能出现重复，因此需要检测和解决。</li>
+<li>数据值冲突的检测和解决：表示，缩放或编码上的差异可能导致相同的现实世界实体属性值在要集成的数据源中有所不同。</li>
+</ul>
+<h3 id="3-7"><a href="#3-7" class="headerlink" title="3.7"></a>3.7</h3><blockquote>
+<p>使用习题3.3中给出的age数据，回答以下问题：<br>（a）使用最小最大规范化将age值35变换到[0.0,1.0]区间。<br>（b）使用z分数规范化，变换age，其中标准差为12.94。<br>（c）使用小数定标规范化变换35。<br>（d）指出给定数据，你愿意使用哪种方法。陈述你的理由。</p>
+</blockquote>
+<p><strong>（a）使用最小最大规范化将age值35变换到[0.0,1.0]区间</strong><br>为了便于阅读，将A设为属性年龄。 使用公式：<br><img src="https://img-blog.csdnimg.cn/a94c1646151340358c14c5896d6bb518.png" alt="请添加图片描述"><br>其中minA = 13，maxA = 70，new_minA = 0，new_maxA = 1.0，然后将v = 35转换为v` = 0.39。</p>
+<p><strong>（b）使用z分数规范化，变换age，其中标准差为12.94</strong><br>使用公式<img src="https://img-blog.csdnimg.cn/60670c11682f4a4286384ed8d5ba3940.png" alt="请添加图片描述">（其中 <img src="https://img-blog.csdnimg.cn/0b065e264cb04707af9097db268b09d5.png" alt="请添加图片描述">= 809/27 = 29.96，<img src="https://img-blog.csdnimg.cn/341ee94307e94f5c9f6d4e2d3719f67f.png" alt="请添加图片描述">= 12.94），然后将v = 35转换为v` = 0.39。</p>
+<p>（c）使用小数定标规范化变换35</p>
+<p>使用公式<img src="https://img-blog.csdnimg.cn/7c768380938543c18ca598dab39554ff.png" alt="请添加图片描述">（其中j = 2），将v = 35转换为v` = 0.35。</p>
+<p><strong>（d）指出给定数据，你愿意使用哪种方法。陈述你的理由。</strong><br>言之有理即可。一般情况下，使用最小最大规范化。</p>
+<ul>
+<li>在给定数据的情况下，十进制缩放进行规范化，可以将保持数据的分布并直观地解释，同时仍允许在特定年龄段进行挖掘。</li>
+<li>最小最大规范化具有不希望的结果，即不允许任何将来的值落在当前的最小值和最大值之外，而不会遇到“超出范围的误差”。 由于此类值可能会出现在将来的数据中，因此此方法不太合适。</li>
+<li>最小最大规范化和z分数规范化都极大地改变了原始数据。z分数规范化将值转换为表示它们与标准差之间的距离的度量。但与十进制缩放相比，这种类型的转换对用户而言可能不那么直观。</li>
+</ul>
+<h2 id="第六章：挖掘频繁模式、关联和相关性"><a href="#第六章：挖掘频繁模式、关联和相关性" class="headerlink" title="第六章：挖掘频繁模式、关联和相关性"></a>第六章：挖掘频繁模式、关联和相关性</h2><h3 id="6-6"><a href="#6-6" class="headerlink" title="6.6"></a>6.6</h3><blockquote>
+<p>数据库有5个事务。设mini_sup=60%，min_conf=80%。<br><img src="https://img-blog.csdnimg.cn/12f17aa7c91248d1927c9cf31fb4b7a5.png" alt="请添加图片描述"><br>（a）分别使用Apriori算法和FP-growth算法找出频繁项集。比较两种挖掘过程的有效性。<br>（b）列举所有与下面的原规则匹配的强关联规则（给出支持度s和置信度c），其中X是代表顾客的变量，item是表示项的变量（如“A”，“B”等）：<br>∀x∈<em>transaction,buys(X,item_1 )∧buys(X,item_2 )⇒buys(X,item_3 )</em>        [s,c]</p>
+</blockquote>
+<p>使用Apriori算法<br>首先找出频繁的1-项集，然后进行组合再找出频繁的2-项集，以此类推，有如下图（其中L表示频繁项集）：<br><img src="https://img-blog.csdnimg.cn/670fd2d273874b3ebdf15bd883eadb63.png" alt="请添加图片描述"><br>使用FP-growth算法<br>首先找出频繁的1-项集，然后构建一个FP树，再对每个中间节点依次进行考察，建立条件FP树，最后得到单个路径的产生频繁模式的所有组合。<img src="https://img-blog.csdnimg.cn/5a985f6739444a9791a739befcac85bc.webp" alt="请添加图片描述"><br><img src="https://img-blog.csdnimg.cn/21895ce26a604a4ab738cf583e686702.png" alt="请添加图片描述"><br>有效性比较：Apriori算法需要对数据库做多次扫描而FP-growth算法只需要一次扫描。Apriori的候选集产生代价较高（需要做多次自身连接），而FP-growth不需要生成任何候选集。</p>
+<p>强关联规则：[s,c]支持度，置信度<br><img src="https://img-blog.csdnimg.cn/17ae5ac00904457699376e219b26d156.png" alt="请添加图片描述"><br><del>k,e —&gt; o [0.6,0.75]</del> （所以不满足要求）</p>
+<p><img src="https://img-blog.csdnimg.cn/c86fcbc278344219a510de7fe4fb37b7.jpeg" alt="请添加图片描述"><img src="https://img-blog.csdnimg.cn/9f05664e60c241b2913fa7986c7a94b0.png" alt="在这里插入图片描述"></p>
+<h3 id="6-14"><a href="#6-14" class="headerlink" title="6.14"></a>6.14</h3><blockquote>
+<p>下面的相依表汇总了超市的事务数据。其中，hot dogs表示包含热狗的事务，(hot dogs) ̅表示不包含热狗的事务。hamburgers表示包含汉堡包的事务，(hamburgers) ̅表示不包含汉堡包的事务。（题图中第二行第一列改成(hamburgers) ̅）<br><img src="https://img-blog.csdnimg.cn/639fa03761c847e6b58c4db6c3014b7b.png" alt="请添加图片描述"><br>（a）假设挖掘出了关联规则hot dogs⇒humburgers，给定最小支持度阈值25%，最小置信度阈值50%，该关联规则是强规则吗？<br>（b）根据给定的数据，买hot dogs独立于买humburgers吗？如果不是，两者之间存在何种相关联系。<br>（c）在给定的数据上，将全置信度、最大置信度、Kulczynski和余弦的使用与提升度和相关度进行比较。</p>
+</blockquote>
+<p><strong>（a）假设挖掘出了关联规则hot dogs⇒humburgers，给定最小支持度阈值25%，最小置信度阈值50%，该关联规则是强规则吗？</strong><br>由于支持度为2000/5000=40%，置信度为2000/3000=66.7%。因此，该关联规则是强关联规则。</p>
+<p><strong>（b）根据给定的数据，买hot dogs独立于买humburgers吗？如果不是，两者之间存在何种相关联系。</strong><br>不是，corr(hotdog,hamburgers)=P(hot,hum)/(P(hot)×P(hum))=(2000/5000)/((2500/5000)×(3000/5000))=0.4/(0.5×0.6)=1.33&gt;1，因此两者之间为正相关。</p>
+<p><strong>（c）在给定的数据上，将全置信度、最大置信度、Kulczynski和余弦的使用与提升度和相关度进行比较。</strong><br>全置信度：〖all<em>conf〗(hotdog,hamburgers)=0.4/0.6=2/3<br>最大置信度：max⁡_conf</em>(hotdog,hamburgers)=0.4/0.5=0.8<br>Kulczynski：〖Kul〗(hotdog,hamburgers)=1/2 （0.8+2/3）=11/15<br>余弦度量：cos(hotdog,hamburgers)=√(0.8*2/3)=(2√30)/15<br>提升度：lift_(hotdog,hamburgers)=(2/3)/0.5=4/3<br>相关度：期望值计算参考P64，其计算公式为：<br>x2=∑〖(观测值-期望值)〗2/期望值，x2=833.3<br><img src="https://img-blog.csdnimg.cn/4447f77c4703463586fd4c01f045356b.png" alt="在这里插入图片描述"></p>
+<h2 id="第八章：分类基本概念"><a href="#第八章：分类基本概念" class="headerlink" title="第八章：分类基本概念"></a>第八章：分类基本概念</h2><h3 id="8-7"><a href="#8-7" class="headerlink" title="8.7"></a>8.7</h3><blockquote>
+<p>下表由雇员数据库的训练数据组成。数据已泛化。例如，age“31…35”表示年龄在31~35之间。对于给定的行，count表示department、status、age和salary在该行上具有给定值的元组数。<br><img src="https://img-blog.csdnimg.cn/1084a72375ec4c3393d0226bbf6bf48c.png" alt="请添加图片描述"><br>设status是类标号属性。<br>1） 如何修改基本决策树算法，以便考虑每个广义数据元组（即每个行）的count？<br>2） 使用修改过的算法，构造给定数据的决策树。<br>3） 给定一个数据元组，它的属性department、age和salary的值分别为“system”、“26…30”、“46…50K”。该元组status的朴素贝叶斯分类是什么？</p>
+</blockquote>
+<p><strong>1） 如何修改基本决策树算法，以便考虑每个广义数据元组（即每个行）的count？</strong><br>① 将每个元组的count作为计算属性选择方法中的一部分（例如信息增益）。<br>② 在决定元组多数表决的时候考虑元组的count。</p>
+<p><strong>2） 使用修改过的算法，构造给定数据的决策树。</strong><br><img src="https://img-blog.csdnimg.cn/81c1a9abb5034967b44071508abf2731.png" alt="请添加图片描述"></p>
+<p><strong>3） 给定一个数据元组，它的属性department、age和salary的值分别为“system”、“26…30”、“46…50K”。该元组status的朴素贝叶斯分类是什么？</strong><br><img src="https://img-blog.csdnimg.cn/6ac38d5c2dc8402bb23b88dbb9e091cc.jpeg" alt="请添加图片描述"><br><img src="https://img-blog.csdnimg.cn/fc8b7c73953648ae8198fb68c360527e.jpeg" alt="请添加图片描述"></p>
+<h3 id="8-12"><a href="#8-12" class="headerlink" title="8.12"></a>8.12</h3><blockquote>
+<p>如图中的数据元组已经按分类器返回概率值的递减序排序。对于每个元组，计算真正例（TP）、假正例（FP）、真负例（TN）和假负例（FN）的个数。计算真正例率（TPR）和假正例率（FPR）。为该数据绘制ROC曲线。<br><img src="https://img-blog.csdnimg.cn/9d0d7a921711487197b2f8c4adf5c0aa.png" alt="请添加图片描述"></p>
+</blockquote>
+<p>根据计算，可以得到如上图所示对应的TPR和FPR，绘制出来的表格如下：<br><img src="https://img-blog.csdnimg.cn/f5561effb93f44349866aad0bcb6feb9.png" alt="请添加图片描述"><br>（这个图不对，应该是纵坐标是TPR，这样才是凸包）<br><img src="https://img-blog.csdnimg.cn/ff00715afa4545fc9052f559cc87cddf.png" alt="请添加图片描述"></p>
+<h3 id="8-13"><a href="#8-13" class="headerlink" title="8.13"></a>8.13</h3><blockquote>
+<p>当一个数据对象可以同时属于多个类时，很难评估分类的准确率。评述在这种情况下，你将使用何种标准比较在相同数据上建立的不同分类器。</p>
+</blockquote>
+<p>一个数据对象可以同时属于多个类。然而，一个数据对象可能比起其他类会更多属于一个特定类。因此，应该建立一个分类器去判断数据对象通常属于哪个类。<strong>第一个标准</strong>，一个类如果符合最可能或第二可能类即判断分类正确。<br><strong>另一个标准</strong>是使用同一个数据集判断不同分类器的分类速度、鲁棒性、可扩展性以及解释性。<br>通常我们会选择一个计算代价更小（训练时间、分类时间）、能在给出噪声甚至不完整数据下做出准确预测、在大型数据上有效工作并提供能够更易理解的准确结果的分类器。</p>
+<h3 id="8-16"><a href="#8-16" class="headerlink" title="8.16"></a>8.16</h3><blockquote>
+<p>概述处理类不平衡问题的方法。解释基于大量非欺诈案例和很少的欺诈案例，如何构建高质量的分类器。</p>
+</blockquote>
+<p>提升不平衡类分类准确率的方法有三大类：采样、阈值移动、调整代价或权重。</p>
+<ul>
+<li>对较多的那个类别进行欠采样(under-sampling)，舍弃一部分数据，使其与较少类别的数据相当。</li>
+<li>对较少的类别进行过采样(over-sampling)，重复使用一部分数据，使其与较多类别的数据相当。</li>
+<li>阈值调整（threshold moving），将原本默认为0.5的阈值调整到 较少类别/（较少类别+较多类别）即可。<br><img src="https://img-blog.csdnimg.cn/fcd9df2258eb4f2fab8e89dc9bb978b2.png" alt="请添加图片描述"><br>前两种方法都会明显的改变数据分布，训练数据假设不再是真实数据的无偏表述。在第一种方法中，浪费了很多数据。而第二类方法中有无中生有或者重复使用了数据，会导致过拟合的发生。因此欠采样的逻辑中，往往会结合集成学习来有效的使用数据。</li>
+</ul>
+<p><strong>方法评价</strong>：<br><img src="https://img-blog.csdnimg.cn/f0add00d20ef46bd9a4a804e97a78f37.png" alt="请添加图片描述"><br><strong>实例</strong><br>假设正例数据n，而反例数据m个。可以通过<strong>欠采样</strong>，随机无重复的生成（k=n/m）个反例子集，并将每个子集都与相同正例数据合并生成k个新的训练样本。在k个训练样本上分别训练一个分类器，最终将k个分类器的结果结合起来，比如求平均值。<br>这就是一个简单的思路，也就是Easy Ensemble[1]。</p>
+<blockquote>
+<p>[1] Liu, T.Y., 2009, August. Easyensemble and feature selection for<br>imbalance data sets. In Bioinformatics, Systems Biology and<br>Intelligent Computing, 2009. IJCBS’09. International Joint Conference<br>on (pp. 517-520). IEEE.</p>
+</blockquote>
+<p>代码可参考：<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1689107">https://cloud.tencent.com/developer/article/1689107</a></p>
+<ul>
+<li>法一：SMOTE算法、LR模型以及阈值移动的方法<br><img src="https://img-blog.csdnimg.cn/8d629d37664b4ae1915c4fa5e35e1bb6.png" alt="请添加图片描述"></li>
+<li>法二：算法集成技术XGBoost<br><img src="https://img-blog.csdnimg.cn/c0ee0004ec3d48f7bc4735bcd7f4d546.png" alt="请添加图片描述"><h2 id="第十章：聚类分析"><a href="#第十章：聚类分析" class="headerlink" title="第十章：聚类分析"></a>第十章：聚类分析</h2><h3 id="10-2"><a href="#10-2" class="headerlink" title="10.2"></a>10.2</h3><blockquote>
+<p> 假设数据挖掘的任务是将如下的8个点（用（x，y）代表位置）聚类为3个簇。<br>A_1(2,10) ,A_2 (2,5),A_3 (8,4),B_1 (5,8),B_2 (7,5),B_3 (6,4),C_1 (1,2),C_2 (9,4)<br>距离是欧氏距离。假设初始我们选择A_1，B_1和C_1分别为每个簇的中心，用k-均值算法给出：<br>（a）在第一轮执行后的3个簇中心。<br>（b）最后的3个簇。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>（a）在第一轮执行后的3个簇中心。</strong><br>在第一轮执行时，分别计算除中心点外的所有点和每个中心点的欧几里得距离，将其并入离自己最近的中心点的簇中。因此可得第一轮后，3个簇为：<br> {A_1}，{B_1,A_3,B_2,B_3,C_2}，{C_1,A_2}，故簇中心为(2, 10)，(6, 6)，(1.5, 3.5)。 </p>
+<p><strong>（b）最后的3个簇。</strong><br>使用新的均值作为簇的中心点，再次按照以上流程进行计算；如此迭代后，直到分配稳定后，最后形成的三个簇为：{A_1,C_2 ,B_1}，{A_3,B_2,B_3}，{C_1,A_2}。<br><img src="https://img-blog.csdnimg.cn/d1c8ba6cd11a4f819f16abfe154121eb.jpeg" alt="请添加图片描述"></p>
+<h3 id="10-6"><a href="#10-6" class="headerlink" title="10.6"></a>10.6</h3><blockquote>
+<p>k-均值和k-中心点算法都可以进行有效的聚类。<br>（a）概述k-均值和k-中心点相比较的优缺点。<br>（b）概述这两种方法与层次聚类方法（如AGNES）相比有何优缺点。</p>
+</blockquote>
+<p><strong>（a）概述k-均值和k-中心点相比较的优缺点。</strong><br>k-均值算法计算代价更小；k-中心点计算代价大，但是对于数据中的离群点和噪声鲁棒性更强，即更少受到离群点和噪声的影响。</p>
+<p><strong>（b）概述这两种方法与层次聚类方法（如AGNES）相比有何优缺点。</strong><br>k-均值和k-中心点都是划分方法的一种，这种方法的好处在于每次迭代重定位的时候可以撤销之前的聚群操作，但是层次聚类方法一旦一个步骤（分裂或合并）完成将不能被撤回，因此层次聚类方法可能会影响聚类的结果的质量。划分方法在球形聚类上表现良好，且其聚类的结果在小型到中中型的数据库上质量较好。划分方法的缺点在于需要指定簇的数量。<br>层次聚类方法自动决定簇的数量。然而他们每一步做出合并或分裂步骤的时候需要进行大量计算来评估该步骤产生的簇的质量。然而，层次聚类方法能够和其他聚类方法集成一个扩展的聚类方法，提高层次聚类质量，如BIRCH、ROCK和Chameleon。</p>
+<h3 id="10-12"><a href="#10-12" class="headerlink" title="10.12"></a>10.12</h3><blockquote>
+<p>指出在何种情况下，基于密度的聚类方法比基于划分的聚类方法和层次聚类方法更合适。并给出一些应用实例来支持你的观点。</p>
+</blockquote>
+<p>基于划分的聚类方法和层次聚类方法都是基于对象之间的距离。这样的方法更倾向于发现球形簇并在发现任意形状的簇上遇到困难。划分方法还在簇的密度和直径方面存在问题；而层次划分方法计算代价昂贵且不能撤回已经完成的分裂或合并步骤。<br>基于密度的聚类方法是建立在每个簇通常其簇内的点的密度比簇外的大的前提之上的，即簇时数据空间中被稀疏区域分开的稠密区域。基于密度的方法能够发现任意形状的簇，不同意传统的聚类方法，其可以处理数据中的噪声。下图中展示了不同形状的簇，使用DBSCAN方法将能轻松处理这些簇。<br><img src="https://img-blog.csdnimg.cn/8027669b31f4498c9b3969b45d94a56a.png" alt="请添加图片描述"></p>
+<h3 id="10-13"><a href="#10-13" class="headerlink" title="10.13"></a>10.13</h3><blockquote>
+<p>给出一个例子来说明如何集成特定的聚类方法，例如，一种聚类方法被用作另一种算法的预处理步骤。此外，请解释为什么两种聚类方法的集成有时候会改进聚类的质量和有效性。</p>
+</blockquote>
+<p>一个例子是BIRCH，一种集成了层次性聚类方法（预处理步骤）和其他聚类方法的聚类算法。一开始使用树形结构作为层次划分的对象，然后使用其他聚类算法（例如迭代划分）来重新定义簇，BIRCH增量地构建一个聚类特征树（CF树），是一棵高度平衡树，用于为层次聚类存储聚类特征（总和特征）。BIRCH包括两个阶段，第一个阶段（微聚类）扫描一遍数据库，在内存中建立一棵CF树，可以看做数据的多层压缩，视图保留数据的内在结构；第二个阶段（宏聚类）采用其他的聚类算法（例如迭代重定位）来对CF树的叶节点进行聚类，把稀疏的点当做离群点移出并且将稠密的簇合并为更大的簇。<br><strong>集成不同的聚类方法能够克服单个方法的局限性</strong>。例如，集成层次聚类方法和一种其他聚类方法，例如BIRCH克服了层次聚类分两大局限性——可扩展性和不能撤销已经完成的步骤。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40669059/article/details/105697907">https://blog.csdn.net/qq_40669059/article/details/105697907</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43060870/article/details/107099163">https://blog.csdn.net/qq_43060870/article/details/107099163</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1689107">https://cloud.tencent.com/developer/article/1689107</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9FMySQL/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.1%E2%80%94%E2%80%94%E7%BB%AA%E8%AE%BA%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E4%B9%A0%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">部分习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E5%BC%95%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">第一章：引论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AE%A4%E8%AF%86%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.</span> <span class="nav-text">第二章：认识数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">第三章：数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.7</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E6%8C%96%E6%8E%98%E9%A2%91%E7%B9%81%E6%A8%A1%E5%BC%8F%E3%80%81%E5%85%B3%E8%81%94%E5%92%8C%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">第六章：挖掘频繁模式、关联和相关性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6"><span class="nav-number">1.4.1.</span> <span class="nav-text">6.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-14"><span class="nav-number">1.4.2.</span> <span class="nav-text">6.14</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E5%88%86%E7%B1%BB%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.5.</span> <span class="nav-text">第八章：分类基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7"><span class="nav-number">1.5.1.</span> <span class="nav-text">8.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-12"><span class="nav-number">1.5.2.</span> <span class="nav-text">8.12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-13"><span class="nav-number">1.5.3.</span> <span class="nav-text">8.13</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-16"><span class="nav-number">1.5.4.</span> <span class="nav-text">8.16</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90"><span class="nav-number">1.6.</span> <span class="nav-text">第十章：聚类分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2"><span class="nav-number">1.6.1.</span> <span class="nav-text">10.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-6"><span class="nav-number">1.6.2.</span> <span class="nav-text">10.6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-12"><span class="nav-number">1.6.3.</span> <span class="nav-text">10.12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-13"><span class="nav-number">1.6.4.</span> <span class="nav-text">10.13</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

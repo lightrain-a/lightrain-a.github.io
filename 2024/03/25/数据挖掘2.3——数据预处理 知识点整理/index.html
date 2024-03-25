@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC 1.数据质量 2.数据预处理方法 数据清理 填写缺失值， 平滑噪声数据， 识别或删除离群， 并解决不一致问题 数据集成 整合多个数据库， 多维数据集或文件 数据缩减 降维 Numerosity reduction 数据压缩 数据转换和数据离散化 正常化 生成概念层次结构  2.1 数据清洗 脏数据 不完整的： 缺少属性值， 缺乏某些属性值， 或只包含总数据 忽略元组、手动填写、自动填写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC 1.数据质量 2.数据预处理方法 数据清理 填写缺失值， 平滑噪声数据， 识别或删除离群， 并解决不一致问题 数据集成 整合多个数据库， 多维数据集或文件 数据缩减 降维 Numerosity reduction 数据压缩 数据转换和数据离散化 正常化 生成概念层次结构  2.1 数据清洗 脏数据 不完整的： 缺少属性值， 缺乏某些属性值， 或只包含总数据 忽略元组、手动填写、自动填写">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9f77d0e2f38f4349b42c99f321c718bb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3bee3374e4a24b8bb464be416f8529da.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6dff557004bb4c74862ca74c2f2f7b95.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2451e8231b014553bc494cf571ea0995.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e6fd5118643c4be1bfdf894350dbcff0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/23d6a6100a81422db6d9c127543f5ae5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c64d88eadcc54040b864a66624df36d4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c87416d9d61a4c07920008d93ee182e0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f74cc4b0882c4429947e18c603efc654.png">
+<meta property="article:published_time" content="2024-03-25T08:23:31.064Z">
+<meta property="article:modified_time" content="2022-05-26T06:13:42.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/9f77d0e2f38f4349b42c99f321c718bb.png">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.3%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:42" itemprop="dateModified" datetime="2022-05-26T14:13:42+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>842</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="数据挖掘2.3——数据预处理 知识点整理">TOC</a></p>
+<h1 id="1-数据质量"><a href="#1-数据质量" class="headerlink" title="1.数据质量"></a>1.数据质量</h1><p><img src="https://img-blog.csdnimg.cn/9f77d0e2f38f4349b42c99f321c718bb.png" alt="在这里插入图片描述"></p>
+<h1 id="2-数据预处理方法"><a href="#2-数据预处理方法" class="headerlink" title="2.数据预处理方法"></a>2.数据预处理方法</h1><ul>
+<li>数据清理</li>
+<li>填写缺失值， 平滑噪声数据， 识别或删除离群， 并解决不一致问题</li>
+<li>数据集成</li>
+<li>整合多个数据库， 多维数据集或文件</li>
+<li>数据缩减</li>
+<li>降维</li>
+<li>Numerosity reduction</li>
+<li>数据压缩</li>
+<li>数据转换和数据离散化</li>
+<li>正常化</li>
+<li>生成概念层次结构</li>
+</ul>
+<h2 id="2-1-数据清洗"><a href="#2-1-数据清洗" class="headerlink" title="2.1 数据清洗"></a>2.1 数据清洗</h2><ul>
+<li>脏数据<ul>
+<li>不完整的： 缺少属性值， 缺乏某些属性值， 或只包含总数据</li>
+<li>忽略元组、手动填写、自动填写</li>
+</ul>
+</li>
+<li>含嘈杂的噪音， 错误或离群<ul>
+<li>例如， 工资= -10 (错误)</li>
+<li>处理：盒装图检测并删除离群点</li>
+</ul>
+</li>
+<li>不一致的代码或不符的名称<ul>
+<li>年龄= “42”  生日=“03/07/1997”</li>
+<li>曾经评级 “1,2,3” , 现在评级 “A, B, C”</li>
+<li>计算推理替换、全局替换</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-2-数据集成"><a href="#2-2-数据集成" class="headerlink" title="2.2 数据集成"></a>2.2 数据集成</h2><p>将来自多个数据源的数据组合成一个连贯的数据源<br><img src="https://img-blog.csdnimg.cn/3bee3374e4a24b8bb464be416f8529da.png" alt="在这里插入图片描述"></p>
+<h3 id="1-模式集成"><a href="#1-模式集成" class="headerlink" title="1. 模式集成"></a>1. 模式集成</h3><p><img src="https://img-blog.csdnimg.cn/6dff557004bb4c74862ca74c2f2f7b95.png" alt="在这里插入图片描述"></p>
+<h3 id="2-实体识别问题"><a href="#2-实体识别问题" class="headerlink" title="2. 实体识别问题"></a>2. 实体识别问题</h3><p><img src="https://img-blog.csdnimg.cn/2451e8231b014553bc494cf571ea0995.png" alt="在这里插入图片描述"></p>
+<h3 id="3-数据冲突检测"><a href="#3-数据冲突检测" class="headerlink" title="3. 数据冲突检测"></a>3. 数据冲突检测</h3><p><img src="https://img-blog.csdnimg.cn/e6fd5118643c4be1bfdf894350dbcff0.png" alt="在这里插入图片描述"></p>
+<h2 id="2-3数据规约"><a href="#2-3数据规约" class="headerlink" title="2.3数据规约"></a>2.3数据规约</h2><p><strong>原因</strong></p>
+<p>由于数据仓库可以存储TB的数据， 因此在一个完整的数据集上运行时， 复杂的数据分析可能需要一个很长的时间</p>
+<h3 id="1-降维"><a href="#1-降维" class="headerlink" title="1.降维"></a>1.降维</h3><p><strong>原因</strong><br>①随着维数的增加， 数据变得越来越稀疏<br>②子空间的可能的组合将成倍增长<br>③需要学习的参数越多，模型越复杂，需要更多的训练集，越容易欠拟合</p>
+<p><strong>需要降维的场景</strong></p>
+<ul>
+<li>参数据稀疏， 维度高</li>
+<li>高维数据采用基于规则的分类方法</li>
+<li>采用复杂模型， 但是训练集数目较少</li>
+<li>需要可视化</li>
+</ul>
+<p><strong>方法</strong></p>
+<ul>
+<li>PCA主成分分析法<h3 id="2-降数据"><a href="#2-降数据" class="headerlink" title="2.降数据"></a>2.降数据</h3></li>
+<li><strong>方法</strong><br>抽样法</li>
+</ul>
+<blockquote>
+<p>抽样类型</p>
+<ul>
+<li>简单随机抽样(Simple Random Sampling)<ul>
+<li>相等的概率选择</li>
+<li>不放回抽样(Sampling without replacement)<ul>
+<li>一旦对象被选中， 则将其删除</li>
+</ul>
+</li>
+<li>有放回抽样(Sampling with replacement)<ul>
+<li>选择对象不会被删除</li>
+</ul>
+</li>
+<li>分层抽样</li>
+<li>每组抽相同个数</li>
+<li>用于偏斜数据</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="3-数据压缩"><a href="#3-数据压缩" class="headerlink" title="3.数据压缩"></a>3.数据压缩</h3><h2 id="2-4数据转换和离散化"><a href="#2-4数据转换和离散化" class="headerlink" title="2.4数据转换和离散化"></a>2.4数据转换和离散化</h2><p><strong>函数映射</strong>，给定的属性值更换了一个新的表示方法， 每个旧值与新的值可以被识别。</p>
+<p><strong>方法</strong></p>
+<ul>
+<li><p>规范化： 按比例缩放到一个具体区间</p>
+<ul>
+<li>最小-最大规范化<br><img src="https://img-blog.csdnimg.cn/23d6a6100a81422db6d9c127543f5ae5.png" alt="在这里插入图片描述"></li>
+<li><p>Z-得分正常化<br><img src="https://img-blog.csdnimg.cn/c64d88eadcc54040b864a66624df36d4.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>小数定标规范化<br>移动属性A的小数点位置(移动位数依赖于属性A的最大值）<br><img src="https://img-blog.csdnimg.cn/c87416d9d61a4c07920008d93ee182e0.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>离散化<br>原因：部分挖掘算法仅适用于离散数据<br>方法：<br>①非监督离散<br>等宽法、等频法、聚类<br><img src="https://img-blog.csdnimg.cn/f74cc4b0882c4429947e18c603efc654.png" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-数据特征构造"><a href="#3-数据特征构造" class="headerlink" title="3.数据特征构造"></a>3.数据特征构造</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.2%E2%80%94%E2%80%94%E8%AE%A4%E8%AF%86%E6%95%B0%E6%8D%AE%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.4%E2%80%94%E2%80%94%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%8C%96%E6%8E%98%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">1.数据质量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">2.数据预处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数据清洗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%95%B0%E6%8D%AE%E9%9B%86%E6%88%90"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 数据集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1%E5%BC%8F%E9%9B%86%E6%88%90"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 模式集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 实体识别问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E5%86%B2%E7%AA%81%E6%A3%80%E6%B5%8B"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. 数据冲突检测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3%E6%95%B0%E6%8D%AE%E8%A7%84%E7%BA%A6"><span class="nav-number">2.3.</span> <span class="nav-text">2.3数据规约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%99%8D%E7%BB%B4"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%99%8D%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.降数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.数据压缩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E5%92%8C%E7%A6%BB%E6%95%A3%E5%8C%96"><span class="nav-number">2.4.</span> <span class="nav-text">2.4数据转换和离散化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E7%89%B9%E5%BE%81%E6%9E%84%E9%80%A0"><span class="nav-number">3.</span> <span class="nav-text">3.数据特征构造</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+

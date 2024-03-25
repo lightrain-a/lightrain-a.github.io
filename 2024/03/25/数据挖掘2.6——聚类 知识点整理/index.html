@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yutong.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="@TOC 1.聚类分析概述■ 定义• 把数据对象集合按照相似性划分成多个子集的过程• 每个子集是一个簇 (cluster) , 使得簇中的对象彼此相似，但与其他簇中的对象不相似。 ■ 与分类的区别无监督学习，给的数据没有类标号信息 2.基本聚类方法2.1 划分方法■ 定义将有n 个对象的数据集D划分成k个簇，并且k&lt;n，满足如下的要求：• 每个簇至少包含一个对象• 每个对象属于且仅属于一个簇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是Yu欸">
+<meta property="og:url" content="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.6%E2%80%94%E2%80%94%E8%81%9A%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="是Yu欸">
+<meta property="og:description" content="@TOC 1.聚类分析概述■ 定义• 把数据对象集合按照相似性划分成多个子集的过程• 每个子集是一个簇 (cluster) , 使得簇中的对象彼此相似，但与其他簇中的对象不相似。 ■ 与分类的区别无监督学习，给的数据没有类标号信息 2.基本聚类方法2.1 划分方法■ 定义将有n 个对象的数据集D划分成k个簇，并且k&lt;n，满足如下的要求：• 每个簇至少包含一个对象• 每个对象属于且仅属于一个簇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0c67f34ebf844e0795824e08cf407f99.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6b0ea1a732c74556936e1cc5e98bf2d4.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/56f3afdba9b941429e099eeabc574a12.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8f4e688067a04a55b9e5f570c3ea39c6.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/15e0215adadc4ff6b11c7592995be460.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9b3a82fb5158470a9641bcdcd51dbc65.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/37c8f48483c3452da84f8d790c430dc8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c785919ea30f482cac3ee84ac81a8161.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/664546f0a2c8449f9defdd1ea929b669.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f71d981dc1ad436b86a056635f7af063.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5e60f28c176c4752b63da6f5318d14cf.png">
+<meta property="article:published_time" content="2024-03-25T08:23:31.067Z">
+<meta property="article:modified_time" content="2022-05-26T06:13:40.000Z">
+<meta property="article:author" content="小雨">
+<meta property="article:tag" content="Python，Matlab，SPSS，数据分析，建模，爬虫，产品">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/0c67f34ebf844e0795824e08cf407f99.png">
+
+<link rel="canonical" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.6%E2%80%94%E2%80%94%E8%81%9A%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 是Yu欸</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">是Yu欸</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">空山新雨后，天气晚来秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yutong.github.io/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.6%E2%80%94%E2%80%94%E8%81%9A%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小雨">
+      <meta itemprop="description" content="富有强烈的好奇心，不断提升能力以满足前者。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是Yu欸">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-25 16:23:31" itemprop="dateCreated datePublished" datetime="2024-03-25T16:23:31+08:00">2024-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-26 14:13:40" itemprop="dateModified" datetime="2022-05-26T14:13:40+08:00">2022-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>@<a href="数据挖掘2.6——聚类">TOC</a></p>
+<h1 id="1-聚类分析概述"><a href="#1-聚类分析概述" class="headerlink" title="1.聚类分析概述"></a>1.聚类分析概述</h1><p>■ 定义<br>• 把数据对象集合按照相似性划分成多个子集的过程<br>• 每个子集是一个簇 (cluster) , 使得簇中的对象<br>彼此相似，但与其他簇中的对象不相似。</p>
+<p>■ 与分类的区别<br>无监督学习，给的数据没有类标号信息</p>
+<h1 id="2-基本聚类方法"><a href="#2-基本聚类方法" class="headerlink" title="2.基本聚类方法"></a>2.基本聚类方法</h1><h2 id="2-1-划分方法"><a href="#2-1-划分方法" class="headerlink" title="2.1 划分方法"></a>2.1 划分方法</h2><p><strong>■ 定义</strong><br>将有n 个对象的数据集D划分成k个簇，并且k&lt;n，满足如下的要求：<br>• 每个簇至少包含一个对象<br>• 每个对象属于且仅属于一个簇</p>
+<p><strong>■ 基本思想</strong><br>• 首先创建一个初始k划分（ k为要构造的划分数）<br>• 然后不断迭代地计算各个簇的聚类中心并依新的聚类中心调整聚类情况，直至收敛</p>
+<p><strong>■ 目标</strong><br>• 同一个簇中的对象之间尽可能“接近” 或相关<br>• 不同簇中的对象之间尽可能“远离” 或不同</p>
+<p><strong>■ 适用性</strong><br>• 这些启发式算法适合发现中小规模数据库中的球状聚<br>• 对于大规模数据库和处理任意形状的聚类， 这些算法需要进一步扩展</p>
+<h3 id="1-Kmeans算法"><a href="#1-Kmeans算法" class="headerlink" title="1.Kmeans算法"></a>1.Kmeans算法</h3><p>Kmeans算法为启发式算法，遵循的寻优原则：每次聚类保证局部最优，随后调整聚类，利用局部最优聚类的上限来不断逼近全局最优。</p>
+<p><strong>实例1</strong><br><img src="https://img-blog.csdnimg.cn/0c67f34ebf844e0795824e08cf407f99.png" alt="在这里插入图片描述"><br>其中，m1,m2为两个聚类的中心坐标。</p>
+<p><strong>■ 优点</strong><br>• 聚类时间快<br>• 当结果簇是密集的，而簇与簇之间区别明显时， 效果较好<br>• 相对可扩展和有效， 能对大数据集进行高效划分</p>
+<p><strong>■ 缺点</strong><br>• 用户必须事先指定聚类簇的个数<br>• 常常终止于局部最优<br>• 只适用于数值属性聚类(计算均值有意义）<br>• 对噪声和异常数据也很敏感<br>• 不同的初始值， 结果可能不同<br>• 不适合发现非凸面形状的簇</p>
+<p><strong>■ 问题</strong><br>1.初始簇影响<br><img src="https://img-blog.csdnimg.cn/6b0ea1a732c74556936e1cc5e98bf2d4.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/56f3afdba9b941429e099eeabc574a12.png" alt="在这里插入图片描述"><br>2.数据分布形状<br><img src="https://img-blog.csdnimg.cn/8f4e688067a04a55b9e5f570c3ea39c6.png" alt="在这里插入图片描述"><br>3.数据分散程度<br><img src="https://img-blog.csdnimg.cn/15e0215adadc4ff6b11c7592995be460.png" alt="在这里插入图片描述"><br>4.初始随机种子的影响<br><img src="https://img-blog.csdnimg.cn/9b3a82fb5158470a9641bcdcd51dbc65.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/37c8f48483c3452da84f8d790c430dc8.png" alt="在这里插入图片描述"></p>
+<h3 id="2-k-modes算法"><a href="#2-k-modes算法" class="headerlink" title="2.k-modes算法"></a>2.k-modes算法</h3><p>解决数据敏感问题</p>
+<h3 id="3-KMeans-算法"><a href="#3-KMeans-算法" class="headerlink" title="3.KMeans++算法"></a>3.KMeans++算法</h3><p>每次选择一个与聚类中心距离最大的点作为新的聚类中心。<br>KMeans++效果：解决初始点选择问题。<br><img src="https://img-blog.csdnimg.cn/c785919ea30f482cac3ee84ac81a8161.png" alt="在这里插入图片描述"></p>
+<h3 id="4-k-中心点"><a href="#4-k-中心点" class="headerlink" title="4.k-中心点"></a>4.k-中心点</h3><p>选择簇中位置最中心的实际对象为中心点，基于最小化<strong>所有</strong>对象与其的相异度<strong>之和</strong>来划分。<br><strong>优点</strong>：解决对离群值敏感的问题。<br>划分方法聚类质量评价准则：最小化E值。</p>
+<p><strong>基本思想</strong><br>• 首先为每个簇随意选择一个代表对象，剩余的对象根据其与代表对象的距离分配给最近的一个簇<br>• 然后迭代地用非代表对象来替代代表对象，以改进聚类的质量(找更好的代表对象）<br>• 聚类结果的质量用一个代价函数来估算，该函数评估了对象与其参照对象之间的平均相异度</p>
+<p><strong>PAM算法实例</strong><br><img src="https://img-blog.csdnimg.cn/664546f0a2c8449f9defdd1ea929b669.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/f71d981dc1ad436b86a056635f7af063.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/5e60f28c176c4752b63da6f5318d14cf.png" alt="在这里插入图片描述"></p>
+<h2 id="2-2-层次方法"><a href="#2-2-层次方法" class="headerlink" title="2.2 层次方法"></a>2.2 层次方法</h2><h2 id="2-3基于密度的方法"><a href="#2-3基于密度的方法" class="headerlink" title="2.3基于密度的方法"></a>2.3基于密度的方法</h2><p>根据密度条件对邻近对象分组形成簇，簇的增长或者根据邻域密度，或者根据特定的密度函数(只要临近区域的密度超过某个阈值，就继续聚类）。</p>
+<p>■ 主要特点<br>• 发现任意形状的聚类<br>• 处理噪音<br>• 一遍扫描<br>• 需要密度参数作为终止条件</p>
+<p>■ 缺点<br>对用户定义的参数是敏感的，参数难以确定(特别是对于高维数据)，设置的细微不同可能导致差别很大的聚类。全局密度参数不能刻画内在的聚类结构。</p>
+<h1 id="3-聚类评估"><a href="#3-聚类评估" class="headerlink" title="3.聚类评估"></a>3.聚类评估</h1><p>估计在数据集上进行聚类的可行性，和被聚类方法产生的结果的质量。</p>
+<p>■ 聚类评估的<strong>任务</strong><br>• 估计聚类趋势：评估数据集是否存在非随机结构。<br>• 确定数据集中的簇数：在聚类之前，估计簇数。<br>• 测定聚类质量：聚类之后，评估结果簇的质量。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%982.5%E2%80%94%E2%80%94%E5%88%86%E7%B1%BB%20%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/03/25/%E6%95%B0%E6%8D%AE%E6%96%B0%E9%97%BB%E5%A4%A7%E8%B5%9B/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">1.聚类分析概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">2.基本聚类方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%88%92%E5%88%86%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 划分方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Kmeans%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.Kmeans算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-k-modes%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.k-modes算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-KMeans-%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.KMeans++算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-k-%E4%B8%AD%E5%BF%83%E7%82%B9"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.k-中心点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%B1%82%E6%AC%A1%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 层次方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3%E5%9F%BA%E4%BA%8E%E5%AF%86%E5%BA%A6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">2.3基于密度的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%81%9A%E7%B1%BB%E8%AF%84%E4%BC%B0"><span class="nav-number">3.</span> <span class="nav-text">3.聚类评估</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小雨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小雨</p>
+  <div class="site-description" itemprop="description">富有强烈的好奇心，不断提升能力以满足前者。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1432993142&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小雨</span>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共77k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
