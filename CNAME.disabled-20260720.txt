@@ -1,0 +1,3 @@
+Previous GitHub Pages custom domain: www.lightrain.asia
+
+Disabled on 2026-07-20 because public DNS returned NXDOMAIN, causing all lightrain-a.github.io traffic to redirect to an unreachable domain. Restore this value as the root CNAME file only after the domain's DNS records are repaired.
